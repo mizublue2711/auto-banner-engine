@@ -18,12 +18,21 @@ from pathlib import Path
 from typing import Any, Dict, Tuple
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MATRIX = ROOT / "config" / "task1_size_guide_matrix.json"
 DEFAULT_MANIFEST = ROOT / "assets" / "brands" / "xexymix" / "cutouts" / "master_assets_manifest.json"
 DEFAULT_OUT_DIR = ROOT / "output" / "task1_production" / "TASK1_XEXYMIX_11_SIZES"
+
+# Model bounding box inside 1440x1800 base_model_scene.png (x, y, w, h)
+MASTER_MODEL_BBOX = (700.0, 0.0, 740.0, 1800.0)
+
+# Normalized anatomical target anchors relative to the model bounding box (mx, my, mw, mh):
+# - Pocket target: upper hip / side triangle pocket seam on the leggings
+# - Fleece target: mid-thigh brushed fleece fabric zone on the leggings
+POCKET_TARGET_NORM = (0.245, 0.218)
+FLEECE_TARGET_NORM = (0.195, 0.445)
 
 
 def fit_contain(
@@ -46,10 +55,13 @@ def build_seamless_backdrop(
     target_h: int,
     layout_type: str,
     flip_x: bool = False,
-) -> Image.Image:
+) -> Tuple[Image.Image, Tuple[float, float, float, float]]:
     """
     Frame `base_model_scene.png` (1440x1800) cleanly onto (target_w, target_h)
     without stretching or cropping the model's head/body/sneakers.
+
+    Returns:
+        (canvas_rgba, (model_x, model_y, model_w, model_h)) in target canvas coordinates.
     """
     src = base_scene.convert("RGBA")
     if flip_x:
@@ -58,10 +70,14 @@ def build_seamless_backdrop(
     sw, sh = src.size
     target_ratio = target_w / target_h
     src_ratio = sw / sh  # 0.80
+    mmx, mmy, mmw, mmh = MASTER_MODEL_BBOX
 
     # Exact 4:5 match (1440x1800, 960x1200, 800x1000)
     if abs(target_ratio - src_ratio) < 0.02:
-        return src.resize((target_w, target_h), Image.Resampling.BICUBIC)
+        sx = target_w / sw
+        sy = target_h / sh
+        model_box = (mmx * sx, mmy * sy, mmw * sx, mmh * sy)
+        return src.resize((target_w, target_h), Image.Resampling.BICUBIC), model_box
 
     # Tall 9:16 (1440x2560): cover-scale to height, crop right-weighted so full model is visible
     if target_ratio < src_ratio:
@@ -73,7 +89,8 @@ def build_seamless_backdrop(
         else:
             # Right-aligned crop keeps 100% of model + clean left barricade
             crop_x = max(0, scaled_w - target_w)
-        return scaled.crop((crop_x, 0, crop_x + target_w, target_h))
+        model_box = (mmx * scale - crop_x, mmy * scale, mmw * scale, mmh * scale)
+        return scaled.crop((crop_x, 0, crop_x + target_w, target_h)), model_box
 
     # Square, Wide, or Landscape Micro (target_ratio > 0.80):
     # Scale full model height to target_h so head-to-sneakers are 100% preserved,
@@ -112,14 +129,17 @@ def build_seamless_backdrop(
         mask_arr[:, :feather_w] = ramp_u8[None, :]
         mask = Image.fromarray(mask_arr, mode="L")
         canvas.paste(scaled, (paste_x, 0), mask)
+        model_box = (paste_x + mmx * scale, mmy * scale, mmw * scale, mmh * scale)
     else:
         # Flipped (kakao_bizboard): model is on the left -> feather right transition edge
         mask_arr = np.full((target_h, scaled_w), 255, dtype=np.uint8)
         mask_arr[:, scaled_w - feather_w :] = ramp_u8[::-1][None, :]
         mask = Image.fromarray(mask_arr, mode="L")
         canvas.paste(scaled, (0, 0), mask)
+        flipped_mx = (sw - (mmx + mmw)) * scale
+        model_box = (flipped_mx, mmy * scale, mmw * scale, mmh * scale)
 
-    return canvas
+    return canvas, model_box
 
 
 def apply_legibility_scrim(
@@ -162,11 +182,80 @@ def apply_legibility_scrim(
     canvas.alpha_composite(scrim_img, (x1, y1))
 
 
+def draw_callout_leader_lines(
+    canvas: Image.Image,
+    card1_rect: Tuple[int, int, int, int],
+    card2_rect: Tuple[int, int, int, int],
+    model_box: Tuple[float, float, float, float],
+) -> None:
+    """
+    Draw 4x supersampled anti-aliased white infographic callout leader lines
+    connecting the right border of each feature card directly to its anatomical
+    target point on the leggings, terminated with solid white anchor dots.
+    """
+    w, h = canvas.size
+    mx, my, mw, mh = model_box
+
+    # Card right-edge attachment anchors (aligned flush to white card border & photo center)
+    c1x, c1y, c1w, c1h = card1_rect
+    c2x, c2y, c2w, c2h = card2_rect
+    origin1 = (c1x + c1w * 0.905, c1y + c1h * 0.44)
+    origin2 = (c2x + c2w * 0.905, c2y + c2h * 0.44)
+
+    # Anatomical target anchors on the model's leggings
+    target1 = (mx + mw * POCKET_TARGET_NORM[0], my + mh * POCKET_TARGET_NORM[1])
+    target2 = (mx + mw * FLEECE_TARGET_NORM[0], my + mh * FLEECE_TARGET_NORM[1])
+
+    # DPI-scaled stroke width (2px base) and terminal dot radius (3-5px base)
+    dpi_scale = max(0.75, min(1.5, w / 1200.0))
+    stroke_w = max(2, int(round(2.4 * dpi_scale)))
+    dot_r = max(3.5, 4.5 * dpi_scale)
+
+    # 4x supersampled RGBA overlay for crisp anti-aliased diagonal lines & circles
+    ss = 4
+    overlay = Image.new("RGBA", (w * ss, h * ss), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    for (ox, oy), (tx, ty) in ((origin1, target1), (origin2, target2)):
+        # Subtle shadow pass for contrast over light studio backdrop
+        sh_off = max(1, int(round(1.2 * dpi_scale))) * ss
+        draw.line(
+            [(ox * ss, oy * ss + sh_off), (tx * ss, ty * ss + sh_off)],
+            fill=(0, 0, 0, 55),
+            width=int(round((stroke_w + 1) * ss)),
+        )
+        # Main crisp white callout line RGBA(255, 255, 255, 230)
+        draw.line(
+            [(ox * ss, oy * ss), (tx * ss, ty * ss)],
+            fill=(255, 255, 255, 230),
+            width=int(round(stroke_w * ss)),
+        )
+        # Soft dark halo + solid white terminal anchor dot on leggings
+        r_ss = dot_r * ss
+        draw.ellipse(
+            [
+                tx * ss - r_ss - ss,
+                ty * ss - r_ss - ss,
+                tx * ss + r_ss + ss,
+                ty * ss + r_ss + ss,
+            ],
+            fill=(0, 0, 0, 65),
+        )
+        draw.ellipse(
+            [tx * ss - r_ss, ty * ss - r_ss, tx * ss + r_ss, ty * ss + r_ss],
+            fill=(255, 255, 255, 255),
+        )
+
+    aa_overlay = overlay.resize((w, h), Image.Resampling.LANCZOS)
+    canvas.alpha_composite(aa_overlay, (0, 0))
+
+
 def composite_feature_cards(
     canvas: Image.Image,
     artboard_spec: Dict[str, Any],
     assets: Dict[str, Image.Image],
     manifest: Dict[str, Any],
+    model_box: Tuple[float, float, float, float],
 ) -> None:
     fc_zone = artboard_spec["zones"]["feature_card_zone"]
     if not fc_zone.get("visible", False):
@@ -177,37 +266,39 @@ def composite_feature_cards(
     px = fc_zone["px"]
     hl_px = artboard_spec["zones"]["headline_zone"]["px"]
 
+    card1 = assets["card_pocket_clean"]
+    card2 = assets["card_fleece_clean"]
+    stagger_px = max(16, int(round(32 * (w / 1200.0))))
+
+    card1_rect: Tuple[int, int, int, int]
+    card2_rect: Tuple[int, int, int, int]
+
     if layout_type == "vertical_4_5" and fc_zone.get("use_leader_lines", False):
         # Exact proportional mapping from master 1440x1800 canvas
-        mw = manifest["master_canvas"]["width"]
-        mh = manifest["master_canvas"]["height"]
-        sx = w / mw
-        sy = h / mh
+        mw_c = manifest["master_canvas"]["width"]
+        mh_c = manifest["master_canvas"]["height"]
+        sx = w / mw_c
+        sy = h / mh_c
 
-        # Check if headline sits higher than master proportion (e.g. kakao_feed_4_5)
         master_fleece_bottom = (
-            manifest["assets"]["card_fleece_full"]["master_bbox"]["y"]
-            + manifest["assets"]["card_fleece_full"]["master_bbox"]["height"]
+            manifest["assets"]["card_fleece_clean"]["master_bbox"]["y"]
+            + manifest["assets"]["card_fleece_clean"]["master_bbox"]["height"]
         ) * sy
         max_allowed_bottom = hl_px["y"] - int(h * 0.025)
 
         if master_fleece_bottom <= max_allowed_bottom:
-            for key in ("card_pocket_full", "card_fleece_full"):
-                card = assets[key]
+            rects = []
+            for key, img in (("card_pocket_clean", card1), ("card_fleece_clean", card2)):
                 mb = manifest["assets"][key]["master_bbox"]
-                tw = max(1, int(round(card.width * sx)))
-                th = max(1, int(round(card.height * sy)))
+                tw = max(1, int(round(img.width * sx)))
+                th = max(1, int(round(img.height * sy)))
                 tx = int(round(mb["x"] * sx))
                 ty = int(round(mb["y"] * sy))
-                resized = card.resize((tw, th), Image.Resampling.BICUBIC)
+                resized = img.resize((tw, th), Image.Resampling.BICUBIC)
                 canvas.alpha_composite(resized, (tx, ty))
+                rects.append((tx, ty, tw, th))
+            draw_callout_leader_lines(canvas, rects[0], rects[1], model_box)
             return
-
-    # Repositioned clean cards (no stray leader lines) with intentional staggered stepping
-    card1 = assets["card_pocket_clean"]
-    card2 = assets["card_fleece_clean"]
-    arrangement = fc_zone.get("arrangement", "row_horizontal")
-    stagger_px = max(16, int(round(32 * (w / 1200.0))))
 
     if layout_type == "wide":
         # Dedicated staggered vertical feature-card column between flush-left typography & right model
@@ -219,28 +310,25 @@ def composite_feature_cards(
         slot_h = max(60, (avail_h - gap) // 2)
         c1 = fit_contain(card1, slot_h, slot_h)
         c2 = fit_contain(card2, slot_h, slot_h)
-        canvas.alpha_composite(c1, (x_cards, y_top))
-        canvas.alpha_composite(c2, (x_cards + stagger_px, y_top + c1.height + gap))
+        card1_rect = (x_cards, y_top, c1.width, c1.height)
+        card2_rect = (x_cards + stagger_px, y_top + c1.height + gap, c2.width, c2.height)
+        canvas.alpha_composite(c1, (card1_rect[0], card1_rect[1]))
+        canvas.alpha_composite(c2, (card2_rect[0], card2_rect[1]))
+        draw_callout_leader_lines(canvas, card1_rect, card2_rect, model_box)
         return
 
+    # Vertical 9:16, kakao_feed_4_5, and Square (1:1): staggered vertical stack
+    # ensures unobstructed horizontal callout leader lines to both anatomical zones
     zx, zy, zw, zh = px["x"], px["y"], px["width"], px["height"]
-    if arrangement == "stacked_vertical":
-        gap = max(12, int(zh * 0.04))
-        slot_h = max(40, (zh - gap) // 2)
-        c1 = fit_contain(card1, max(40, zw - stagger_px), slot_h)
-        c2 = fit_contain(card2, max(40, zw - stagger_px), slot_h)
-        canvas.alpha_composite(c1, (zx, zy))
-        canvas.alpha_composite(c2, (zx + stagger_px, zy + c1.height + gap))
-    else:
-        # Horizontal side-by-side row (e.g. square) with subtle vertical stagger
-        gap = max(10, int(zw * 0.04))
-        slot_w = max(40, (zw - gap) // 2)
-        c1 = fit_contain(card1, slot_w, zh)
-        c2 = fit_contain(card2, slot_w, zh)
-        y1 = zy + max(0, (zh - c1.height) // 2 - int(stagger_px * 0.25))
-        y2 = zy + max(0, (zh - c2.height) // 2 + int(stagger_px * 0.25))
-        canvas.alpha_composite(c1, (zx, y1))
-        canvas.alpha_composite(c2, (zx + c1.width + gap, y2))
+    gap = max(10, int(zh * 0.035))
+    slot_h = max(40, (zh - gap) // 2)
+    c1 = fit_contain(card1, max(40, zw - stagger_px), slot_h)
+    c2 = fit_contain(card2, max(40, zw - stagger_px), slot_h)
+    card1_rect = (zx, zy, c1.width, c1.height)
+    card2_rect = (zx + stagger_px, zy + c1.height + gap, c2.width, c2.height)
+    canvas.alpha_composite(c1, (card1_rect[0], card1_rect[1]))
+    canvas.alpha_composite(c2, (card2_rect[0], card2_rect[1]))
+    draw_callout_leader_lines(canvas, card1_rect, card2_rect, model_box)
 
 
 def render_artboard(
@@ -256,7 +344,7 @@ def render_artboard(
     zones = spec["zones"]
 
     flip_x = bool(zones["model_zone"].get("flip_x", False))
-    canvas = build_seamless_backdrop(
+    canvas, model_box = build_seamless_backdrop(
         assets["base_model_scene"],
         target_w=w,
         target_h=h,
@@ -306,8 +394,8 @@ def render_artboard(
 
     # 3. AI Generated Watermark permanently suppressed across all 11 placements
 
-    # 4. Feature Cards (omitted on micro viewports)
-    composite_feature_cards(canvas, spec, assets, manifest)
+    # 4. Feature Cards + Parametric Callout Leader Lines (omitted on micro viewports)
+    composite_feature_cards(canvas, spec, assets, manifest, model_box)
 
     # 5. Headline Group
     hl_z = zones["headline_zone"]

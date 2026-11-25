@@ -1,0 +1,14 @@
+{
+  "name": "auto-banner-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Autonomous multi-aspect ratio 2D banner generator with Puffy contact shadow engine",
+  "scripts": {
+    "render": "node engine/render.mjs --task tasks/sample_task.json --out out/",
+    "test": "node engine/render.mjs --task tasks/sample_task.json"
+  },
+  "dependencies": {
+    "playwright": "^1.49.1",
+    "ajv": "^8.12.0"
+  }
+}

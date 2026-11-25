@@ -1,0 +1,11 @@
+{
+  "cutout_id": "puffy-lux-hybrid-mock-001",
+  "source_raw_path": "assets/raw_mattress/mock_mattress_raw.png",
+  "cutout_path": "assets/catalog/mattresses/puffy-lux-hybrid/cutout_angle45_1200x720.png",
+  "sha256": "b3e73498436f06d7871ae488721481109a648edf39d141ecbfc7fa545d4c8d3d",
+  "dimensions": {
+    "width": 1200,
+    "height": 720
+  },
+  "zero_product_drift_verified": true
+}

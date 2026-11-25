@@ -213,14 +213,20 @@ def draw_callout_leader_lines(
     overlay = Image.new("RGBA", (w * ss, h * ss), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    for (x1, y1), (x2, y2) in ((origin1, target1), (origin2, target2)):
-        # Strictly orthogonal Manhattan routing (zero diagonal slopes)
-        if abs(y1 - y2) < 10.0:
-            # Direct horizontal route
+    routes = [
+        # Card 1 (Upper Pocket): strict direct horizontal constraint (zero bends/elbows)
+        (origin1, target1, True),
+        # Card 2 (Lower Fleece): 40px horizontal snapping threshold before 90-deg elbow
+        (origin2, target2, False),
+    ]
+
+    for (x1, y1), (x2, y2), force_horizontal in routes:
+        if force_horizontal or abs(y1 - y2) < 40.0:
+            # Direct flat horizontal segment: y_target = y_card_origin
             pts = [(x1, y1), (x2, y1)]
             end_x, end_y = x2, y1
         else:
-            # 90-degree elbow route: Horizontal -> Vertical -> Horizontal
+            # 90-degree elbow route only when vertical offset >= 40px
             x_mid = x1 + (x2 - x1) * 0.4
             pts = [(x1, y1), (x_mid, y1), (x_mid, y2), (x2, y2)]
             end_x, end_y = x2, y2

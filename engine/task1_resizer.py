@@ -77,53 +77,47 @@ def build_seamless_backdrop(
 
     # Square, Wide, or Landscape Micro (target_ratio > 0.80):
     # Scale full model height to target_h so head-to-sneakers are 100% preserved,
-    # and seamlessly extend the clean light-beige barricade backdrop on the opposite side.
+    # and seamlessly blend into a clean ambient studio backdrop (#E2E4E7 -> #D8DADB)
+    # using a wide cosine-tapered horizontal alpha feather (150px-220px on standard/wide).
     scale = target_h / sh
     scaled_w = max(1, int(round(sw * scale)))
     scaled = src.resize((scaled_w, target_h), Image.Resampling.BICUBIC)
 
-    canvas = Image.new("RGBA", (target_w, target_h), (218, 213, 208, 255))
+    # Synthesize clean vertical ambient studio gradient (#E2E4E7 top -> #D8DADB bottom)
+    top_rgb = np.array([226.0, 228.0, 231.0], dtype=np.float32)  # #E2E4E7
+    bot_rgb = np.array([216.0, 218.0, 219.0], dtype=np.float32)  # #D8DADB
+    grad_t = np.linspace(0.0, 1.0, target_h, dtype=np.float32)[:, None, None]
+    bg_rgb = (top_rgb * (1.0 - grad_t) + bot_rgb * grad_t).astype(np.uint8)
+    bg_arr = np.broadcast_to(bg_rgb, (target_h, target_w, 3)).copy()
+    bg_rgba = np.concatenate(
+        [bg_arr, np.full((target_h, target_w, 1), 255, dtype=np.uint8)], axis=2
+    )
+    canvas = Image.fromarray(bg_rgba, mode="RGBA")
 
-    # Sample the clean barricade edge strip (avoiding the model) to create a natural backdrop fill
-    edge_strip_w = max(16, int(scaled_w * 0.16))
-    if not flip_x:
-        # Model is on the right -> extend left edge strip across the left canvas
-        strip = scaled.crop((0, 0, edge_strip_w, target_h))
-        ext_w = max(1, target_w - scaled_w + int(edge_strip_w * 0.5))
-        bg_ext = strip.resize((ext_w, target_h), Image.Resampling.BICUBIC)
-        bg_ext = bg_ext.filter(ImageFilter.GaussianBlur(radius=6))
-        canvas.paste(bg_ext, (0, 0))
-
-        # Soft-feather left edge of `scaled` so transition is invisible
-        paste_x = target_w - scaled_w
-        feather_w = min(int(scaled_w * 0.14), max(12, paste_x))
-        if feather_w > 4:
-            mask = Image.new("L", (scaled_w, target_h), 255)
-            ramp = np.linspace(0, 255, feather_w, dtype=np.uint8)
-            mask_arr = np.array(mask)
-            mask_arr[:, :feather_w] = ramp[None, :]
-            mask = Image.fromarray(mask_arr, mode="L")
-            canvas.paste(scaled, (paste_x, 0), mask)
-        else:
-            canvas.paste(scaled, (paste_x, 0))
+    # Wide cosine-tapered horizontal alpha feather across transition boundary (150px-220px for wide/square)
+    if target_w >= 800:
+        feather_w = min(220, max(150, int(round(scaled_w * 0.36))))
     else:
-        # Flipped (kakao_bizboard): model is on the left -> extend right edge strip across the right canvas
-        strip = scaled.crop((scaled_w - edge_strip_w, 0, scaled_w, target_h))
-        ext_w = max(1, target_w - scaled_w + int(edge_strip_w * 0.5))
-        bg_ext = strip.resize((ext_w, target_h), Image.Resampling.BICUBIC)
-        bg_ext = bg_ext.filter(ImageFilter.GaussianBlur(radius=6))
-        canvas.paste(bg_ext, (target_w - ext_w, 0))
+        feather_w = min(int(scaled_w * 0.32), max(28, int(round(target_w * 0.18))))
+    feather_w = min(feather_w, max(1, scaled_w - 1))
 
-        feather_w = min(int(scaled_w * 0.14), max(12, target_w - scaled_w))
-        if feather_w > 4:
-            mask = Image.new("L", (scaled_w, target_h), 255)
-            ramp = np.linspace(255, 0, feather_w, dtype=np.uint8)
-            mask_arr = np.array(mask)
-            mask_arr[:, scaled_w - feather_w :] = ramp[None, :]
-            mask = Image.fromarray(mask_arr, mode="L")
-            canvas.paste(scaled, (0, 0), mask)
-        else:
-            canvas.paste(scaled, (0, 0))
+    t = np.linspace(0.0, 1.0, feather_w, dtype=np.float32)
+    cosine_decay = 0.5 * (1.0 - np.cos(np.pi * t))
+    ramp_u8 = np.clip(np.round(cosine_decay * 255.0), 0, 255).astype(np.uint8)
+
+    if not flip_x:
+        # Model is on the right -> feather left transition edge of `scaled`
+        paste_x = target_w - scaled_w
+        mask_arr = np.full((target_h, scaled_w), 255, dtype=np.uint8)
+        mask_arr[:, :feather_w] = ramp_u8[None, :]
+        mask = Image.fromarray(mask_arr, mode="L")
+        canvas.paste(scaled, (paste_x, 0), mask)
+    else:
+        # Flipped (kakao_bizboard): model is on the left -> feather right transition edge
+        mask_arr = np.full((target_h, scaled_w), 255, dtype=np.uint8)
+        mask_arr[:, scaled_w - feather_w :] = ramp_u8[::-1][None, :]
+        mask = Image.fromarray(mask_arr, mode="L")
+        canvas.paste(scaled, (0, 0), mask)
 
     return canvas
 
@@ -209,28 +203,42 @@ def composite_feature_cards(
                 canvas.alpha_composite(resized, (tx, ty))
             return
 
-    # Repositioned clean cards (no stray leader lines) for 9:16, kakao_4_5, square, wide
+    # Repositioned clean cards (no stray leader lines) with intentional staggered stepping
     card1 = assets["card_pocket_clean"]
     card2 = assets["card_fleece_clean"]
     arrangement = fc_zone.get("arrangement", "row_horizontal")
+    stagger_px = max(16, int(round(32 * (w / 1200.0))))
+
+    if layout_type == "wide":
+        # Dedicated staggered vertical feature-card column between flush-left typography & right model
+        x_cards = int(round(w * 0.525))
+        y_top = int(round(h * 0.095))
+        y_bot = int(round(h * 0.89))
+        avail_h = max(120, y_bot - y_top)
+        gap = max(14, int(round(avail_h * 0.055)))
+        slot_h = max(60, (avail_h - gap) // 2)
+        c1 = fit_contain(card1, slot_h, slot_h)
+        c2 = fit_contain(card2, slot_h, slot_h)
+        canvas.alpha_composite(c1, (x_cards, y_top))
+        canvas.alpha_composite(c2, (x_cards + stagger_px, y_top + c1.height + gap))
+        return
 
     zx, zy, zw, zh = px["x"], px["y"], px["width"], px["height"]
     if arrangement == "stacked_vertical":
         gap = max(12, int(zh * 0.04))
         slot_h = max(40, (zh - gap) // 2)
-        c1 = fit_contain(card1, zw, slot_h)
-        c2 = fit_contain(card2, zw, slot_h)
+        c1 = fit_contain(card1, max(40, zw - stagger_px), slot_h)
+        c2 = fit_contain(card2, max(40, zw - stagger_px), slot_h)
         canvas.alpha_composite(c1, (zx, zy))
-        canvas.alpha_composite(c2, (zx, zy + c1.height + gap))
+        canvas.alpha_composite(c2, (zx + stagger_px, zy + c1.height + gap))
     else:
-        # Horizontal side-by-side row
+        # Horizontal side-by-side row (e.g. square) with subtle vertical stagger
         gap = max(10, int(zw * 0.04))
         slot_w = max(40, (zw - gap) // 2)
         c1 = fit_contain(card1, slot_w, zh)
         c2 = fit_contain(card2, slot_w, zh)
-        # Vertically center both cards inside the zone
-        y1 = zy + max(0, (zh - c1.height) // 2)
-        y2 = zy + max(0, (zh - c2.height) // 2)
+        y1 = zy + max(0, (zh - c1.height) // 2 - int(stagger_px * 0.25))
+        y2 = zy + max(0, (zh - c2.height) // 2 + int(stagger_px * 0.25))
         canvas.alpha_composite(c1, (zx, y1))
         canvas.alpha_composite(c2, (zx + c1.width + gap, y2))
 
@@ -256,26 +264,47 @@ def render_artboard(
         flip_x=flip_x,
     )
 
+    # Flush-left typography anchor for horizontal wide layouts
+    x_base = int(round(w * 0.065))
+
+    if layout_type == "wide":
+        # Lock logo, headline, and promo ribbon strictly flush-left to x_base
+        logo_box = {
+            "x": x_base,
+            "y": int(round(h * 0.08)),
+            "width": int(round(w * 0.175)),
+            "height": int(round(h * 0.05)),
+        }
+        hl_box = {
+            "x": x_base,
+            "y": int(round(h * 0.235)),
+            "width": int(round(w * 0.415)),
+            "height": int(round(h * 0.34)),
+        }
+        promo_px = zones["promo_sticker_zone"]["px"]
+        promo_box = {
+            "x": x_base,
+            "y": int(round(h * 0.68)),
+            "width": min(int(round(w * 0.43)), promo_px["width"]),
+            "height": min(int(round(h * 0.21)), promo_px["height"]),
+        }
+    else:
+        logo_box = zones["logo_zone"]["px"]
+        hl_box = zones["headline_zone"]["px"]
+        promo_box = zones["promo_sticker_zone"]["px"]
+
     # 1. Soft legibility scrim behind headline on square, wide, and micro layouts
     if layout_type in ("square", "wide", "micro"):
-        scrim_opacity = 0.52 if is_micro else 0.36
-        apply_legibility_scrim(canvas, zones["headline_zone"]["px"], opacity=scrim_opacity)
+        scrim_opacity = 0.52 if is_micro else 0.34
+        apply_legibility_scrim(canvas, hl_box, opacity=scrim_opacity)
 
     # 2. Brand Logo
     logo_z = zones["logo_zone"]
     if logo_z.get("visible", True):
-        lp = logo_z["px"]
-        logo_resized = fit_contain(assets["logo_xexymix"], lp["width"], lp["height"])
-        canvas.alpha_composite(logo_resized, (lp["x"], lp["y"]))
+        logo_resized = fit_contain(assets["logo_xexymix"], logo_box["width"], logo_box["height"])
+        canvas.alpha_composite(logo_resized, (logo_box["x"], logo_box["y"]))
 
-    # 3. AI Generated Watermark (standard / square / wide)
-    wm_z = zones["watermark_zone"]
-    if wm_z.get("visible", False):
-        wp = wm_z["px"]
-        wm_resized = fit_contain(assets["watermark_ai"], wp["width"], wp["height"])
-        # Right-align inside watermark box
-        wx = wp["x"] + max(0, wp["width"] - wm_resized.width)
-        canvas.alpha_composite(wm_resized, (wx, wp["y"]))
+    # 3. AI Generated Watermark permanently suppressed across all 11 placements
 
     # 4. Feature Cards (omitted on micro viewports)
     composite_feature_cards(canvas, spec, assets, manifest)
@@ -283,28 +312,30 @@ def render_artboard(
     # 5. Headline Group
     hl_z = zones["headline_zone"]
     if hl_z.get("visible", True):
-        hp = hl_z["px"]
-        hl_resized = fit_contain(assets["headline_group"], hp["width"], hp["height"])
+        hl_resized = fit_contain(assets["headline_group"], hl_box["width"], hl_box["height"])
         if hl_z.get("anchor") == "middle_right":
-            hx = hp["x"] + max(0, hp["width"] - hl_resized.width)
+            hx = hl_box["x"] + max(0, hl_box["width"] - hl_resized.width)
         else:
-            hx = hp["x"]
-        hy = hp["y"] + max(0, (hp["height"] - hl_resized.height) // 2)
+            hx = hl_box["x"]
+        hy = hl_box["y"] + max(0, (hl_box["height"] - hl_resized.height) // 2)
         canvas.alpha_composite(hl_resized, (hx, hy))
 
     # 6. Native Promo Ribbon / Starburst Badge (exact pixel match from Size Guide PSD)
     promo_z = zones["promo_sticker_zone"]
     if promo_z.get("visible", True):
-        pp = promo_z["px"]
         native_path = promo_z.get("native_badge_path")
         promo_img: Image.Image
         if native_path and (ROOT / native_path).exists():
             promo_img = Image.open(ROOT / native_path).convert("RGBA")
         else:
             promo_img = assets["promo_master"]
-        if promo_img.size != (pp["width"], pp["height"]):
-            promo_img = promo_img.resize((pp["width"], pp["height"]), Image.Resampling.BICUBIC)
-        canvas.alpha_composite(promo_img, (pp["x"], pp["y"]))
+        if layout_type == "wide":
+            promo_img = fit_contain(promo_img, promo_box["width"], promo_box["height"])
+            canvas.alpha_composite(promo_img, (promo_box["x"], promo_box["y"]))
+        else:
+            if promo_img.size != (promo_box["width"], promo_box["height"]):
+                promo_img = promo_img.resize((promo_box["width"], promo_box["height"]), Image.Resampling.BICUBIC)
+            canvas.alpha_composite(promo_img, (promo_box["x"], promo_box["y"]))
 
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{slug}.png"

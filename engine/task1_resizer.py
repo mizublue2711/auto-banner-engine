@@ -28,11 +28,11 @@ DEFAULT_OUT_DIR = ROOT / "output" / "task1_production" / "TASK1_XEXYMIX_11_SIZES
 # Model bounding box inside 1440x1800 base_model_scene.png (x, y, w, h)
 MASTER_MODEL_BBOX = (700.0, 0.0, 740.0, 1800.0)
 
-# Normalized anatomical target anchors relative to the model bounding box (mx, my, mw, mh):
-# - Pocket target: upper hip / side triangle pocket seam on the leggings
-# - Fleece target: mid-thigh brushed fleece fabric zone on the leggings
-POCKET_TARGET_NORM = (0.245, 0.218)
-FLEECE_TARGET_NORM = (0.195, 0.445)
+# Normalized outer silhouette tangent anchors relative to MASTER_MODEL_BBOX (mx, my, mw, mh):
+# - Pocket target: outer silhouette contour tangent at hip/pocket seam (x=869, y=382 on 1440x1800)
+# - Fleece target: outer silhouette contour tangent at outer thigh (x=755, y=792 on 1440x1800)
+POCKET_TARGET_NORM = (0.228, 0.212)
+FLEECE_TARGET_NORM = (0.074, 0.440)
 
 
 def fit_contain(
@@ -189,9 +189,9 @@ def draw_callout_leader_lines(
     model_box: Tuple[float, float, float, float],
 ) -> None:
     """
-    Draw 4x supersampled anti-aliased white infographic callout leader lines
-    connecting the right border of each feature card directly to its anatomical
-    target point on the leggings, terminated with solid white anchor dots.
+    Draw 4x supersampled anti-aliased white orthogonal (Manhattan 90-degree)
+    callout leader lines connecting the right border of each feature card to the
+    outer silhouette contour edge of the leggings, terminated with tangent white dots.
     """
     w, h = canvas.size
     mx, my, mw, mh = model_box
@@ -202,47 +202,64 @@ def draw_callout_leader_lines(
     origin1 = (c1x + c1w * 0.905, c1y + c1h * 0.44)
     origin2 = (c2x + c2w * 0.905, c2y + c2h * 0.44)
 
-    # Anatomical target anchors on the model's leggings
+    # Outer silhouette edge tangent targets (do not penetrate interior fabric)
     target1 = (mx + mw * POCKET_TARGET_NORM[0], my + mh * POCKET_TARGET_NORM[1])
     target2 = (mx + mw * FLEECE_TARGET_NORM[0], my + mh * FLEECE_TARGET_NORM[1])
 
-    # DPI-scaled stroke width (2px base) and terminal dot radius (3-5px base)
-    dpi_scale = max(0.75, min(1.5, w / 1200.0))
-    stroke_w = max(2, int(round(2.4 * dpi_scale)))
-    dot_r = max(3.5, 4.5 * dpi_scale)
-
-    # 4x supersampled RGBA overlay for crisp anti-aliased diagonal lines & circles
+    # Crisp 2.0px stroke and 2.5px terminal dot radius (4x supersampled for AA)
+    stroke_w = 2.0
+    dot_r = 2.5
     ss = 4
     overlay = Image.new("RGBA", (w * ss, h * ss), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    for (ox, oy), (tx, ty) in ((origin1, target1), (origin2, target2)):
-        # Subtle shadow pass for contrast over light studio backdrop
-        sh_off = max(1, int(round(1.2 * dpi_scale))) * ss
+    for (x1, y1), (x2, y2) in ((origin1, target1), (origin2, target2)):
+        # Strictly orthogonal Manhattan routing (zero diagonal slopes)
+        if abs(y1 - y2) < 10.0:
+            # Direct horizontal route
+            pts = [(x1, y1), (x2, y1)]
+            end_x, end_y = x2, y1
+        else:
+            # 90-degree elbow route: Horizontal -> Vertical -> Horizontal
+            x_mid = x1 + (x2 - x1) * 0.4
+            pts = [(x1, y1), (x_mid, y1), (x_mid, y2), (x2, y2)]
+            end_x, end_y = x2, y2
+
+        pts_ss = [(px * ss, py * ss) for (px, py) in pts]
+        shadow_pts_ss = [(px * ss, py * ss + ss) for (px, py) in pts]
+
+        # Subtle contrast shadow pass
         draw.line(
-            [(ox * ss, oy * ss + sh_off), (tx * ss, ty * ss + sh_off)],
-            fill=(0, 0, 0, 55),
-            width=int(round((stroke_w + 1) * ss)),
+            shadow_pts_ss,
+            fill=(0, 0, 0, 50),
+            width=int(round((stroke_w + 0.8) * ss)),
+            joint="curve",
         )
-        # Main crisp white callout line RGBA(255, 255, 255, 230)
+        # Main crisp white orthogonal stroke RGBA(255, 255, 255, 240)
         draw.line(
-            [(ox * ss, oy * ss), (tx * ss, ty * ss)],
-            fill=(255, 255, 255, 230),
+            pts_ss,
+            fill=(255, 255, 255, 240),
             width=int(round(stroke_w * ss)),
+            joint="curve",
         )
-        # Soft dark halo + solid white terminal anchor dot on leggings
+        # Terminal tangent dot (radius = 2.5px) at outer silhouette contour
         r_ss = dot_r * ss
         draw.ellipse(
             [
-                tx * ss - r_ss - ss,
-                ty * ss - r_ss - ss,
-                tx * ss + r_ss + ss,
-                ty * ss + r_ss + ss,
+                end_x * ss - r_ss - ss * 0.75,
+                end_y * ss - r_ss - ss * 0.75,
+                end_x * ss + r_ss + ss * 0.75,
+                end_y * ss + r_ss + ss * 0.75,
             ],
-            fill=(0, 0, 0, 65),
+            fill=(0, 0, 0, 60),
         )
         draw.ellipse(
-            [tx * ss - r_ss, ty * ss - r_ss, tx * ss + r_ss, ty * ss + r_ss],
+            [
+                end_x * ss - r_ss,
+                end_y * ss - r_ss,
+                end_x * ss + r_ss,
+                end_y * ss + r_ss,
+            ],
             fill=(255, 255, 255, 255),
         )
 

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../config/banner_task.schema.json",
+  "task_id": "TASK1_XEXYMIX_11_SIZES",
+  "workflow": "A",
+  "size_guide_matrix": "config/task1_size_guide_matrix.json",
+  "master_assets_manifest": "assets/brands/xexymix/cutouts/master_assets_manifest.json",
+  "output_dir": "output/task1_production/TASK1_XEXYMIX_11_SIZES",
+  "brand": {
+    "name": "XEXYMIX",
+    "logo_url": "assets/brands/xexymix/cutouts/logo_xexymix.png",
+    "primary_color": "#000000",
+    "accent_color": "#E6FF00",
+    "bg_color": "#D9D5D0",
+    "font_family": "Pretendard"
+  },
+  "content": {
+    "badge_text": "AFTER BLACK PRIDEDAY",
+    "sub_headline": "RX 블랙라벨 시그니처 360N 기모 포켓 레깅스",
+    "main_headline": "허리 압박은 덜고 기모의 온기는 더했어요",
+    "hook_visual_asset": "assets/brands/xexymix/cutouts/base_model_scene.png",
+    "cta_text": "다시 없을 마지막 혜택! 젝시블프 UP TO 80% >>",
+    "cta_style": "yellow_ribbon",
+    "disclaimers": [
+      "* AI Generated"
+    ]
+  },
+  "target_dimensions": [
+    { "name": "meta_story_9_16", "width": 1440, "height": 2560, "layout_type": "vertical_9_16" },
+    { "name": "meta_feed_4_5", "width": 1440, "height": 1800, "layout_type": "vertical_4_5" },
+    { "name": "kakao_feed_4_5", "width": 800, "height": 1000, "layout_type": "vertical_4_5" },
+    { "name": "google_da_4_5", "width": 960, "height": 1200, "layout_type": "vertical_4_5" },
+    { "name": "google_da_square", "width": 1200, "height": 1200, "layout_type": "square" },
+    { "name": "naver_gfa_square", "width": 1200, "height": 1200, "layout_type": "square" },
+    { "name": "google_da_landscape", "width": 1200, "height": 628, "layout_type": "wide" },
+    { "name": "naver_gfa_wide", "width": 1250, "height": 560, "layout_type": "wide" },
+    { "name": "naver_thumb_small", "width": 342, "height": 228, "layout_type": "micro" },
+    { "name": "naver_smart_channel", "width": 260, "height": 280, "layout_type": "micro" },
+    { "name": "kakao_bizboard", "width": 314, "height": 300, "layout_type": "micro" }
+  ]
+}

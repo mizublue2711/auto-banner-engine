@@ -1,0 +1,1284 @@
+{
+  "schema_version": "1.0",
+  "task_id": "TASK1_XEXYMIX_11_SIZES",
+  "source_size_guide_psd": "assets/Task 1 - XEXYMIX/(Size Guide) 애프터블프 딱지 가이드.psd",
+  "artboard_count": 11,
+  "artboards": [
+    {
+      "slug": "meta_story_9_16",
+      "artboard_name": "메타_1440x2560",
+      "width": 1440,
+      "height": 2560,
+      "aspect_ratio": 0.5625,
+      "layout_type": "vertical_9_16",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 0,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 518,
+            "y": 0,
+            "width": 921,
+            "height": 2560
+          },
+          "rel": {
+            "x": 0.3597,
+            "y": 0.0,
+            "width": 0.6396,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.66,
+          "crop_focus_y": 0.46
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 93,
+            "y": 358,
+            "width": 604,
+            "height": 687
+          },
+          "rel": {
+            "x": 0.0646,
+            "y": 0.1398,
+            "width": 0.4194,
+            "height": 0.2684
+          },
+          "arrangement": "stacked_vertical",
+          "use_leader_lines": false
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 88,
+            "y": 1147,
+            "width": 1195,
+            "height": 383
+          },
+          "rel": {
+            "x": 0.0611,
+            "y": 0.448,
+            "width": 0.8299,
+            "height": 0.1496
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 81,
+            "y": 1588,
+            "width": 965,
+            "height": 197
+          },
+          "rel": {
+            "x": 0.0563,
+            "y": 0.6203,
+            "width": 0.6701,
+            "height": 0.077
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/meta_story_9_16_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 79,
+            "y": 120,
+            "width": 345,
+            "height": 76
+          },
+          "rel": {
+            "x": 0.0549,
+            "y": 0.0469,
+            "width": 0.2396,
+            "height": 0.0297
+          }
+        },
+        "watermark_zone": {
+          "visible": false,
+          "anchor": "top_right",
+          "px": {
+            "x": 1123,
+            "y": 122,
+            "width": 230,
+            "height": 40
+          },
+          "rel": {
+            "x": 0.7799,
+            "y": 0.0477,
+            "width": 0.1597,
+            "height": 0.0156
+          }
+        }
+      }
+    },
+    {
+      "slug": "meta_feed_4_5",
+      "artboard_name": "메타_1440x1800",
+      "width": 1440,
+      "height": 1800,
+      "aspect_ratio": 0.8,
+      "layout_type": "vertical_4_5",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 1562,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 604,
+            "y": 0,
+            "width": 835,
+            "height": 1800
+          },
+          "rel": {
+            "x": 0.4194,
+            "y": 0.0,
+            "width": 0.5799,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.62,
+          "crop_focus_y": 0.48
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 86,
+            "y": 216,
+            "width": 633,
+            "height": 828
+          },
+          "rel": {
+            "x": 0.0597,
+            "y": 0.12,
+            "width": 0.4396,
+            "height": 0.46
+          },
+          "arrangement": "stacked_vertical",
+          "use_leader_lines": true
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 82,
+            "y": 1129,
+            "width": 1236,
+            "height": 401
+          },
+          "rel": {
+            "x": 0.0569,
+            "y": 0.6272,
+            "width": 0.8583,
+            "height": 0.2228
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 0,
+            "y": 1516,
+            "width": 1440,
+            "height": 284
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.8422,
+            "width": 1.0,
+            "height": 0.1578
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/meta_feed_4_5_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 80,
+            "y": 85,
+            "width": 350,
+            "height": 46
+          },
+          "rel": {
+            "x": 0.0556,
+            "y": 0.0472,
+            "width": 0.2431,
+            "height": 0.0256
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 1125,
+            "y": 87,
+            "width": 232,
+            "height": 29
+          },
+          "rel": {
+            "x": 0.7812,
+            "y": 0.0483,
+            "width": 0.1611,
+            "height": 0.0161
+          }
+        }
+      }
+    },
+    {
+      "slug": "kakao_feed_4_5",
+      "artboard_name": "카카오모먼트_800x1000",
+      "width": 800,
+      "height": 1000,
+      "aspect_ratio": 0.8,
+      "layout_type": "vertical_4_5",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 5432,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 336,
+            "y": 0,
+            "width": 463,
+            "height": 1000
+          },
+          "rel": {
+            "x": 0.42,
+            "y": 0.0,
+            "width": 0.5787,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.62,
+          "crop_focus_y": 0.48
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 48,
+            "y": 159,
+            "width": 352,
+            "height": 360
+          },
+          "rel": {
+            "x": 0.06,
+            "y": 0.159,
+            "width": 0.44,
+            "height": 0.36
+          },
+          "arrangement": "stacked_vertical",
+          "use_leader_lines": true
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 49,
+            "y": 549,
+            "width": 644,
+            "height": 211
+          },
+          "rel": {
+            "x": 0.0612,
+            "y": 0.549,
+            "width": 0.805,
+            "height": 0.211
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 39,
+            "y": 785,
+            "width": 526,
+            "height": 107
+          },
+          "rel": {
+            "x": 0.0488,
+            "y": 0.785,
+            "width": 0.6575,
+            "height": 0.107
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/kakao_feed_4_5_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 41,
+            "y": 103,
+            "width": 197,
+            "height": 26
+          },
+          "rel": {
+            "x": 0.0512,
+            "y": 0.103,
+            "width": 0.2462,
+            "height": 0.026
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 633,
+            "y": 108,
+            "width": 121,
+            "height": 16
+          },
+          "rel": {
+            "x": 0.7913,
+            "y": 0.108,
+            "width": 0.1512,
+            "height": 0.016
+          }
+        }
+      }
+    },
+    {
+      "slug": "google_da_4_5",
+      "artboard_name": "구글DA_960x1200",
+      "width": 960,
+      "height": 1200,
+      "aspect_ratio": 0.8,
+      "layout_type": "vertical_4_5",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 4402,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 403,
+            "y": 0,
+            "width": 556,
+            "height": 1200
+          },
+          "rel": {
+            "x": 0.4198,
+            "y": 0.0,
+            "width": 0.5792,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.62,
+          "crop_focus_y": 0.48
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 57,
+            "y": 144,
+            "width": 422,
+            "height": 552
+          },
+          "rel": {
+            "x": 0.0594,
+            "y": 0.12,
+            "width": 0.4396,
+            "height": 0.46
+          },
+          "arrangement": "stacked_vertical",
+          "use_leader_lines": true
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 44,
+            "y": 760,
+            "width": 804,
+            "height": 263
+          },
+          "rel": {
+            "x": 0.0458,
+            "y": 0.6333,
+            "width": 0.8375,
+            "height": 0.2192
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 0,
+            "y": 1010,
+            "width": 960,
+            "height": 190
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.8417,
+            "width": 1.0,
+            "height": 0.1583
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/google_da_4_5_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 41,
+            "y": 31,
+            "width": 234,
+            "height": 31
+          },
+          "rel": {
+            "x": 0.0427,
+            "y": 0.0258,
+            "width": 0.2437,
+            "height": 0.0258
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 749,
+            "y": 40,
+            "width": 172,
+            "height": 21
+          },
+          "rel": {
+            "x": 0.7802,
+            "y": 0.0333,
+            "width": 0.1792,
+            "height": 0.0175
+          }
+        }
+      }
+    },
+    {
+      "slug": "google_da_square",
+      "artboard_name": "구글DA_1200x1200",
+      "width": 1200,
+      "height": 1200,
+      "aspect_ratio": 1.0,
+      "layout_type": "square",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 3102,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 552,
+            "y": 0,
+            "width": 648,
+            "height": 1200
+          },
+          "rel": {
+            "x": 0.46,
+            "y": 0.0,
+            "width": 0.54,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.64,
+          "crop_focus_y": 0.42
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 66,
+            "y": 145,
+            "width": 528,
+            "height": 509
+          },
+          "rel": {
+            "x": 0.055,
+            "y": 0.1208,
+            "width": 0.44,
+            "height": 0.4242
+          },
+          "arrangement": "row_horizontal",
+          "use_leader_lines": false
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 60,
+            "y": 696,
+            "width": 922,
+            "height": 301
+          },
+          "rel": {
+            "x": 0.05,
+            "y": 0.58,
+            "width": 0.7683,
+            "height": 0.2508
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 0,
+            "y": 952,
+            "width": 1200,
+            "height": 248
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.7933,
+            "width": 1.0,
+            "height": 0.2067
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/google_da_square_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 65,
+            "y": 65,
+            "width": 292,
+            "height": 38
+          },
+          "rel": {
+            "x": 0.0542,
+            "y": 0.0542,
+            "width": 0.2433,
+            "height": 0.0317
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 957,
+            "y": 73,
+            "width": 183,
+            "height": 23
+          },
+          "rel": {
+            "x": 0.7975,
+            "y": 0.0608,
+            "width": 0.1525,
+            "height": 0.0192
+          }
+        }
+      }
+    },
+    {
+      "slug": "naver_gfa_square",
+      "artboard_name": "네이버GFA_1200x1200",
+      "width": 1200,
+      "height": 1200,
+      "aspect_ratio": 1.0,
+      "layout_type": "square",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 4412,
+        "top": 1310
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 552,
+            "y": 0,
+            "width": 648,
+            "height": 1200
+          },
+          "rel": {
+            "x": 0.46,
+            "y": 0.0,
+            "width": 0.54,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.64,
+          "crop_focus_y": 0.42
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 66,
+            "y": 145,
+            "width": 528,
+            "height": 509
+          },
+          "rel": {
+            "x": 0.055,
+            "y": 0.1208,
+            "width": 0.44,
+            "height": 0.4242
+          },
+          "arrangement": "row_horizontal",
+          "use_leader_lines": false
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 60,
+            "y": 696,
+            "width": 922,
+            "height": 301
+          },
+          "rel": {
+            "x": 0.05,
+            "y": 0.58,
+            "width": 0.7683,
+            "height": 0.2508
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 0,
+            "y": 952,
+            "width": 1200,
+            "height": 248
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.7933,
+            "width": 1.0,
+            "height": 0.2067
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/naver_gfa_square_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 65,
+            "y": 65,
+            "width": 292,
+            "height": 38
+          },
+          "rel": {
+            "x": 0.0542,
+            "y": 0.0542,
+            "width": 0.2433,
+            "height": 0.0317
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 957,
+            "y": 73,
+            "width": 183,
+            "height": 23
+          },
+          "rel": {
+            "x": 0.7975,
+            "y": 0.0608,
+            "width": 0.1525,
+            "height": 0.0192
+          }
+        }
+      }
+    },
+    {
+      "slug": "google_da_landscape",
+      "artboard_name": "구글DA_1200x628",
+      "width": 1200,
+      "height": 628,
+      "aspect_ratio": 1.9108,
+      "layout_type": "wide",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 3112,
+        "top": 1310
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 648,
+            "y": 0,
+            "width": 552,
+            "height": 628
+          },
+          "rel": {
+            "x": 0.54,
+            "y": 0.0,
+            "width": 0.46,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.68,
+          "crop_focus_y": 0.36
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 60,
+            "y": 104,
+            "width": 432,
+            "height": 131
+          },
+          "rel": {
+            "x": 0.05,
+            "y": 0.1656,
+            "width": 0.36,
+            "height": 0.2086
+          },
+          "arrangement": "row_horizontal",
+          "use_leader_lines": false
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 113,
+            "y": 247,
+            "width": 559,
+            "height": 154
+          },
+          "rel": {
+            "x": 0.0942,
+            "y": 0.3933,
+            "width": 0.4658,
+            "height": 0.2452
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 105,
+            "y": 416,
+            "width": 551,
+            "height": 113
+          },
+          "rel": {
+            "x": 0.0875,
+            "y": 0.6624,
+            "width": 0.4592,
+            "height": 0.1799
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/google_da_landscape_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 60,
+            "y": 60,
+            "width": 215,
+            "height": 29
+          },
+          "rel": {
+            "x": 0.05,
+            "y": 0.0955,
+            "width": 0.1792,
+            "height": 0.0462
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 1010,
+            "y": 65,
+            "width": 128,
+            "height": 16
+          },
+          "rel": {
+            "x": 0.8417,
+            "y": 0.1035,
+            "width": 0.1067,
+            "height": 0.0255
+          }
+        }
+      }
+    },
+    {
+      "slug": "naver_gfa_wide",
+      "artboard_name": "네이버GFA_1250x560",
+      "width": 1250,
+      "height": 560,
+      "aspect_ratio": 2.2321,
+      "layout_type": "wide",
+      "is_micro": false,
+      "artboard_origin": {
+        "left": 5712,
+        "top": 1310
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 675,
+            "y": 0,
+            "width": 575,
+            "height": 560
+          },
+          "rel": {
+            "x": 0.54,
+            "y": 0.0,
+            "width": 0.46,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.68,
+          "crop_focus_y": 0.36
+        },
+        "feature_card_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 246,
+            "y": 90,
+            "width": 450,
+            "height": 168
+          },
+          "rel": {
+            "x": 0.1968,
+            "y": 0.1607,
+            "width": 0.36,
+            "height": 0.3
+          },
+          "arrangement": "row_horizontal",
+          "use_leader_lines": false
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "bottom_left",
+          "px": {
+            "x": 280,
+            "y": 269,
+            "width": 484,
+            "height": 172
+          },
+          "rel": {
+            "x": 0.224,
+            "y": 0.4804,
+            "width": 0.3872,
+            "height": 0.3071
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_center",
+          "px": {
+            "x": 279,
+            "y": 406,
+            "width": 694,
+            "height": 116
+          },
+          "rel": {
+            "x": 0.2232,
+            "y": 0.725,
+            "width": 0.5552,
+            "height": 0.2071
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/naver_gfa_wide_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 246,
+            "y": 55,
+            "width": 153,
+            "height": 21
+          },
+          "rel": {
+            "x": 0.1968,
+            "y": 0.0982,
+            "width": 0.1224,
+            "height": 0.0375
+          }
+        },
+        "watermark_zone": {
+          "visible": true,
+          "anchor": "top_right",
+          "px": {
+            "x": 889,
+            "y": 58,
+            "width": 112,
+            "height": 15
+          },
+          "rel": {
+            "x": 0.7112,
+            "y": 0.1036,
+            "width": 0.0896,
+            "height": 0.0268
+          }
+        }
+      }
+    },
+    {
+      "slug": "naver_thumb_small",
+      "artboard_name": "네이버GFA_342x228",
+      "width": 342,
+      "height": 228,
+      "aspect_ratio": 1.5,
+      "layout_type": "micro",
+      "is_micro": true,
+      "artboard_origin": {
+        "left": 5730,
+        "top": 1970
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 129,
+            "y": 0,
+            "width": 212,
+            "height": 228
+          },
+          "rel": {
+            "x": 0.3772,
+            "y": 0.0,
+            "width": 0.6199,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.68,
+          "crop_focus_y": 0.42,
+          "flip_x": false
+        },
+        "feature_card_zone": {
+          "visible": false,
+          "anchor": "none",
+          "px": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+          },
+          "omitted_reason": "micro_viewport_legibility"
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "middle_left",
+          "px": {
+            "x": 13,
+            "y": 95,
+            "width": 184,
+            "height": 54
+          },
+          "rel": {
+            "x": 0.038,
+            "y": 0.4167,
+            "width": 0.538,
+            "height": 0.2368
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_right",
+          "px": {
+            "x": 17,
+            "y": 8,
+            "width": 319,
+            "height": 209
+          },
+          "rel": {
+            "x": 0.0497,
+            "y": 0.0351,
+            "width": 0.9327,
+            "height": 0.9167
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/naver_thumb_small_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 11,
+            "y": 10,
+            "width": 124,
+            "height": 18
+          },
+          "rel": {
+            "x": 0.0322,
+            "y": 0.0439,
+            "width": 0.3626,
+            "height": 0.0789
+          }
+        },
+        "watermark_zone": {
+          "visible": false,
+          "anchor": "top_right",
+          "px": {
+            "x": 266,
+            "y": 10,
+            "width": 54,
+            "height": 3
+          },
+          "rel": {
+            "x": 0.7778,
+            "y": 0.0439,
+            "width": 0.1579,
+            "height": 0.0132
+          }
+        }
+      }
+    },
+    {
+      "slug": "naver_smart_channel",
+      "artboard_name": "네이버스마트채널_260x280",
+      "width": 260,
+      "height": 280,
+      "aspect_ratio": 0.9286,
+      "layout_type": "micro",
+      "is_micro": true,
+      "artboard_origin": {
+        "left": 6119,
+        "top": 1970
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_right",
+          "px": {
+            "x": 98,
+            "y": 0,
+            "width": 161,
+            "height": 280
+          },
+          "rel": {
+            "x": 0.3769,
+            "y": 0.0,
+            "width": 0.6192,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.68,
+          "crop_focus_y": 0.42,
+          "flip_x": false
+        },
+        "feature_card_zone": {
+          "visible": false,
+          "anchor": "none",
+          "px": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+          },
+          "omitted_reason": "micro_viewport_legibility"
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "middle_left",
+          "px": {
+            "x": 10,
+            "y": 123,
+            "width": 140,
+            "height": 61
+          },
+          "rel": {
+            "x": 0.0385,
+            "y": 0.4393,
+            "width": 0.5385,
+            "height": 0.2179
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_right",
+          "px": {
+            "x": 10,
+            "y": 40,
+            "width": 103,
+            "height": 229
+          },
+          "rel": {
+            "x": 0.0385,
+            "y": 0.1429,
+            "width": 0.3962,
+            "height": 0.8179
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/naver_smart_channel_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 12,
+            "y": 16,
+            "width": 100,
+            "height": 15
+          },
+          "rel": {
+            "x": 0.0462,
+            "y": 0.0571,
+            "width": 0.3846,
+            "height": 0.0536
+          }
+        },
+        "watermark_zone": {
+          "visible": false,
+          "anchor": "top_right",
+          "px": {
+            "x": 202,
+            "y": 13,
+            "width": 41,
+            "height": 4
+          },
+          "rel": {
+            "x": 0.7769,
+            "y": 0.0464,
+            "width": 0.1577,
+            "height": 0.0143
+          }
+        }
+      }
+    },
+    {
+      "slug": "kakao_bizboard",
+      "artboard_name": "카카오비즈보드_314x300",
+      "width": 314,
+      "height": 300,
+      "aspect_ratio": 1.0467,
+      "layout_type": "micro",
+      "is_micro": true,
+      "artboard_origin": {
+        "left": 6293,
+        "top": 0
+      },
+      "zones": {
+        "model_zone": {
+          "visible": true,
+          "anchor": "center_left",
+          "px": {
+            "x": 0,
+            "y": 0,
+            "width": 188,
+            "height": 300
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.5987,
+            "height": 1.0
+          },
+          "crop_focus_x": 0.66,
+          "crop_focus_y": 0.42,
+          "flip_x": true
+        },
+        "feature_card_zone": {
+          "visible": false,
+          "anchor": "none",
+          "px": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "rel": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+          },
+          "omitted_reason": "micro_viewport_legibility"
+        },
+        "headline_zone": {
+          "visible": true,
+          "anchor": "middle_right",
+          "px": {
+            "x": 138,
+            "y": 126,
+            "width": 163,
+            "height": 78
+          },
+          "rel": {
+            "x": 0.4395,
+            "y": 0.42,
+            "width": 0.5191,
+            "height": 0.26
+          }
+        },
+        "promo_sticker_zone": {
+          "visible": true,
+          "anchor": "bottom_right",
+          "px": {
+            "x": 165,
+            "y": 47,
+            "width": 141,
+            "height": 241
+          },
+          "rel": {
+            "x": 0.5255,
+            "y": 0.1567,
+            "width": 0.449,
+            "height": 0.8033
+          },
+          "native_badge_path": "assets/brands/xexymix/badges/kakao_bizboard_promo.png"
+        },
+        "logo_zone": {
+          "visible": true,
+          "anchor": "top_left",
+          "px": {
+            "x": 156,
+            "y": 14,
+            "width": 145,
+            "height": 20
+          },
+          "rel": {
+            "x": 0.4968,
+            "y": 0.0467,
+            "width": 0.4618,
+            "height": 0.0667
+          }
+        },
+        "watermark_zone": {
+          "visible": false,
+          "anchor": "top_right",
+          "px": {
+            "x": 244,
+            "y": 14,
+            "width": 50,
+            "height": 4
+          },
+          "rel": {
+            "x": 0.7771,
+            "y": 0.0467,
+            "width": 0.1592,
+            "height": 0.0133
+          }
+        }
+      }
+    }
+  ]
+}

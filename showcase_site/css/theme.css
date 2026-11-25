@@ -1,0 +1,16 @@
+/* ==========================================================================
+   AUTO-BANNER // ENGINE — THEME PALETTE OVERRIDE (COBALT & VOLT)
+   ========================================================================== */
+
+:root {
+  --accent-cobalt: #5322FF;
+  --accent-volt: #EDFF57;
+  --status-pass: #EDFF57;
+  --accent-green: #EDFF57;
+  --status-emerald: #EDFF57;
+  --highlight-amber: #5322FF;
+  --emerald-glow: rgba(237, 255, 87, 0.35);
+  --volt-glow: rgba(237, 255, 87, 0.35);
+  --cobalt-glow: rgba(83, 34, 255, 0.35);
+  --amber-tint: rgba(83, 34, 255, 0.16);
+}

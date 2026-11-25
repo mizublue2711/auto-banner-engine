@@ -30,9 +30,11 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
     titanium_plate: '#0D0D14',
     hairline_border: '#222536',
     laser_white: '#F4F4F6',
-    status_emerald: '#00FF66',
+    status_emerald: '#EDFF57',
+    accent_volt: '#EDFF57',
+    accent_cobalt: '#5322FF',
     accent_cyan: '#00E5FF',
-    highlight_amber: '#FFB800'
+    highlight_amber: '#5322FF'
   },
   tasks: {
     task1_xexymix: {
@@ -82,7 +84,7 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
           label: 'Option 2 // Monumental 3D Zero-Gravity',
           psd_path: 'deliverables/task2_meritz/meritz_partners_option2.psd',
           preview_path: 'deliverables/task2_meritz/meritz_partners_option2_preview.jpg',
-          art_direction: 'High-concept low-angle perspective, matte textured red 150 monolith inside Champagne Gold wireframe gem cage, 5 zero-gravity coins with cinematic depth-of-field blur.'
+          art_direction: 'High-concept low-angle perspective, matte textured red 150 monolith inside Electric Cobalt wireframe gem cage, 5 zero-gravity coins with cinematic depth-of-field blur.'
         }
       ],
       qa_compliance: {
@@ -97,8 +99,8 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
   hero_hotspots: [
     {
       id: 'pin-opt1',
-      top: '38%',
-      left: '18%',
+      top: '36%',
+      left: '16%',
       color: '#00E5FF',
       badge: '01',
       type: 'banner_preview',
@@ -120,9 +122,9 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
     },
     {
       id: 'pin-opt2',
-      top: '28%',
-      left: '78%',
-      color: '#FFB800',
+      top: '18%',
+      left: '50%',
+      color: '#5322FF',
       badge: '02',
       type: 'banner_preview',
       i18n: {
@@ -138,14 +140,14 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
         tag: 'INNOVATIVE 3D // MASTER .PSD',
         image: './deliverables/task2_meritz/meritz_partners_option2_preview.jpg',
         download: './deliverables/task2_meritz/meritz_partners_option2.psd',
-        desc: "Matte Vermillion '150' monolith suspended inside a Champagne Gold wireframe gem cage with 5 zero-gravity coins."
+        desc: "Matte Vermillion '150' monolith suspended inside an Electric Cobalt wireframe gem cage with 5 zero-gravity coins."
       }
     },
     {
       id: 'pin-spec',
-      top: '75%',
-      left: '50%',
-      color: '#00FF66',
+      top: '32%',
+      left: '84%',
+      color: '#EDFF57',
       badge: 'QA',
       type: 'existing_dom_target',
       targetSelector: '#popup-spec-card',
@@ -174,9 +176,11 @@ const WHITE_LABEL_SIMULATION_MANIFEST = {
     titanium_plate: '#0D0D14',
     hairline_border: '#222536',
     laser_white: '#F4F4F6',
-    status_emerald: '#00FF66',
+    status_emerald: '#EDFF57',
+    accent_volt: '#EDFF57',
+    accent_cobalt: '#5322FF',
     accent_cyan: '#00E5FF',
-    highlight_amber: '#FFB800'
+    highlight_amber: '#5322FF'
   },
   tasks: {
     workflow_a_resizing: {
@@ -658,7 +662,7 @@ function openDeepZoomModal(manifest, optionId) {
             <h3 class="zone-title" style="font-size:22px;margin-bottom:10px;">Matte Grain &amp; Wireframe Cage</h3>
             <p class="meritz-art-direction">
               Move cursor across the viewport to inspect the micro-matte diffusion grain on the
-              Vermillion Red (#EF3B24) '150' core, Champagne Gold polyhedral wireframe intersections,
+              Vermillion Red (#EF3B24) '150' core, Electric Cobalt polyhedral wireframe intersections,
               and zero-collision Korean typography kerning.
             </p>
           </div>

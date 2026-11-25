@@ -24,6 +24,37 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MATRIX = ROOT / "config" / "task1_size_guide_matrix.json"
 DEFAULT_MANIFEST = ROOT / "assets" / "brands" / "xexymix" / "cutouts" / "master_assets_manifest.json"
 DEFAULT_OUT_DIR = ROOT / "output" / "task1_production" / "TASK1_XEXYMIX_11_SIZES"
+DEFAULT_JPG_OUT_DIR = ROOT / "deliverables" / "task1_xexymix"
+DEFAULT_SHOWCASE_MANIFEST = ROOT / "showcase_manifest.json"
+MAX_JPG_BYTES = 800 * 1024  # Strict 800KB ad-network weight ceiling
+
+DELIVERABLE_FILENAMES: Dict[str, str] = {
+    "meta_story_9_16": "01_meta_story_1440x2560",
+    "meta_feed_4_5": "02_meta_feed_1440x1800",
+    "kakao_feed_4_5": "03_kakao_feed_800x1000",
+    "google_da_4_5": "04_google_da_960x1200",
+    "google_da_square": "05_google_square_1200x1200",
+    "naver_gfa_square": "06_naver_square_1200x1200",
+    "google_da_landscape": "07_google_landscape_1200x628",
+    "naver_gfa_wide": "08_naver_wide_1250x560",
+    "naver_thumb_small": "09_naver_thumb_342x228",
+    "naver_smart_channel": "10_naver_smart_channel_260x280",
+    "kakao_bizboard": "11_kakao_bizboard_314x300",
+}
+
+ASPECT_LABELS: Dict[str, str] = {
+    "meta_story_9_16": "9:16",
+    "meta_feed_4_5": "4:5",
+    "kakao_feed_4_5": "4:5",
+    "google_da_4_5": "4:5",
+    "google_da_square": "1:1",
+    "naver_gfa_square": "1:1",
+    "google_da_landscape": "1.91:1",
+    "naver_gfa_wide": "2.23:1",
+    "naver_thumb_small": "3:2 (Micro)",
+    "naver_smart_channel": "13:14 (Micro)",
+    "kakao_bizboard": "1.05:1 (Micro)",
+}
 
 # Model bounding box inside 1440x1800 base_model_scene.png (x, y, w, h)
 MASTER_MODEL_BBOX = (700.0, 0.0, 740.0, 1800.0)
@@ -354,12 +385,52 @@ def composite_feature_cards(
     draw_callout_leader_lines(canvas, card1_rect, card2_rect, model_box)
 
 
+def save_srgb_jpeg_under_limit(
+    rgb_img: Image.Image,
+    out_path: Path,
+    target_quality: int = 92,
+    max_bytes: int = MAX_JPG_BYTES,
+) -> int:
+    """Save sRGB JPEG at 92% quality, stepping down gently only if needed to stay < 800KB."""
+    q = target_quality
+    while q >= 72:
+        rgb_img.save(
+            out_path,
+            "JPEG",
+            quality=q,
+            optimize=True,
+            progressive=True,
+            subsampling="4:2:0",
+        )
+        if out_path.stat().st_size < max_bytes:
+            return q
+        q -= 2
+    return q
+
+
+def build_anchor_notes(spec: Dict[str, Any]) -> str:
+    lt = spec["layout_type"]
+    slug = spec["slug"]
+    if lt == "vertical_4_5":
+        return "4:5 master ratio; flush-left typography; staggered vertical cards with straight horizontal silhouette-tangent callout lines; native bottom promo ribbon."
+    if lt == "vertical_9_16":
+        return "9:16 full-bleed vertical story; right-weighted full model; staggered upper-left feature cards with silhouette-tangent callout lines; floating yellow pill ribbon."
+    if lt == "square":
+        return "1:1 square; cosine-tapered studio backdrop feathering (#E2E4E7->#D8DADB); staggered vertical cards with straight horizontal silhouette-tangent callout lines; full-width bottom yellow ribbon."
+    if lt == "wide":
+        return "Wide horizontal split; flush-left typography at X=6.5%; dedicated staggered mid-column feature cards with orthogonal callout lines; cosine-feathered right model stage."
+    if slug == "kakao_bizboard":
+        return "Micro (<400px); horizontally flipped left-anchored model; right-aligned logo, headline & native starburst/~80% badge; feature cards omitted for legibility."
+    return "Micro (<400px); right-anchored model; flush-left logo, headline & native starburst/80% promo badge; feature cards omitted for legibility."
+
+
 def render_artboard(
     spec: Dict[str, Any],
     assets: Dict[str, Image.Image],
     manifest: Dict[str, Any],
     out_dir: Path,
-) -> Path:
+    fmt: str = "png",
+) -> Tuple[Path, int]:
     slug = spec["slug"]
     w, h = spec["width"], spec["height"]
     layout_type = spec["layout_type"]
@@ -449,30 +520,96 @@ def render_artboard(
             canvas.alpha_composite(promo_img, (promo_box["x"], promo_box["y"]))
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{slug}.png"
-    canvas.convert("RGB").save(out_path, "PNG", optimize=True)
-    return out_path
+    rgb_img = canvas.convert("RGB")
+    if fmt in ("jpg", "jpeg"):
+        stem = DELIVERABLE_FILENAMES.get(slug, slug)
+        out_path = out_dir / f"{stem}.jpg"
+        used_q = save_srgb_jpeg_under_limit(rgb_img, out_path, target_quality=92)
+        return out_path, used_q
+    else:
+        out_path = out_dir / f"{slug}.png"
+        rgb_img.save(out_path, "PNG", optimize=True)
+        return out_path, 100
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Render all 11 Task 1 XEXYMIX banners.")
     parser.add_argument("--matrix", default=str(DEFAULT_MATRIX), help="Path to task1_size_guide_matrix.json")
     parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST), help="Path to master_assets_manifest.json")
-    parser.add_argument("--out", default=str(DEFAULT_OUT_DIR), help="Output directory")
+    parser.add_argument("--format", choices=["png", "jpg", "jpeg"], default="png", help="Output format (png or jpg)")
+    parser.add_argument("--out", default=None, help="Output directory (defaults to deliverables/task1_xexymix for jpg)")
+    parser.add_argument("--showcase-manifest", default=str(DEFAULT_SHOWCASE_MANIFEST), help="Path to showcase_manifest.json")
     args = parser.parse_args()
+
+    fmt = "jpg" if args.format in ("jpg", "jpeg") else "png"
+    out_dir = Path(args.out) if args.out else (DEFAULT_JPG_OUT_DIR if fmt == "jpg" else DEFAULT_OUT_DIR)
 
     matrix = json.loads(Path(args.matrix).read_text(encoding="utf-8"))
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
-    out_dir = Path(args.out)
 
     assets: Dict[str, Image.Image] = {}
     for key, info in manifest["assets"].items():
         assets[key] = Image.open(ROOT / info["path"]).convert("RGBA")
 
-    print(f"[task1_resizer] Rendering {len(matrix['artboards'])} placements -> {out_dir}")
-    for spec in matrix["artboards"]:
-        out_path = render_artboard(spec, assets, manifest, out_dir)
-        print(f"  [ok] {spec['slug']:22s} ({spec['width']}x{spec['height']}) -> {out_path.relative_to(ROOT)}")
+    print(f"[task1_resizer] Rendering {len(matrix['artboards'])} placements ({fmt.upper()}) -> {out_dir}")
+    showcase_items = []
+    for idx, spec in enumerate(matrix["artboards"], start=1):
+        out_path, used_q = render_artboard(spec, assets, manifest, out_dir, fmt=fmt)
+        size_bytes = out_path.stat().st_size
+        size_kb = round(size_bytes / 1024.0, 1)
+        rel_path = str(out_path.relative_to(ROOT))
+        print(f"  [ok] {out_path.name:36s} ({spec['width']}x{spec['height']}) {size_kb:6.1f} KB (q={used_q}) -> {rel_path}")
+        showcase_items.append(
+            {
+                "index": idx,
+                "slug": spec["slug"],
+                "artboard_name": spec["artboard_name"],
+                "filename": out_path.name,
+                "path": rel_path,
+                "width": spec["width"],
+                "height": spec["height"],
+                "aspect_ratio": spec["aspect_ratio"],
+                "aspect_label": ASPECT_LABELS.get(spec["slug"], f"{spec['width']}:{spec['height']}"),
+                "layout_type": spec["layout_type"],
+                "is_micro": spec["is_micro"],
+                "format": fmt.upper(),
+                "color_space": "sRGB",
+                "jpeg_quality": used_q if fmt == "jpg" else None,
+                "file_size_bytes": size_bytes,
+                "file_size_kb": size_kb,
+                "visual_anchor_notes": build_anchor_notes(spec),
+            }
+        )
+
+    if fmt == "jpg":
+        showcase_payload = {
+            "schema_version": "1.0",
+            "project": "auto-banner-engine",
+            "task1": {
+                "task_id": "TASK1_XEXYMIX_11_SIZES",
+                "brand": "XEXYMIX",
+                "campaign": "AFTER BLACK PRIDEDAY — RX 블랙라벨 시그니처 360N 기모 포켓 레깅스",
+                "deliverables_dir": "deliverables/task1_xexymix",
+                "format": "JPEG",
+                "color_space": "sRGB",
+                "max_weight_kb": 800,
+                "count": len(showcase_items),
+                "placements": showcase_items,
+            },
+            "task2": {
+                "task_id": "TASK2_MERITZ_PARTNERS",
+                "brand": "Meritz Partners",
+                "deliverables_dir": "deliverables/task2_meritz",
+                "expected_assets": [
+                    "deliverables/task2_meritz/meritz_partners_master.psd",
+                    "deliverables/task2_meritz/meritz_partners_preview.jpg",
+                ],
+                "status": "awaiting_master_assets",
+            },
+        }
+        sm_path = Path(args.showcase_manifest)
+        sm_path.write_text(json.dumps(showcase_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[task1_resizer] Wrote showcase manifest -> {sm_path.relative_to(ROOT)}")
 
     print("[task1_resizer] Complete.")
 

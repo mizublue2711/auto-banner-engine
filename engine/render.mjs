@@ -22,7 +22,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import Ajv from "ajv";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1356,11 +1357,228 @@ async function renderViewports(task, tokens, assets, outDir, outPrefix) {
   return results;
 }
 
+function buildMainHeadlineHtml(headline, coinSrc, anchorChar = "만") {
+  const escaped = escapeHtml(headline);
+  if (!coinSrc) {
+    return escaped;
+  }
+  const idx = anchorChar ? escaped.indexOf(anchorChar) : -1;
+  if (idx === -1) {
+    return `${escaped}<img class="coin-badge-decor" src="${coinSrc}" alt="" />`;
+  }
+  const before = escaped.slice(0, idx);
+  const after = escaped.slice(idx + anchorChar.length);
+  return `${before}<span class="anchor-man">${anchorChar}<img class="coin-badge-decor" src="${coinSrc}" alt="" /></span>${after}`;
+}
+
+function resolveBrandId(task) {
+  if (task.brand_id) return task.brand_id;
+  if (task.brand?.id) return task.brand.id;
+  const logoUrl = task.brand?.logo_url || "";
+  const match = logoUrl.match(/assets\/(?:brands|logos)\/([^/]+)\//);
+  if (match) return match[1].toLowerCase();
+  throw new Error("Cannot resolve brand_id: specify task.brand_id or assets/brands/{brand_id}/ in brand.logo_url");
+}
+
+function applyDirectionalShadowCached(rawAssetAbs, elevation) {
+  const shadowCacheDir = path.join(ROOT_DIR, "output", ".shadow_cache");
+  fs.mkdirSync(shadowCacheDir, { recursive: true });
+  const outAbs = path.join(
+    shadowCacheDir,
+    `${path.basename(rawAssetAbs, path.extname(rawAssetAbs))}_e${elevation.y}_b${elevation.blur}_directional.png`
+  );
+  execFileSync(
+    "python3",
+    [
+      path.join(__dirname, "shadow_engine.py"),
+      "--mode",
+      "directional",
+      "--input",
+      rawAssetAbs,
+      "--output",
+      outAbs,
+      "--elevation",
+      String(elevation.y ?? 12),
+      "--blur",
+      String(elevation.blur ?? 24),
+      "--opacity",
+      String(elevation.opacity ?? 0.18),
+    ],
+    { cwd: ROOT_DIR, stdio: "inherit" }
+  );
+  return outAbs;
+}
+
+function buildBrandTokenCss(tokens) {
+  const c = tokens.colors;
+  const t = tokens.typography;
+  const u = tokens.ui;
+  return `:root {
+  --brand-primary: ${c.primary};
+  --brand-accent: ${c.accent};
+  --brand-surface: ${c.surface};
+  --brand-text-headline: ${c.text_headline};
+  --brand-text-muted: ${c.text_muted};
+  --brand-cta-text: ${c.cta_text || "#FFFFFF"};
+  --brand-font-family: "${t.font_family}", "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  --brand-weight-regular: ${t.font_weights.regular};
+  --brand-weight-semibold: ${t.font_weights.semibold};
+  --brand-weight-bold: ${t.font_weights.bold};
+  --brand-weight-hook: ${t.font_weights.hook};
+  --brand-tracking-tight: ${t.letter_spacing.tight};
+  --brand-tracking-normal: ${t.letter_spacing.normal};
+  --brand-tracking-wide: ${t.letter_spacing.wide};
+  --brand-cta-radius: ${u.cta_radius};
+}`;
+}
+
+async function renderStandardizedTask(task, outDirArg, hasExplicitOut) {
+  const ajv = new Ajv({ allErrors: true, strict: false });
+
+  const taskSchema = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "config/banner_task.schema.json"), "utf-8"));
+  const validateTask = ajv.compile(taskSchema);
+  if (!validateTask(task)) {
+    const msg = (validateTask.errors || []).map((e) => `${e.instancePath || "/"} ${e.message}`).join("; ");
+    throw new Error(`Standardized task schema validation failed: ${msg}`);
+  }
+
+  const brandId = resolveBrandId(task);
+  const tokensPath = path.join(ROOT_DIR, "assets/brands", brandId, "tokens.json");
+  if (!fs.existsSync(tokensPath)) {
+    throw new Error(`Brand tokens not found: ${path.relative(ROOT_DIR, tokensPath)}`);
+  }
+  const brandTokens = JSON.parse(fs.readFileSync(tokensPath, "utf-8"));
+  const tokensSchema = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "config/brand_tokens.schema.json"), "utf-8"));
+  const validateTokens = ajv.compile(tokensSchema);
+  if (!validateTokens(brandTokens)) {
+    const msg = (validateTokens.errors || []).map((e) => `${e.instancePath || "/"} ${e.message}`).join("; ");
+    throw new Error(`Brand tokens schema validation failed (${brandId}): ${msg}`);
+  }
+  console.log(`[BannerEngine] Validated task=${task.task_id}, brand=${brandId} (Lego tokens loaded)`);
+
+  const shellHtml = fs.readFileSync(path.join(ROOT_DIR, "templates/lego_shell.html"), "utf-8");
+  const compDir = path.join(ROOT_DIR, "templates/components");
+  const compHeader = fs.readFileSync(path.join(compDir, "header.html"), "utf-8");
+  const compHook = fs.readFileSync(path.join(compDir, "hook.html"), "utf-8");
+  const compVisualStage = fs.readFileSync(path.join(compDir, "visual_stage.html"), "utf-8");
+  const compCta = fs.readFileSync(path.join(compDir, "cta.html"), "utf-8");
+  const compDisclaimers = fs.readFileSync(path.join(compDir, "disclaimers.html"), "utf-8");
+
+  const baseCssHref = pathToFileURL(path.join(ROOT_DIR, "templates/base.css")).href;
+  const archetypesCssHref = pathToFileURL(path.join(ROOT_DIR, "templates/archetypes.css")).href;
+
+  const logoPath = task.brand?.logo_url || brandTokens.logo_url;
+  const logoAbs = resolveFilePath(logoPath);
+  const logoSrc = toDataUri(logoAbs, resolveMime(logoAbs));
+
+  const elevation = brandTokens.ui.elevation || { y: 12, blur: 24, opacity: 0.18 };
+  let coinSrc = "";
+  if (task.content.hook_visual_asset) {
+    const rawCoinAbs = resolveFilePath(task.content.hook_visual_asset);
+    const shadowedCoinAbs = applyDirectionalShadowCached(rawCoinAbs, elevation);
+    coinSrc = toDataUri(shadowedCoinAbs, resolveMime(shadowedCoinAbs));
+  }
+
+  let visualStageHtml = "";
+  let hasVisualStage = "false";
+  if (task.content.visual_stage_asset) {
+    const rawStageAbs = resolveFilePath(task.content.visual_stage_asset);
+    const shadowedStageAbs = applyDirectionalShadowCached(rawStageAbs, elevation);
+    const stageSrc = toDataUri(shadowedStageAbs, resolveMime(shadowedStageAbs));
+    visualStageHtml = `<img class="visual-stage-img" src="${stageSrc}" alt="" />`;
+    hasVisualStage = "true";
+  }
+
+  const badgeStyle = brandTokens.ui.badge_style || "pill";
+  const badgeHtml = task.content.badge_text
+    ? `<span class="badge-pill" data-badge-style="${escapeHtml(badgeStyle)}">${escapeHtml(task.content.badge_text)}</span>`
+    : "";
+  const disclaimersHtml = (task.content.disclaimers || [])
+    .map((line) => `<p>${escapeHtml(line)}</p>`)
+    .join("\n  ");
+
+  const headerSlot = compHeader
+    .replaceAll("{{LOGO_SRC}}", logoSrc)
+    .replaceAll("{{BRAND_NAME}}", escapeHtml(brandTokens.brand_name))
+    .replaceAll("{{BADGE_HTML}}", badgeHtml);
+
+  const hookSlot = compHook
+    .replaceAll("{{SUB_HEADLINE}}", escapeHtml(task.content.sub_headline))
+    .replaceAll(
+      "{{MAIN_HEADLINE_HTML}}",
+      buildMainHeadlineHtml(task.content.main_headline, coinSrc, task.content.hook_anchor_char || "만")
+    );
+
+  const visualStageSlot = compVisualStage
+    .replaceAll("{{HAS_VISUAL_STAGE}}", hasVisualStage)
+    .replaceAll("{{VISUAL_STAGE_HTML}}", visualStageHtml);
+
+  const ctaSlot = compCta.replaceAll("{{CTA_TEXT}}", escapeHtml(task.content.cta_text));
+  const disclaimersSlot = compDisclaimers.replaceAll("{{DISCLAIMERS_HTML}}", disclaimersHtml);
+
+  const assembledBody = shellHtml
+    .replaceAll("{{SLOT_HEADER}}", headerSlot)
+    .replaceAll("{{SLOT_HOOK}}", hookSlot)
+    .replaceAll("{{SLOT_VISUAL_STAGE}}", visualStageSlot)
+    .replaceAll("{{SLOT_CTA}}", ctaSlot)
+    .replaceAll("{{SLOT_DISCLAIMERS}}", disclaimersSlot);
+
+  const outDir = hasExplicitOut ? outDirArg : path.join(ROOT_DIR, "output", task.task_id);
+  fs.mkdirSync(outDir, { recursive: true });
+  const tokenCss = buildBrandTokenCss(brandTokens);
+
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ deviceScaleFactor: 1 });
+    for (const dim of task.target_dimensions) {
+      const html = assembledBody
+        .replaceAll("{{TASK_ID}}", escapeHtml(task.task_id))
+        .replaceAll("{{DIMENSION_NAME}}", escapeHtml(dim.name))
+        .replaceAll("{{WIDTH}}", String(dim.width))
+        .replaceAll("{{HEIGHT}}", String(dim.height))
+        .replaceAll("{{LAYOUT_TYPE}}", escapeHtml(dim.layout_type))
+        .replaceAll("{{CTA_STYLE}}", escapeHtml(task.content.cta_style))
+        .replaceAll("{{HAS_VISUAL_STAGE}}", hasVisualStage)
+        .replaceAll("{{BASE_CSS_HREF}}", baseCssHref)
+        .replaceAll("{{ARCHETYPES_CSS_HREF}}", archetypesCssHref);
+
+      const htmlPath = path.join(outDir, `${dim.name}.html`);
+      const pngPath = path.join(outDir, `${dim.name}.png`);
+      fs.writeFileSync(htmlPath, html, "utf-8");
+
+      await page.setViewportSize({ width: dim.width, height: dim.height });
+      await page.goto(pathToFileURL(htmlPath).href, { waitUntil: "load" });
+      await page.addStyleTag({ content: tokenCss });
+      const fontStats = await page.evaluate(async () => {
+        await document.fonts.ready;
+        const loaded = [...document.fonts].filter((f) => f.status === "loaded").map((f) => `${f.family}:${f.weight}`);
+        return { count: loaded.length, faces: loaded };
+      });
+      await page.screenshot({ path: pngPath, type: "png" });
+
+      const sizeKb = (fs.statSync(pngPath).size / 1024).toFixed(1);
+      console.log(
+        `[BannerEngine] Rendered ${path.relative(ROOT_DIR, pngPath)} (${dim.width}x${dim.height}, ${sizeKb} KB, fonts=${fontStats.count})`
+      );
+    }
+  } finally {
+    await browser.close();
+  }
+}
+
 async function main() {
   const args = parseArgs(process.argv);
+  const rawTask = JSON.parse(fs.readFileSync(args.task, "utf-8"));
+  if (rawTask.task_id && Array.isArray(rawTask.target_dimensions)) {
+    const hasExplicitOut = process.argv.includes("--out");
+    await renderStandardizedTask(rawTask, args.out, hasExplicitOut);
+    return;
+  }
+
   const schema = JSON.parse(fs.readFileSync(SCHEMA_PATH, "utf-8"));
   const baseTokens = JSON.parse(fs.readFileSync(TOKENS_PATH, "utf-8"));
-  const baseTask = JSON.parse(fs.readFileSync(args.task, "utf-8"));
+  const baseTask = rawTask;
 
   const task = applyTaskOverrides(baseTask, args);
   const tokens = buildEffectiveTokens(baseTokens, task);
@@ -1383,8 +1601,16 @@ async function main() {
   console.log(`[BannerEngine] Validated task: ${task.campaign_id} (mode=${task.mode})`);
 
   const badgeId = "ad_best_cooling_2026";
-  const logoAbs = resolveFilePath("assets/logos/Puffy_Logo_0.svg");
-  const whiteLogoAbs = resolveFilePath("assets/logos/Puffy_Logo_3.svg");
+  const logoAbs = resolveFilePath(
+    fs.existsSync(path.join(ROOT_DIR, "assets/logos/Puffy/Puffy_Logo_0.svg"))
+      ? "assets/logos/Puffy/Puffy_Logo_0.svg"
+      : "assets/logos/Puffy_Logo_0.svg"
+  );
+  const whiteLogoAbs = resolveFilePath(
+    fs.existsSync(path.join(ROOT_DIR, "assets/logos/Puffy/Puffy_Logo_3.svg"))
+      ? "assets/logos/Puffy/Puffy_Logo_3.svg"
+      : "assets/logos/Puffy_Logo_3.svg"
+  );
   const badgeAbs = resolveFilePath("assets/badges/ad_best_cooling_2026.svg");
 
   let envAbs;

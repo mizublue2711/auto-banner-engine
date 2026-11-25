@@ -1,0 +1,108 @@
+{
+  "source_master_psd": "assets/Task 1 - XEXYMIX/11_40462_261106_젝시믹스_상시소재_10차_러닝_RX 블랙라벨 시그니처 360N 기모 포켓 레깅스.psd",
+  "master_canvas": {
+    "width": 1440,
+    "height": 1800
+  },
+  "assets": {
+    "base_model_scene": {
+      "path": "assets/brands/xexymix/cutouts/base_model_scene.png",
+      "width": 1440,
+      "height": 1800,
+      "master_bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1800
+      }
+    },
+    "card_pocket_full": {
+      "path": "assets/brands/xexymix/cutouts/card_pocket_full.png",
+      "width": 763,
+      "height": 416,
+      "master_bbox": {
+        "x": 144,
+        "y": 183,
+        "width": 763,
+        "height": 416
+      }
+    },
+    "card_pocket_clean": {
+      "path": "assets/brands/xexymix/cutouts/card_pocket_clean.png",
+      "width": 415,
+      "height": 416,
+      "master_bbox": {
+        "x": 144,
+        "y": 183,
+        "width": 415,
+        "height": 416
+      }
+    },
+    "card_fleece_full": {
+      "path": "assets/brands/xexymix/cutouts/card_fleece_full.png",
+      "width": 568,
+      "height": 416,
+      "master_bbox": {
+        "x": 215,
+        "y": 610,
+        "width": 568,
+        "height": 416
+      }
+    },
+    "card_fleece_clean": {
+      "path": "assets/brands/xexymix/cutouts/card_fleece_clean.png",
+      "width": 415,
+      "height": 416,
+      "master_bbox": {
+        "x": 215,
+        "y": 610,
+        "width": 415,
+        "height": 416
+      }
+    },
+    "headline_group": {
+      "path": "assets/brands/xexymix/cutouts/headline_group.png",
+      "width": 949,
+      "height": 346,
+      "master_bbox": {
+        "x": 68,
+        "y": 1140,
+        "width": 949,
+        "height": 346
+      }
+    },
+    "logo_xexymix": {
+      "path": "assets/brands/xexymix/cutouts/logo_xexymix.png",
+      "width": 347,
+      "height": 43,
+      "master_bbox": {
+        "x": 82,
+        "y": 86,
+        "width": 347,
+        "height": 43
+      }
+    },
+    "watermark_ai": {
+      "path": "assets/brands/xexymix/cutouts/watermark_ai.png",
+      "width": 232,
+      "height": 29,
+      "master_bbox": {
+        "x": 1125,
+        "y": 87,
+        "width": 232,
+        "height": 29
+      }
+    },
+    "promo_master": {
+      "path": "assets/brands/xexymix/cutouts/promo_master.png",
+      "width": 1440,
+      "height": 284,
+      "master_bbox": {
+        "x": 0,
+        "y": 1516,
+        "width": 1440,
+        "height": 284
+      }
+    }
+  }
+}

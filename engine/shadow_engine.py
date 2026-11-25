@@ -24,7 +24,36 @@ _SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 if _SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, _SCRIPTS_DIR)
 
-from grid_normalizer import normalize_to_grid, resolve_canvas_size  # noqa: E402
+try:
+    from grid_normalizer import normalize_to_grid, resolve_canvas_size  # noqa: E402
+except ImportError:
+    def resolve_canvas_size(canvas_size: Union[int, Tuple[int, int]]) -> Tuple[int, int]:
+        if isinstance(canvas_size, int):
+            return (canvas_size, canvas_size)
+        return (int(canvas_size[0]), int(canvas_size[1]))
+
+    def normalize_to_grid(
+        src: Image.Image,
+        canvas_size: Tuple[int, int] = (1024, 1024),
+        grid_ratio: float = 0.75,
+        bottom_margin_ratio: float = 0.16,
+        trim_transparent: bool = True,
+    ) -> Tuple[Image.Image, Tuple[int, int]]:
+        img = src.convert("RGBA")
+        if trim_transparent:
+            bbox = img.getbbox()
+            if bbox:
+                img = img.crop(bbox)
+        cw, ch = canvas_size
+        max_w = max(1, int(cw * grid_ratio))
+        max_h = max(1, int(ch * (1.0 - bottom_margin_ratio) * grid_ratio))
+        scale = min(max_w / max(1, img.width), max_h / max(1, img.height))
+        tw = max(1, int(round(img.width * scale)))
+        th = max(1, int(round(img.height * scale)))
+        resized = img.resize((tw, th), Image.Resampling.LANCZOS)
+        pos_x = (cw - tw) // 2
+        pos_y = int(ch * (1.0 - bottom_margin_ratio)) - th
+        return resized, (pos_x, max(0, pos_y))
 
 CanvasSize = Union[int, Tuple[int, int]]
 
@@ -213,11 +242,76 @@ apply_puffy_contour_shadow = export_puffy_adaptive_shadow
 apply_puffy_contour_shadow_fixed = export_puffy_adaptive_shadow
 
 
+def apply_soft_directional_shadow(
+    input_png_path: str,
+    output_path: str,
+    elevation: int = 12,
+    blur_radius: float = 24.0,
+    opacity: float = 0.18,
+    offset_x: int = 0,
+    output_format: str = "PNG",
+    quality: int = 90,
+) -> dict:
+    """
+    Inject a soft 2D directional ambient occlusion / drop shadow onto a transparent cutout
+    and export as optimized PNG or WebP.
+    """
+    started = time.perf_counter()
+    with Image.open(input_png_path) as src:
+        fg = src.convert("RGBA")
+
+    pad = max(16, int(np.ceil(blur_radius * 2.5)) + abs(elevation) + abs(offset_x))
+    cw = fg.width + pad * 2
+    ch = fg.height + pad * 2
+    canvas = Image.new("RGBA", (cw, ch), (0, 0, 0, 0))
+
+    alpha = fg.getchannel("A")
+    shadow_alpha = alpha.point(lambda a: int(a * max(0.0, min(1.0, opacity))))
+    shadow_raw = Image.new("RGBA", fg.size, (17, 17, 24, 255))
+    shadow_raw.putalpha(shadow_alpha)
+    shadow_blurred, s_pad = _blur_with_padding(shadow_raw, blur_radius=blur_radius)
+
+    _alpha_composite_at(canvas, shadow_blurred, pad + offset_x - s_pad, pad + elevation - s_pad)
+    _alpha_composite_at(canvas, fg, pad, pad)
+
+    bbox = canvas.getbbox()
+    if bbox:
+        canvas = canvas.crop(bbox)
+
+    out_dir = os.path.dirname(os.path.abspath(output_path))
+    os.makedirs(out_dir, exist_ok=True)
+    fmt = output_format.upper()
+    if fmt == "WEBP" or output_path.lower().endswith(".webp"):
+        canvas.save(output_path, "WEBP", quality=quality, method=6)
+        fmt = "WEBP"
+    else:
+        canvas.save(output_path, "PNG", optimize=True)
+        fmt = "PNG"
+
+    elapsed_ms = round((time.perf_counter() - started) * 1000, 2)
+    print(f"Generated (directional, elev={elevation}px, blur={blur_radius}px, opacity={opacity}, {fmt}): {output_path} ({elapsed_ms} ms)")
+    return {
+        "input": input_png_path,
+        "output": output_path,
+        "format": fmt,
+        "elevation": elevation,
+        "blur_radius": blur_radius,
+        "opacity": opacity,
+        "elapsed_ms": elapsed_ms,
+    }
+
+
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Apply Puffy Adaptive Bed Shadow Engine to a transparent cutout."
+        description="Apply Puffy Adaptive Bed Shadow Engine or Soft Directional Shadow to a transparent cutout."
+    )
+    parser.add_argument(
+        "--mode",
+        choices=["adaptive", "directional"],
+        default="adaptive",
+        help="Shadow mode: adaptive (bed/mattress) or directional (2D cutout drop shadow).",
     )
     parser.add_argument(
         "--input",
@@ -227,18 +321,32 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output",
         default="assets/catalog/mattresses/puffy-cloud/processed_hero.png",
-        help="Output shadowed PNG path.",
+        help="Output shadowed PNG/WebP path.",
     )
     parser.add_argument(
         "--canvas-size",
         type=int,
         default=1024,
-        help="Square output canvas size in pixels (default: 1024).",
+        help="Square output canvas size in pixels for adaptive mode (default: 1024).",
     )
+    parser.add_argument("--elevation", type=int, default=12, help="Directional shadow Y elevation in px (8-16).")
+    parser.add_argument("--blur", type=float, default=24.0, help="Directional shadow Gaussian blur radius.")
+    parser.add_argument("--opacity", type=float, default=0.18, help="Directional shadow opacity (0..1).")
+    parser.add_argument("--format", choices=["png", "webp"], default="png", help="Output format for directional mode.")
     args = parser.parse_args()
 
     if os.path.exists(args.input):
-        export_puffy_adaptive_shadow(args.input, args.output, canvas_size=args.canvas_size)
+        if args.mode == "directional":
+            apply_soft_directional_shadow(
+                args.input,
+                args.output,
+                elevation=args.elevation,
+                blur_radius=args.blur,
+                opacity=args.opacity,
+                output_format=args.format,
+            )
+        else:
+            export_puffy_adaptive_shadow(args.input, args.output, canvas_size=args.canvas_size)
     else:
         print(f"Input not found: {args.input}", file=sys.stderr)
         sys.exit(1)

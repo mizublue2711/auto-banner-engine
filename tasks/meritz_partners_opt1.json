@@ -1,0 +1,30 @@
+{
+  "$schema": "../config/banner_task.schema.json",
+  "task_id": "TASK_MERITZ_2026_OPT1",
+  "brand": {
+    "name": "Meritz Partners",
+    "logo_url": "assets/logos/meritz/logo.png",
+    "primary_color": "#111111",
+    "accent_color": "#EF3B24",
+    "bg_color": "#FFFFFF",
+    "font_family": "Pretendard"
+  },
+  "content": {
+    "badge_text": "",
+    "sub_headline": "첫달 평균 수익",
+    "main_headline": "150만원",
+    "hook_visual_asset": "assets/brands/meritz/coin_3d_stack.png",
+    "cta_text": "꿀부업 시작 바로가기 >",
+    "cta_style": "filled_red",
+    "disclaimers": [
+      "*24년 8월 ~ 25년 7월 수익자의 첫 달 평균 금액 기준, 수익은 보험체결 후 발생, 개인차 있음",
+      "*보험업법상 보험설계사를 모집하는 것으로 정규 또는 비정규 직원 채용과는 무관"
+    ]
+  },
+  "target_dimensions": [
+    { "name": "meta_feed_4_5", "width": 1440, "height": 1800, "layout_type": "vertical" },
+    { "name": "google_da_square", "width": 1200, "height": 1200, "layout_type": "square" },
+    { "name": "google_da_landscape", "width": 1200, "height": 628, "layout_type": "landscape" },
+    { "name": "naver_small_thumb", "width": 342, "height": 228, "layout_type": "micro" }
+  ]
+}

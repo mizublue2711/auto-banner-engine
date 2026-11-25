@@ -1,0 +1,24 @@
+{
+  "$schema": "../config/banner_task.schema.json",
+  "task_id": "TASK_XEXYMIX_2026_DEMO",
+  "brand_id": "xexymix",
+  "content": {
+    "badge_text": "2026 WINTER DROP",
+    "sub_headline": "블랙라벨 시그니처 360N",
+    "main_headline": "최대 45% OFF",
+    "hook_visual_asset": "",
+    "visual_stage_asset": "",
+    "cta_text": "신상 컬렉션 보러가기 >",
+    "cta_style": "filled_red",
+    "disclaimers": [
+      "*공식 온라인 스토어 단독 프로모션 기준, 일부 품목 제외",
+      "*재고 소진 시 조기 종료될 수 있습니다"
+    ]
+  },
+  "target_dimensions": [
+    { "name": "meta_feed_4_5", "width": 1440, "height": 1800, "layout_type": "vertical" },
+    { "name": "google_da_square", "width": 1200, "height": 1200, "layout_type": "square" },
+    { "name": "google_da_landscape", "width": 1200, "height": 628, "layout_type": "wide" },
+    { "name": "naver_small_thumb", "width": 342, "height": 228, "layout_type": "micro" }
+  ]
+}

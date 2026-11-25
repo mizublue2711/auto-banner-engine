@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://auto-banner-engine.local/schemas/brand_tokens.schema.json",
+  "title": "Brand Tokens Schema",
+  "description": "Strict design token contract for zero-code multi-brand onboarding.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["brand_id", "brand_name", "colors", "typography", "ui"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "brand_id": { "type": "string", "minLength": 1, "pattern": "^[a-z0-9_\\-]+$" },
+    "brand_name": { "type": "string", "minLength": 1 },
+    "logo_url": { "type": "string", "minLength": 1 },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "accent", "surface", "text_headline", "text_muted"],
+      "properties": {
+        "primary": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "surface": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "canvas": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "text_headline": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "text_muted": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "cta_text": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["font_family", "font_weights", "letter_spacing"],
+      "properties": {
+        "font_family": { "type": "string", "minLength": 1 },
+        "font_weights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["regular", "semibold", "bold", "hook"],
+          "properties": {
+            "regular": { "type": "integer", "minimum": 100, "maximum": 900 },
+            "semibold": { "type": "integer", "minimum": 100, "maximum": 900 },
+            "bold": { "type": "integer", "minimum": 100, "maximum": 900 },
+            "hook": { "type": "integer", "minimum": 100, "maximum": 900 }
+          }
+        },
+        "letter_spacing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tight", "normal", "wide"],
+          "properties": {
+            "tight": { "type": "string" },
+            "normal": { "type": "string" },
+            "wide": { "type": "string" }
+          }
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cta_radius", "badge_style", "elevation"],
+      "properties": {
+        "cta_radius": { "type": "string", "minLength": 1 },
+        "badge_style": {
+          "type": "string",
+          "enum": ["pill", "tag", "outlined", "linear_sharp", "none"]
+        },
+        "elevation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["y", "blur", "opacity"],
+          "properties": {
+            "y": { "type": "integer", "minimum": 0, "maximum": 64 },
+            "blur": { "type": "number", "minimum": 0, "maximum": 128 },
+            "opacity": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

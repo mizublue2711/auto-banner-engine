@@ -78,6 +78,29 @@ def composite_badge_on_fabric(
     return base
 
 
+def composite_cutout_on_canvas(
+    base_image: Image.Image,
+    cutout_path: Path | str,
+    target_width: int = 360,
+    position: Tuple[int, int] = (0, 0),
+    rotation_deg: float = 0.0,
+    elevation: int = 12,
+    blur_radius: float = 24.0,
+    shadow_opacity: float = 0.18,
+) -> Image.Image:
+    """Composite a transparent cutout onto a base canvas with soft 2D directional drop shadow."""
+    return composite_badge_on_fabric(
+        fabric_image=base_image,
+        badge_beauty_path=cutout_path,
+        target_width=target_width,
+        position=position,
+        rotation_deg=rotation_deg,
+        shadow_offset=(0, elevation),
+        shadow_blur_radius=blur_radius,
+        shadow_opacity=shadow_opacity,
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Composite 4K badge beauty render onto banner")
     parser.add_argument("--fabric", required=True, help="Input fabric/banner image path")
@@ -87,17 +110,26 @@ def main() -> None:
     parser.add_argument("--x", type=int, default=100, help="X position")
     parser.add_argument("--y", type=int, default=100, help="Y position")
     parser.add_argument("--rotate", type=float, default=0.0, help="Rotation in degrees")
+    parser.add_argument("--elevation", type=int, default=12, help="Shadow Y elevation in px")
+    parser.add_argument("--blur", type=float, default=24.0, help="Shadow Gaussian blur radius")
+    parser.add_argument("--opacity", type=float, default=0.18, help="Shadow opacity (0..1)")
     args = parser.parse_args()
 
     fabric = Image.open(args.fabric)
-    out_img = composite_badge_on_fabric(
+    out_img = composite_cutout_on_canvas(
         fabric,
-        badge_beauty_path=args.badge,
+        cutout_path=args.badge,
         target_width=args.width,
         position=(args.x, args.y),
         rotation_deg=args.rotate,
+        elevation=args.elevation,
+        blur_radius=args.blur,
+        shadow_opacity=args.opacity,
     )
-    out_img.save(args.out, "PNG")
+    if args.out.lower().endswith(".webp"):
+        out_img.save(args.out, "WEBP", quality=90, method=6)
+    else:
+        out_img.save(args.out, "PNG", optimize=True)
 
 
 if __name__ == "__main__":

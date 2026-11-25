@@ -1,0 +1,54 @@
+/* ==========================================================================
+   AUTO-BANNER // ENGINE — DESIGN TOKENS
+   Aesthetic Paradigm: Swiss Cybernetic Brutalism
+   Client: Chai Communication Assignment
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-obsidian: #05050A;
+  --surface-titanium: #0D0D14;
+  --surface-mist: #14141E;
+  --hairline-border: #222536;
+  --grid-blueprint: #181A24;
+  --text-laser-white: #F4F4F6;
+  --text-muted-gray: #767676;
+  --accent-cyan: #00E5FF;
+  --status-emerald: #00FF66;
+  --highlight-amber: #FFB800;
+  --accent-violet: #5322FF;
+  --brand-meritz-red: #EF3B24;
+
+  /* Alpha & Glow Tokens */
+  --surface-hud-glass: rgba(5, 5, 10, 0.84);
+  --emerald-glow: rgba(0, 255, 102, 0.35);
+  --cyan-glow: rgba(0, 229, 255, 0.18);
+  --amber-tint: rgba(255, 184, 0, 0.12);
+
+  /* Radius System */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-pill: 160px;
+
+  /* Typography Stack */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Typography Scale */
+  --text-hero-wordmark: clamp(42px, 8vw, 125px);
+  --text-zone-title: clamp(28px, 3.2vw, 44px);
+  --text-mono-xs: 11px;
+  --text-mono-sm: 12px;
+  --text-body-sm: 14px;
+  --text-body-md: 16px;
+
+  /* Layout & Grid Foundations */
+  --hud-height: 68px;
+  --container-max: 1440px;
+  --grid-step: 24px;
+  --blueprint-grid-pattern: radial-gradient(circle, #222536 1px, transparent 1px) 0 0 / 24px 24px;
+
+  /* Motion */
+  --ease-cyber: cubic-bezier(0.16, 1, 0.3, 1);
+}

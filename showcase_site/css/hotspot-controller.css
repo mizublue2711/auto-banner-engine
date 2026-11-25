@@ -1,0 +1,268 @@
+/* ==========================================================================
+   AUTO-BANNER // ENGINE — DECOUPLED 2D HOTSPOT OVERLAY MODULE (STEP 11)
+   100% Render-Agnostic DOM/CSS Overlay over .hero-cad-viewport
+   Aesthetic Paradigm: Swiss Cybernetic Brutalism
+   ========================================================================== */
+
+.hotspot-overlay-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  overflow: hidden;
+  border-radius: var(--radius-md, 16px);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive '+' Hotspot Pins & Radar Pulse
+   -------------------------------------------------------------------------- */
+.hotspot-pin {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(13, 13, 20, 0.85);
+  border: 1px solid var(--pin-color, #00E5FF);
+  color: #F4F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 0 0 1px rgba(5, 5, 10, 0.7), 0 4px 14px rgba(0, 0, 0, 0.45);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hotspot-pin::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid var(--pin-color, #00E5FF);
+  pointer-events: none;
+  animation: hotspotRadarPulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes hotspotRadarPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  70% {
+    transform: scale(2.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.15);
+    opacity: 0;
+  }
+}
+
+.hotspot-pin:hover,
+.hotspot-pin:focus-visible,
+.hotspot-pin.is-active {
+  z-index: 6;
+  transform: translate(-50%, -50%) scale(1.12);
+  background: rgba(13, 13, 20, 0.96);
+  box-shadow:
+    0 0 0 2px rgba(5, 5, 10, 0.85),
+    0 0 18px color-mix(in srgb, var(--pin-color, #00E5FF) 55%, transparent);
+  outline: none;
+}
+
+.hotspot-pin-plus {
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.hotspot-pin.is-active .hotspot-pin-plus {
+  transform: rotate(45deg);
+  color: var(--pin-color, #00E5FF);
+}
+
+.hotspot-pin-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(5, 5, 10, 0.92);
+  border: 1px solid var(--pin-color, #00E5FF);
+  color: var(--pin-color, #00E5FF);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Glassmorphic Flyout Cards (Generated Banner Previews & #popup-spec-card)
+   -------------------------------------------------------------------------- */
+.hotspot-flyout-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  z-index: 20;
+  max-width: 360px;
+  width: calc(100% - 32px);
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  background: rgba(13, 13, 20, 0.88);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--hairline-border, #222536);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline-border, #222536) transparent;
+}
+
+.hotspot-overlay-layer .hotspot-flyout-card {
+  z-index: 5;
+}
+
+.hotspot-flyout-card.is-active,
+.hotspot-flyout-card.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Generated Banner Preview Card Internals */
+.hotspot-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hotspot-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--pin-color, #00E5FF);
+  background: rgba(5, 5, 10, 0.65);
+  color: var(--pin-color, #00E5FF);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hotspot-card-badge {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted-gray, #767676);
+}
+
+.hotspot-card-thumb,
+.flyout-preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--hairline-border, #222536);
+  background: var(--bg-obsidian, #05050A);
+  margin-bottom: 12px;
+  cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspot-card-thumb img,
+.flyout-card-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hotspot-card-thumb:hover img {
+  transform: scale(1.03);
+}
+
+.hotspot-card-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-laser-white, #F4F4F6);
+  margin-bottom: 6px;
+}
+
+.hotspot-card-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted-gray, #767676);
+  margin-bottom: 12px;
+}
+
+.hotspot-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--hairline-border, #222536);
+}
+
+.hotspot-card-actions .cyber-btn {
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: 10px;
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  .hotspot-pin::before {
+    animation: none;
+    opacity: 0.35;
+  }
+
+  .hotspot-pin,
+  .hotspot-pin-plus,
+  .hotspot-flyout-card,
+  .hotspot-card-thumb img {
+    transition: none;
+  }
+}
+
+/* Compact / Mobile Viewport Adjustments */
+@media (max-width: 768px) {
+  .hotspot-flyout-card {
+    max-width: calc(100% - 24px);
+    width: calc(100% - 24px);
+    padding: 14px;
+  }
+}

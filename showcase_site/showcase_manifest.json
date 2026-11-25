@@ -1,0 +1,206 @@
+{
+  "engine_version": "1.0.0",
+  "client": "Chai Communication Assignment",
+  "author": "Antigravity Pipeline",
+  "theme_tokens": {
+    "canvas_dark": "#05050A",
+    "titanium_plate": "#0D0D14",
+    "hairline_border": "#222536",
+    "laser_white": "#F4F4F6",
+    "status_emerald": "#00FF66",
+    "accent_cyan": "#00E5FF",
+    "highlight_amber": "#FFB800"
+  },
+  "tasks": {
+    "task1_xexymix": {
+      "title": "XEXYMIX Black Label 360N Leggings",
+      "source_master": "11_40462_261106_젝시믹스.psd",
+      "total_dimensions": 11,
+      "engine_highlights": [
+        "Orthogonal Manhattan Stepping (Zero Slanted Lines)",
+        "Zero Fabric Occlusion (Outer Silhouette Tangent)",
+        "Non-linear Soft Alpha Feathering (Landscape Seam Removal)",
+        "Policy Compliant: 0% AI Watermark"
+      ],
+      "placements": [
+        {
+          "id": "01",
+          "name": "Meta Story",
+          "ratio": "9:16",
+          "resolution": "1440x2560",
+          "file": "deliverables/task1_xexymix/01_meta_story_1440x2560.jpg"
+        },
+        {
+          "id": "02",
+          "name": "Meta Feed",
+          "ratio": "4:5",
+          "resolution": "1440x1800",
+          "file": "deliverables/task1_xexymix/02_meta_feed_1440x1800.jpg"
+        },
+        {
+          "id": "03",
+          "name": "Kakao Feed",
+          "ratio": "4:5",
+          "resolution": "800x1000",
+          "file": "deliverables/task1_xexymix/03_kakao_feed_800x1000.jpg"
+        },
+        {
+          "id": "04",
+          "name": "Google DA",
+          "ratio": "4:5",
+          "resolution": "960x1200",
+          "file": "deliverables/task1_xexymix/04_google_da_960x1200.jpg"
+        },
+        {
+          "id": "05",
+          "name": "Google Square",
+          "ratio": "1:1",
+          "resolution": "1200x1200",
+          "file": "deliverables/task1_xexymix/05_google_square_1200x1200.jpg"
+        },
+        {
+          "id": "06",
+          "name": "Naver Square",
+          "ratio": "1:1",
+          "resolution": "1200x1200",
+          "file": "deliverables/task1_xexymix/06_naver_square_1200x1200.jpg"
+        },
+        {
+          "id": "07",
+          "name": "Google Landscape",
+          "ratio": "1.91:1",
+          "resolution": "1200x628",
+          "file": "deliverables/task1_xexymix/07_google_landscape_1200x628.jpg"
+        },
+        {
+          "id": "08",
+          "name": "Naver Wide",
+          "ratio": "2.23:1",
+          "resolution": "1250x560",
+          "file": "deliverables/task1_xexymix/08_naver_wide_1250x560.jpg"
+        },
+        {
+          "id": "09",
+          "name": "Naver Thumbnail",
+          "ratio": "3:2",
+          "resolution": "342x228",
+          "file": "deliverables/task1_xexymix/09_naver_thumb_342x228.jpg"
+        },
+        {
+          "id": "10",
+          "name": "Naver Smart Channel",
+          "ratio": "13:14",
+          "resolution": "260x280",
+          "file": "deliverables/task1_xexymix/10_naver_smart_channel_260x280.jpg"
+        },
+        {
+          "id": "11",
+          "name": "Kakao Bizboard",
+          "ratio": "Micro",
+          "resolution": "314x300",
+          "file": "deliverables/task1_xexymix/11_kakao_bizboard_314x300.jpg"
+        }
+      ]
+    },
+    "task2_meritz": {
+      "title": "Meritz Partners Creative Ad Banner",
+      "brief_source": "BANNER [Chai Communication] Assignment Design Brief.pptx",
+      "brand_book_source": "Meritz_brand_book.pdf",
+      "brand_palette": {
+        "vermillion_red": "#EF3B24",
+        "obsidian_black": "#141414",
+        "pure_white": "#FFFFFF",
+        "chalk_white": "#F2F2F2"
+      },
+      "options": [
+        {
+          "option_id": "opt1_conservative",
+          "label": "Option 1 // Conservative Corporate",
+          "psd_path": "deliverables/task2_meritz/meritz_partners_master.psd",
+          "preview_path": "deliverables/task2_meritz/meritz_partners_preview.jpg",
+          "art_direction": "Direct-response financial layout, 2-column split with metallic 3D gold coin hook."
+        },
+        {
+          "option_id": "opt2_monumental",
+          "label": "Option 2 // Monumental 3D Zero-Gravity",
+          "psd_path": "deliverables/task2_meritz/meritz_partners_option2.psd",
+          "preview_path": "deliverables/task2_meritz/meritz_partners_option2_preview.jpg",
+          "art_direction": "High-concept low-angle perspective, matte textured red 150 monolith inside Champagne Gold wireframe gem cage, 5 zero-gravity coins with cinematic depth-of-field blur."
+        }
+      ],
+      "qa_compliance": {
+        "total_rules": 15,
+        "passed_rules": 15,
+        "anti_plastic_specular": "< 0.5%",
+        "glyph_collision": "0px",
+        "unicode_luni_encoding": "PASSED"
+      }
+    }
+  },
+  "hero_hotspots": [
+    {
+      "id": "pin-opt1",
+      "top": "38%",
+      "left": "18%",
+      "color": "#00E5FF",
+      "badge": "01",
+      "type": "banner_preview",
+      "i18n": {
+        "tag": "hero_hotspots.opt1_tag",
+        "title": "hero_hotspots.opt1_title",
+        "desc": "hero_hotspots.opt1_desc",
+        "cta_download": "hero_hotspots.opt1_cta_download",
+        "cta_zoom": "hero_hotspots.cta_deep_zoom"
+      },
+      "data": {
+        "option_id": "opt1_conservative",
+        "title": "Option 1 // Conservative Corporate",
+        "tag": "DIRECT RESPONSE // MASTER .PSD",
+        "image": "./deliverables/task2_meritz/meritz_partners_preview.jpg",
+        "download": "./deliverables/task2_meritz/meritz_partners_master.psd",
+        "desc": "Standard financial direct-response layout featuring a high-contrast 2-column split and metallic 3D gold coin visual hook."
+      }
+    },
+    {
+      "id": "pin-opt2",
+      "top": "28%",
+      "left": "78%",
+      "color": "#FFB800",
+      "badge": "02",
+      "type": "banner_preview",
+      "i18n": {
+        "tag": "hero_hotspots.opt2_tag",
+        "title": "hero_hotspots.opt2_title",
+        "desc": "hero_hotspots.opt2_desc",
+        "cta_download": "hero_hotspots.opt2_cta_download",
+        "cta_zoom": "hero_hotspots.cta_deep_zoom"
+      },
+      "data": {
+        "option_id": "opt2_monumental",
+        "title": "Option 2 // Monumental 3D Zero-Gravity",
+        "tag": "INNOVATIVE 3D // MASTER .PSD",
+        "image": "./deliverables/task2_meritz/meritz_partners_option2_preview.jpg",
+        "download": "./deliverables/task2_meritz/meritz_partners_option2.psd",
+        "desc": "Matte Vermillion '150' monolith suspended inside a Champagne Gold wireframe gem cage with 5 zero-gravity coins."
+      }
+    },
+    {
+      "id": "pin-spec",
+      "top": "75%",
+      "left": "50%",
+      "color": "#00FF66",
+      "badge": "QA",
+      "type": "existing_dom_target",
+      "targetSelector": "#popup-spec-card",
+      "label": "15/15 QA TELEMETRY",
+      "i18n": {
+        "pin_label": "hero_hotspots.spec_pin_label",
+        "tag": "hero_hotspots.spec_tag",
+        "title": "hero_hotspots.spec_title",
+        "desc": "hero_hotspots.spec_desc",
+        "cta_zoom": "hero_hotspots.spec_cta_zoom",
+        "cta_download": "hero_hotspots.spec_cta_download"
+      }
+    }
+  ]
+}

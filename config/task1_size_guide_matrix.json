@@ -57,32 +57,32 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 88,
-            "y": 1147,
-            "width": 1195,
-            "height": 383
+            "x": 80,
+            "y": 1810,
+            "width": 940,
+            "height": 343
           },
           "rel": {
-            "x": 0.0611,
-            "y": 0.448,
-            "width": 0.8299,
-            "height": 0.1496
+            "x": 0.0556,
+            "y": 0.707,
+            "width": 0.6528,
+            "height": 0.134
           }
         },
         "promo_sticker_zone": {
           "visible": true,
           "anchor": "bottom_center",
           "px": {
-            "x": 81,
-            "y": 1588,
-            "width": 965,
-            "height": 197
+            "x": 80,
+            "y": 2195,
+            "width": 1080,
+            "height": 220
           },
           "rel": {
-            "x": 0.0563,
-            "y": 0.6203,
-            "width": 0.6701,
-            "height": 0.077
+            "x": 0.0556,
+            "y": 0.8574,
+            "width": 0.75,
+            "height": 0.0859
           },
           "native_badge_path": "assets/brands/xexymix/badges/meta_story_9_16_promo.png"
         },
@@ -173,16 +173,16 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 82,
-            "y": 1129,
-            "width": 1236,
-            "height": 401
+            "x": 64,
+            "y": 1135,
+            "width": 830,
+            "height": 303
           },
           "rel": {
-            "x": 0.0569,
-            "y": 0.6272,
-            "width": 0.8583,
-            "height": 0.2228
+            "x": 0.0444,
+            "y": 0.6306,
+            "width": 0.5764,
+            "height": 0.1683
           }
         },
         "promo_sticker_zone": {
@@ -289,32 +289,32 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 49,
-            "y": 549,
-            "width": 644,
-            "height": 211
+            "x": 36,
+            "y": 590,
+            "width": 460,
+            "height": 168
           },
           "rel": {
-            "x": 0.0612,
-            "y": 0.549,
-            "width": 0.805,
-            "height": 0.211
+            "x": 0.045,
+            "y": 0.59,
+            "width": 0.575,
+            "height": 0.168
           }
         },
         "promo_sticker_zone": {
           "visible": true,
           "anchor": "bottom_center",
           "px": {
-            "x": 39,
+            "x": 36,
             "y": 785,
-            "width": 526,
-            "height": 107
+            "width": 495,
+            "height": 101
           },
           "rel": {
-            "x": 0.0488,
+            "x": 0.045,
             "y": 0.785,
-            "width": 0.6575,
-            "height": 0.107
+            "width": 0.6188,
+            "height": 0.101
           },
           "native_badge_path": "assets/brands/xexymix/badges/kakao_feed_4_5_promo.png"
         },
@@ -405,16 +405,16 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 44,
-            "y": 760,
-            "width": 804,
-            "height": 263
+            "x": 42,
+            "y": 756,
+            "width": 554,
+            "height": 202
           },
           "rel": {
-            "x": 0.0458,
-            "y": 0.6333,
-            "width": 0.8375,
-            "height": 0.2192
+            "x": 0.0438,
+            "y": 0.63,
+            "width": 0.5771,
+            "height": 0.1683
           }
         },
         "promo_sticker_zone": {
@@ -521,16 +521,16 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 60,
-            "y": 696,
-            "width": 922,
-            "height": 301
+            "x": 52,
+            "y": 684,
+            "width": 740,
+            "height": 270
           },
           "rel": {
-            "x": 0.05,
-            "y": 0.58,
-            "width": 0.7683,
-            "height": 0.2508
+            "x": 0.0433,
+            "y": 0.57,
+            "width": 0.6167,
+            "height": 0.225
           }
         },
         "promo_sticker_zone": {
@@ -637,16 +637,16 @@
           "visible": true,
           "anchor": "bottom_left",
           "px": {
-            "x": 60,
-            "y": 696,
-            "width": 922,
-            "height": 301
+            "x": 52,
+            "y": 684,
+            "width": 740,
+            "height": 270
           },
           "rel": {
-            "x": 0.05,
-            "y": 0.58,
-            "width": 0.7683,
-            "height": 0.2508
+            "x": 0.0433,
+            "y": 0.57,
+            "width": 0.6167,
+            "height": 0.225
           }
         },
         "promo_sticker_zone": {
@@ -965,21 +965,22 @@
           "flip_x": false
         },
         "feature_card_zone": {
-          "visible": false,
-          "anchor": "none",
+          "visible": true,
+          "anchor": "middle_left",
           "px": {
-            "x": 0,
-            "y": 0,
-            "width": 0,
-            "height": 0
+            "x": 12,
+            "y": 34,
+            "width": 122,
+            "height": 54
           },
           "rel": {
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 0.0351,
+            "y": 0.1491,
+            "width": 0.3567,
+            "height": 0.2368
           },
-          "omitted_reason": "micro_viewport_legibility"
+          "arrangement": "row_horizontal",
+          "use_leader_lines": false
         },
         "headline_zone": {
           "visible": true,

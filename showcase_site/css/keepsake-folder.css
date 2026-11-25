@@ -1,0 +1,609 @@
+/* ==========================================================================
+   AUTO-BANNER // ENGINE — INTERACTIVE KEEPSAKE FOLDER MODULE (STEP 07)
+   Standalone Reusable Component Stylesheet
+   Aesthetic Paradigm: Swiss Cybernetic Brutalism
+   ========================================================================== */
+
+.keepsake-container {
+  position: relative;
+  width: 100%;
+  perspective: 1400px;
+}
+
+.keepsake-folder {
+  --keepsake-card-w: 240px;
+  --keepsake-card-h: 300px; /* Strict 4:5 outer proportion */
+  --keepsake-expanded-height: 1080px;
+  position: relative;
+  width: 100%;
+  min-height: 410px;
+  perspective: 1400px;
+  transition: min-height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keepsake-folder.is-expanded {
+  min-height: var(--keepsake-expanded-height);
+}
+
+.keepsake-folder-stage {
+  position: relative;
+  width: 100%;
+  min-height: inherit;
+  perspective: 1400px;
+}
+
+/* --------------------------------------------------------------------------
+   Stage 1: Folder Backplate (Lower Pocket Cradle, No Duplicate Upper Tab)
+   -------------------------------------------------------------------------- */
+.keepsake-folder-back {
+  position: absolute;
+  top: 158px;
+  left: 50%;
+  width: min(100%, 420px);
+  height: 230px;
+  transform: translate3d(-50%, 0, 0);
+  background: rgba(9, 9, 16, 0.72);
+  border: 1px solid var(--hairline-border, #222536);
+  border-radius: var(--radius-md, 16px);
+  z-index: 1;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.keepsake-tab-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--status-emerald, #00FF66);
+  box-shadow: 0 0 8px rgba(0, 255, 102, 0.65);
+  flex-shrink: 0;
+}
+
+.keepsake-folder.is-expanded .keepsake-folder-back {
+  opacity: 0;
+  transform: translate3d(-50%, -14px, 0) scale(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   Frosted Glass Folder Front Pouch (Collapsed -> Expanded Docked Header Bar)
+   Positioned at top: 212px so ~53.3% of the 300px hero card stands exposed
+   -------------------------------------------------------------------------- */
+.keepsake-folder-cover {
+  position: absolute;
+  top: 212px;
+  left: 50%;
+  width: min(100%, 420px);
+  height: 176px;
+  transform: translate3d(-50%, 0, 0) rotateX(0deg);
+  transform-origin: bottom center;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(13, 13, 20, 0.42);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  border-radius: var(--radius-md, 16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 32px rgba(0, 0, 0, 0.45);
+  color: var(--text-laser-white, #F4F4F6);
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  will-change: transform, width, height, top;
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    box-shadow 0.35s ease,
+    top 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keepsake-folder-cover:focus-visible {
+  outline: 2px solid var(--accent-cyan, #00E5FF);
+  outline-offset: 3px;
+}
+
+/* Stage 2: Hover Peek — Frosted Lid Tilts Open (-18deg) */
+.keepsake-folder:not(.is-expanded):hover .keepsake-folder-cover,
+.keepsake-folder:not(.is-expanded):focus-within .keepsake-folder-cover {
+  transform: translate3d(-50%, 4px, 0) rotateX(-18deg);
+  border-color: rgba(0, 229, 255, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 18px 42px rgba(0, 229, 255, 0.16);
+}
+
+.keepsake-cover-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.keepsake-cover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan, #00E5FF);
+}
+
+.keepsake-cover-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 255, 102, 0.08);
+  border: 1px solid rgba(0, 255, 102, 0.45);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--status-emerald, #00FF66);
+  white-space: nowrap;
+}
+
+.keepsake-cover-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: auto 0;
+}
+
+.keepsake-cover-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-laser-white, #F4F4F6);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
+}
+
+.keepsake-cover-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11.5px;
+  color: var(--accent-cyan, #00E5FF);
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+}
+
+.keepsake-cover-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: rgba(244, 244, 246, 0.68);
+}
+
+.keepsake-cover-action-pill {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 229, 255, 0.55);
+  background: rgba(0, 229, 255, 0.08);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan, #00E5FF);
+  white-space: nowrap;
+}
+
+.keepsake-cover-flip-hint {
+  display: none;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted-gray, #767676);
+}
+
+/* Expanded Docked Cover Header */
+.keepsake-folder.is-expanded .keepsake-folder-cover {
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 64px;
+  padding: 0 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate3d(-50%, 0, 0) rotateX(0deg);
+  border-color: var(--hairline-border, #222536);
+  background-image: none;
+}
+
+.keepsake-folder.is-expanded .keepsake-folder-cover:hover {
+  border-color: var(--accent-cyan, #00E5FF);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.14);
+}
+
+.keepsake-folder.is-expanded .keepsake-cover-top {
+  width: auto;
+}
+
+.keepsake-folder.is-expanded .keepsake-cover-body,
+.keepsake-folder.is-expanded .keepsake-cover-footer {
+  display: none;
+}
+
+.keepsake-folder.is-expanded .keepsake-cover-flip-hint,
+.keepsake-folder.is-expanded .keepsake-cover-action-pill {
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   Card Deck & Uniform 4:5 Card Slots (53% Exposed Above Frosted Rim)
+   -------------------------------------------------------------------------- */
+.keepsake-deck {
+  position: relative;
+  width: 100%;
+  min-height: inherit;
+}
+
+/* Stationary outer slot handles stack/fan-out positioning & hover detection */
+.keepsake-card-slot {
+  position: absolute;
+  top: 52px;
+  left: calc(50% - (var(--keepsake-card-w) / 2));
+  width: var(--keepsake-card-w);
+  height: var(--keepsake-card-h);
+  aspect-ratio: 4 / 5;
+  z-index: calc(25 - var(--card-index, 0));
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  pointer-events: none;
+  /* Stage 1: Collapsed stack offset (53.3% hero banner above frosted rim) */
+  transform: translate3d(
+      0px,
+      calc(var(--card-index, 0) * -4px),
+      0px
+    )
+    scale(calc(1 - var(--card-index, 0) * 0.02));
+  transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stage 2: Hover Peek — Top cards fan upward by 20px */
+.keepsake-folder:not(.is-expanded):hover .keepsake-card-slot,
+.keepsake-folder:not(.is-expanded):focus-within .keepsake-card-slot {
+  transform: translate3d(
+      var(--peek-x, 0px),
+      calc(var(--card-index, 0) * -4px - 20px),
+      0px
+    )
+    rotateZ(var(--peek-rot, 0deg))
+    scale(calc(1 - var(--card-index, 0) * 0.02));
+}
+
+/* Stage 3: Expanded Fan-Out Interactive Arc Gallery */
+.keepsake-folder.is-expanded .keepsake-card-slot {
+  pointer-events: auto;
+  z-index: 15;
+  cursor: pointer;
+  transition-delay: calc(var(--card-index, 0) * 24ms);
+  transform: translate3d(var(--fan-x, 0px), var(--fan-y, 0px), 0px)
+    rotateZ(var(--fan-rot, 0deg))
+    scale(1);
+}
+
+/* Keep outer slot stationary on hover to eliminate 90-deg edge jitter */
+.keepsake-folder.is-expanded .keepsake-card-slot:hover,
+.keepsake-folder.is-expanded .keepsake-card-slot:focus-within,
+.keepsake-folder.is-expanded .keepsake-card-slot.is-flipped {
+  z-index: 60;
+}
+
+.keepsake-card-slot:focus-visible {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   3D Flip Card Inner Container & Faces
+   -------------------------------------------------------------------------- */
+.keepsake-card-flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  will-change: transform;
+}
+
+.keepsake-folder.is-expanded .keepsake-card-slot:hover .keepsake-card-flipper,
+.keepsake-folder.is-expanded .keepsake-card-slot:focus-within .keepsake-card-flipper,
+.keepsake-folder.is-expanded .keepsake-card-slot.is-flipped .keepsake-card-flipper {
+  transform: rotateY(180deg);
+}
+
+.keepsake-card-front,
+.keepsake-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Front Side: 100% Clean Banner Image on Dark Titanium (#0D0D14), Zero Overlays */
+.keepsake-card-front {
+  transform: rotateY(0deg);
+  background: #0D0D14;
+  border: 1px solid var(--hairline-border, #222536);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+.keepsake-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+  pointer-events: none;
+}
+
+/* Back Side: Pure JetBrains Mono Technical Telemetry (No Individual Download Buttons) */
+.keepsake-card-back {
+  transform: rotateY(180deg);
+  background: #0D0D14;
+  border: 1px solid #00E5FF;
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-laser-white, #F4F4F6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.16);
+}
+
+.keepsake-back-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.keepsake-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  background: rgba(0, 229, 255, 0.1);
+  color: #00E5FF;
+}
+
+.keepsake-platform-badge[data-platform="NAVER"] {
+  border-color: rgba(0, 255, 102, 0.5);
+  background: rgba(0, 255, 102, 0.09);
+  color: #00FF66;
+}
+
+.keepsake-platform-badge[data-platform="KAKAO"] {
+  border-color: rgba(255, 184, 0, 0.55);
+  background: rgba(255, 184, 0, 0.1);
+  color: #FFB800;
+}
+
+.keepsake-card-id {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted-gray, #767676);
+  letter-spacing: 0.08em;
+}
+
+.keepsake-back-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #F4F4F6;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #222536;
+}
+
+.keepsake-spec-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.keepsake-spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(34, 37, 54, 0.9);
+  font-size: 10.5px;
+  line-height: 1.3;
+}
+
+.keepsake-spec-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.keepsake-spec-key {
+  color: #8A8FA8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.keepsake-spec-val {
+  color: #F4F4F6;
+  font-weight: 700;
+  text-align: right;
+  word-break: keep-all;
+}
+
+.keepsake-spec-val.is-cyan {
+  color: #00E5FF;
+}
+
+.keepsake-spec-val.is-emerald {
+  color: #00FF66;
+}
+
+.keepsake-back-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid #222536;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: #767676;
+  text-transform: uppercase;
+}
+
+.keepsake-verified-pill {
+  color: #00FF66;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Master ZIP Download CTA (Positioned Directly Beneath Keepsake Folder)
+   -------------------------------------------------------------------------- */
+.keepsake-zip-cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline-border, #222536);
+}
+
+.keepsake-master-zip-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background-color: #0D0D14;
+  border: 1px solid #222536;
+  color: #F4F4F6;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keepsake-master-zip-btn:hover,
+.keepsake-master-zip-btn:focus-visible {
+  border-color: #00E5FF;
+  color: #00E5FF;
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.28), inset 0 0 12px rgba(0, 229, 255, 0.08);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.keepsake-zip-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .keepsake-folder {
+    --keepsake-card-w: 224px;
+    --keepsake-card-h: 280px; /* Strict 4:5 */
+  }
+
+  .keepsake-folder:not(.is-expanded) .keepsake-folder-cover {
+    top: 202px;
+    height: 172px;
+  }
+
+  .keepsake-folder.is-expanded .keepsake-cover-flip-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .keepsake-folder {
+    --keepsake-card-w: 240px;
+    --keepsake-card-h: 300px; /* Strict 4:5 */
+  }
+
+  .keepsake-folder-cover {
+    padding: 18px;
+  }
+
+  .keepsake-folder.is-expanded .keepsake-folder-cover {
+    height: auto;
+    min-height: 60px;
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .keepsake-master-zip-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keepsake-folder,
+  .keepsake-folder-back,
+  .keepsake-folder-cover,
+  .keepsake-card-slot,
+  .keepsake-card-flipper {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

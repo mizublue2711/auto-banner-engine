@@ -371,6 +371,16 @@ def composite_feature_cards(
         draw_callout_leader_lines(canvas, card1_rect, card2_rect, model_box)
         return
 
+    if layout_type == "micro" and fc_zone.get("arrangement") == "row_horizontal":
+        zx, zy, zw, zh = px["x"], px["y"], px["width"], px["height"]
+        gap = max(4, int(round(zw * 0.06)))
+        slot_w = max(20, (zw - gap) // 2)
+        c1 = fit_contain(card1, slot_w, zh)
+        c2 = fit_contain(card2, slot_w, zh)
+        canvas.alpha_composite(c1, (zx, zy))
+        canvas.alpha_composite(c2, (zx + c1.width + gap, zy))
+        return
+
     # Vertical 9:16, kakao_feed_4_5, and Square (1:1): staggered vertical stack
     # ensures unobstructed horizontal callout leader lines to both anatomical zones
     zx, zy, zw, zh = px["x"], px["y"], px["width"], px["height"]
@@ -539,6 +549,7 @@ def main() -> None:
     parser.add_argument("--format", choices=["png", "jpg", "jpeg"], default="png", help="Output format (png or jpg)")
     parser.add_argument("--out", default=None, help="Output directory (defaults to deliverables/task1_xexymix for jpg)")
     parser.add_argument("--showcase-manifest", default=str(DEFAULT_SHOWCASE_MANIFEST), help="Path to showcase_manifest.json")
+    parser.add_argument("--skip-manifest", action="store_true", help="Do not overwrite showcase_manifest.json")
     args = parser.parse_args()
 
     fmt = "jpg" if args.format in ("jpg", "jpeg") else "png"
@@ -581,7 +592,7 @@ def main() -> None:
             }
         )
 
-    if fmt == "jpg":
+    if fmt == "jpg" and not args.skip_manifest:
         showcase_payload = {
             "schema_version": "1.0",
             "project": "auto-banner-engine",

@@ -1,0 +1,9615 @@
+{
+  "psd_path": "assets/Task 1 - XEXYMIX/(Size Guide) 애프터블프 딱지 가이드.psd",
+  "canvas_size": [
+    6962,
+    2560
+  ],
+  "layer_count": 580,
+  "fonts_found": [],
+  "colors_found": [
+    "#FFFFFF",
+    "#3D3D3D",
+    "#000000",
+    "#FF0000",
+    "#1D1A11",
+    "#E4FF00",
+    "#282840"
+  ],
+  "layers": [
+    {
+      "name": "메타_1440x2560",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        1440,
+        2560
+      ],
+      "size": [
+        1440,
+        2560
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        -102,
+        -90,
+        1921,
+        2655
+      ],
+      "size": [
+        2023,
+        2745
+      ],
+      "depth": 1
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        -78,
+        -90,
+        1921,
+        2655
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 2
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        -78,
+        -90,
+        1921,
+        2655
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        -78,
+        -90,
+        1921,
+        2655
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        701,
+        1818,
+        892,
+        2160
+      ],
+      "size": [
+        191,
+        342
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        -76,
+        -32,
+        1142,
+        777
+      ],
+      "size": [
+        1218,
+        809
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        -93,
+        479,
+        1604,
+        2615
+      ],
+      "size": [
+        1697,
+        2136
+      ],
+      "depth": 2
+    },
+    {
+      "name": "곡선 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "곡선 4",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        -102,
+        398,
+        616,
+        891
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 2
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        -102,
+        398,
+        616,
+        891
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        -102,
+        398,
+        616,
+        891
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        217,
+        424,
+        376,
+        484
+      ],
+      "size": [
+        159,
+        60
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        217,
+        424,
+        376,
+        484
+      ],
+      "size": [
+        159,
+        60
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        232,
+        435,
+        360,
+        472
+      ],
+      "size": [
+        128,
+        37
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        232,
+        435,
+        269,
+        472
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        278,
+        435,
+        315,
+        472
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        323,
+        435,
+        360,
+        472
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        239,
+        445,
+        264,
+        464
+      ],
+      "size": [
+        25,
+        19
+      ],
+      "depth": 5
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        43,
+        513,
+        549,
+        849
+      ],
+      "size": [
+        506,
+        336
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        43,
+        513,
+        255,
+        849
+      ],
+      "size": [
+        212,
+        336
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        197,
+        513,
+        399,
+        848
+      ],
+      "size": [
+        202,
+        335
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        337,
+        513,
+        549,
+        849
+      ],
+      "size": [
+        212,
+        336
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        -78,
+        -90,
+        1921,
+        2655
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 2
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        88,
+        1147,
+        1283,
+        1520
+      ],
+      "size": [
+        1195,
+        373
+      ],
+      "depth": 2
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        89,
+        1160,
+        1327,
+        1426
+      ],
+      "size": [
+        1238,
+        266
+      ],
+      "depth": 3,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        88,
+        1147,
+        627,
+        1225
+      ],
+      "size": [
+        539,
+        78
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        88,
+        1147,
+        627,
+        1225
+      ],
+      "size": [
+        539,
+        78
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 4
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        110,
+        1160,
+        598,
+        1213
+      ],
+      "size": [
+        488,
+        53
+      ],
+      "depth": 4,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        89,
+        1262,
+        1283,
+        1520
+      ],
+      "size": [
+        1194,
+        258
+      ],
+      "depth": 3,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        415,
+        1399,
+        886,
+        1530
+      ],
+      "size": [
+        471,
+        131
+      ],
+      "depth": 3
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        80,
+        1587,
+        1047,
+        1786
+      ],
+      "size": [
+        967,
+        199
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1183",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        94,
+        1657,
+        1047,
+        1786
+      ],
+      "size": [
+        953,
+        129
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        156,
+        1694,
+        743,
+        1753
+      ],
+      "size": [
+        587,
+        59
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        697,
+        1704,
+        722,
+        1743
+      ],
+      "size": [
+        25,
+        39
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        718,
+        1704,
+        743,
+        1743
+      ],
+      "size": [
+        25,
+        39
+      ],
+      "depth": 3
+    },
+    {
+      "name": "젝시블프",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        156,
+        1694,
+        372,
+        1753
+      ],
+      "size": [
+        216,
+        59
+      ],
+      "depth": 3,
+      "type": {
+        "text": "젝시블프",
+        "font_size": 156.1516,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        391,
+        1696,
+        673,
+        1749
+      ],
+      "size": [
+        282,
+        53
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.31458,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 36",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        80,
+        1600,
+        611,
+        1675
+      ],
+      "size": [
+        531,
+        75
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1184 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        82,
+        1602,
+        611,
+        1675
+      ],
+      "size": [
+        529,
+        73
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1184",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        80,
+        1600,
+        609,
+        1673
+      ],
+      "size": [
+        529,
+        73
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택!",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        140,
+        1614,
+        554,
+        1659
+      ],
+      "size": [
+        414,
+        45
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택!",
+        "font_size": 155.70575,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        725,
+        1587,
+        1039,
+        1768
+      ],
+      "size": [
+        314,
+        181
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        725,
+        1587,
+        1039,
+        1737
+      ],
+      "size": [
+        314,
+        150
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        745,
+        1605,
+        1009,
+        1768
+      ],
+      "size": [
+        264,
+        163
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        745,
+        1609,
+        1009,
+        1768
+      ],
+      "size": [
+        264,
+        159
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        745,
+        1605,
+        1009,
+        1764
+      ],
+      "size": [
+        264,
+        159
+      ],
+      "depth": 4
+    },
+    {
+      "name": "메타_1440x1800",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        1562,
+        0,
+        3002,
+        1800
+      ],
+      "size": [
+        1440,
+        1800
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 38",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1460,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        2023,
+        2745
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1460,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        2023,
+        2745
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1484,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1484,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        1484,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        2263,
+        1795,
+        2454,
+        2137
+      ],
+      "size": [
+        191,
+        342
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        1486,
+        0,
+        2704,
+        754
+      ],
+      "size": [
+        1218,
+        754
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1469,
+        677,
+        3166,
+        1815
+      ],
+      "size": [
+        1697,
+        1138
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1460,
+        375,
+        2178,
+        868
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1460,
+        375,
+        2178,
+        868
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1460,
+        375,
+        2178,
+        868
+      ],
+      "size": [
+        718,
+        493
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1779,
+        401,
+        1938,
+        461
+      ],
+      "size": [
+        159,
+        60
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1779,
+        401,
+        1938,
+        461
+      ],
+      "size": [
+        159,
+        60
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1794,
+        412,
+        1922,
+        449
+      ],
+      "size": [
+        128,
+        37
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1794,
+        412,
+        1831,
+        449
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1840,
+        412,
+        1877,
+        449
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1885,
+        412,
+        1922,
+        449
+      ],
+      "size": [
+        37,
+        37
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1801,
+        422,
+        1826,
+        441
+      ],
+      "size": [
+        25,
+        19
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1605,
+        490,
+        2111,
+        826
+      ],
+      "size": [
+        506,
+        336
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        1605,
+        490,
+        1817,
+        826
+      ],
+      "size": [
+        212,
+        336
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        1759,
+        490,
+        1961,
+        825
+      ],
+      "size": [
+        202,
+        335
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        1899,
+        490,
+        2111,
+        826
+      ],
+      "size": [
+        212,
+        336
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        1484,
+        -113,
+        3483,
+        2632
+      ],
+      "size": [
+        1999,
+        2745
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1644,
+        1129,
+        2880,
+        1520
+      ],
+      "size": [
+        1236,
+        391
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        1645,
+        1141,
+        2883,
+        1407
+      ],
+      "size": [
+        1238,
+        266
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1644,
+        1129,
+        2183,
+        1205
+      ],
+      "size": [
+        539,
+        76
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1644,
+        1129,
+        2183,
+        1205
+      ],
+      "size": [
+        539,
+        76
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        1666,
+        1141,
+        2154,
+        1194
+      ],
+      "size": [
+        488,
+        53
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        1645,
+        1254,
+        2880,
+        1520
+      ],
+      "size": [
+        1235,
+        266
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1983,
+        1395,
+        2469,
+        1530
+      ],
+      "size": [
+        486,
+        135
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1642,
+        85,
+        1992,
+        131
+      ],
+      "size": [
+        350,
+        46
+      ],
+      "depth": 2
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1642,
+        85,
+        1992,
+        131
+      ],
+      "size": [
+        350,
+        46
+      ],
+      "depth": 3
+    },
+    {
+      "name": "XEXYMIX_LOGO_GOLF",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        1643,
+        85,
+        1992,
+        177
+      ],
+      "size": [
+        349,
+        92
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2687,
+        87,
+        2919,
+        116
+      ],
+      "size": [
+        232,
+        29
+      ],
+      "depth": 2,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 39.75598,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1533,
+        1514,
+        3084,
+        1801
+      ],
+      "size": [
+        1551,
+        287
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1182 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1533,
+        1549,
+        3084,
+        1801
+      ],
+      "size": [
+        1551,
+        252
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 63",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        1562,
+        0,
+        2699,
+        1800
+      ],
+      "size": [
+        1137,
+        1800
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1182",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        1561,
+        1615,
+        3003,
+        1802
+      ],
+      "size": [
+        1442,
+        187
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1185",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        1628,
+        1733,
+        2588,
+        1758
+      ],
+      "size": [
+        960,
+        25
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        1644,
+        1688,
+        2630,
+        1740
+      ],
+      "size": [
+        986,
+        52
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        2581,
+        1693,
+        2607,
+        1735
+      ],
+      "size": [
+        26,
+        42
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        2603,
+        1693,
+        2630,
+        1735
+      ],
+      "size": [
+        27,
+        42
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택! 젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        1644,
+        1688,
+        2311,
+        1740
+      ],
+      "size": [
+        667,
+        52
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택! 젝시블프",
+        "font_size": 153.23921,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2324,
+        1691,
+        2568,
+        1739
+      ],
+      "size": [
+        244,
+        48
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.17398,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        2578,
+        1514,
+        3004,
+        1761
+      ],
+      "size": [
+        426,
+        247
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        2578,
+        1514,
+        3004,
+        1718
+      ],
+      "size": [
+        426,
+        204
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        2603,
+        1540,
+        2962,
+        1761
+      ],
+      "size": [
+        359,
+        221
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        2603,
+        1546,
+        2962,
+        1761
+      ],
+      "size": [
+        359,
+        215
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        2603,
+        1540,
+        2962,
+        1755
+      ],
+      "size": [
+        359,
+        215
+      ],
+      "depth": 4
+    },
+    {
+      "name": "가이드",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 3",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "main 110px - 130px",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2776,
+        1375,
+        2938,
+        1444
+      ],
+      "size": [
+        162,
+        69
+      ],
+      "depth": 3,
+      "type": {
+        "text": "main\r110px - 130px",
+        "font_size": 66.20509,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "sub 60px - 70px",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2776,
+        1250,
+        2918,
+        1318
+      ],
+      "size": [
+        142,
+        68
+      ],
+      "depth": 3,
+      "type": {
+        "text": "sub\r60px - 70px",
+        "font_size": 66.20509,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "카피위치 변경 가능",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        1646,
+        1217,
+        1845,
+        1242
+      ],
+      "size": [
+        199,
+        25
+      ],
+      "depth": 3,
+      "type": {
+        "text": "카피위치 변경 가능",
+        "font_size": 66.20509,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "레이어 58",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        1642,
+        1248,
+        2762,
+        1648
+      ],
+      "size": [
+        1120,
+        400
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 2",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 59",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        1559,
+        0,
+        3012,
+        85
+      ],
+      "size": [
+        1453,
+        85
+      ],
+      "depth": 3
+    },
+    {
+      "name": "85px",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2245,
+        30,
+        2309,
+        58
+      ],
+      "size": [
+        64,
+        28
+      ],
+      "depth": 3,
+      "type": {
+        "text": "85px",
+        "font_size": 70.93402,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "레이어 60",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        1541,
+        1650,
+        3025,
+        1800
+      ],
+      "size": [
+        1484,
+        150
+      ],
+      "depth": 3
+    },
+    {
+      "name": "150px",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2244,
+        1708,
+        2320,
+        1736
+      ],
+      "size": [
+        76,
+        28
+      ],
+      "depth": 3,
+      "type": {
+        "text": "150px",
+        "font_size": 70.93402,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "사각형 1 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        1559,
+        -3,
+        3004,
+        2191
+      ],
+      "size": [
+        1445,
+        2194
+      ],
+      "depth": 3
+    },
+    {
+      "name": "80px",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        1591,
+        867,
+        1619,
+        932
+      ],
+      "size": [
+        28,
+        65
+      ],
+      "depth": 3,
+      "type": {
+        "text": "80px",
+        "font_size": 70.93402,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "80px 복사",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        2949,
+        867,
+        2977,
+        932
+      ],
+      "size": [
+        28,
+        65
+      ],
+      "depth": 3,
+      "type": {
+        "text": "80px",
+        "font_size": 70.93402,
+        "color_hex": "#FF0000"
+      }
+    },
+    {
+      "name": "구글DA_1200x628",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        3112,
+        1310,
+        4312,
+        1938
+      ],
+      "size": [
+        1200,
+        628
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 37",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3073,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        1337,
+        1256
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3073,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        1337,
+        1256
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 35",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3073,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        1337,
+        1256
+      ],
+      "depth": 3
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3073,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        1337,
+        1256
+      ],
+      "depth": 4
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3073,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        1337,
+        1256
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3495,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        915,
+        1256
+      ],
+      "depth": 6
+    },
+    {
+      "name": "생성형 채우기",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3073,
+        1276,
+        3529,
+        1979
+      ],
+      "size": [
+        456,
+        703
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        3076,
+        1243,
+        4054,
+        1681
+      ],
+      "size": [
+        978,
+        438
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 6
+    },
+    {
+      "name": "곡선 7",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "곡선 8",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3658,
+        1395,
+        3865,
+        1538
+      ],
+      "size": [
+        207,
+        143
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3658,
+        1395,
+        3865,
+        1538
+      ],
+      "size": [
+        207,
+        143
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3658,
+        1395,
+        3865,
+        1538
+      ],
+      "size": [
+        207,
+        143
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3738,
+        1403,
+        3785,
+        1422
+      ],
+      "size": [
+        47,
+        19
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3738,
+        1403,
+        3785,
+        1422
+      ],
+      "size": [
+        47,
+        19
+      ],
+      "depth": 6
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3742,
+        1406,
+        3781,
+        1419
+      ],
+      "size": [
+        39,
+        13
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3742,
+        1406,
+        3755,
+        1419
+      ],
+      "size": [
+        13,
+        13
+      ],
+      "depth": 7
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3755,
+        1406,
+        3768,
+        1419
+      ],
+      "size": [
+        13,
+        13
+      ],
+      "depth": 7
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3768,
+        1406,
+        3781,
+        1419
+      ],
+      "size": [
+        13,
+        13
+      ],
+      "depth": 7
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3744,
+        1409,
+        3754,
+        1417
+      ],
+      "size": [
+        10,
+        8
+      ],
+      "depth": 7
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3689,
+        1429,
+        3833,
+        1524
+      ],
+      "size": [
+        144,
+        95
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3689,
+        1429,
+        3749,
+        1524
+      ],
+      "size": [
+        60,
+        95
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3734,
+        1429,
+        3792,
+        1524
+      ],
+      "size": [
+        58,
+        95
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3773,
+        1429,
+        3833,
+        1524
+      ],
+      "size": [
+        60,
+        95
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3495,
+        1222,
+        4410,
+        2478
+      ],
+      "size": [
+        915,
+        1256
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3225,
+        1499,
+        3784,
+        1687
+      ],
+      "size": [
+        559,
+        188
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        3226,
+        1516,
+        3766,
+        1632
+      ],
+      "size": [
+        540,
+        116
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3225,
+        1499,
+        3515,
+        1542
+      ],
+      "size": [
+        290,
+        43
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3225,
+        1499,
+        3515,
+        1542
+      ],
+      "size": [
+        290,
+        43
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3237,
+        1506,
+        3500,
+        1535
+      ],
+      "size": [
+        263,
+        29
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3226,
+        1566,
+        3784,
+        1687
+      ],
+      "size": [
+        558,
+        121
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3378,
+        1629,
+        3599,
+        1692
+      ],
+      "size": [
+        221,
+        63
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3172,
+        1370,
+        4250,
+        1399
+      ],
+      "size": [
+        1078,
+        29
+      ],
+      "depth": 2
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3172,
+        1370,
+        3387,
+        1399
+      ],
+      "size": [
+        215,
+        29
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4122,
+        1375,
+        4250,
+        1391
+      ],
+      "size": [
+        128,
+        16
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 38.02343,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3216,
+        1725,
+        3769,
+        1840
+      ],
+      "size": [
+        553,
+        115
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1183",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3224,
+        1766,
+        3769,
+        1840
+      ],
+      "size": [
+        545,
+        74
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3260,
+        1787,
+        3596,
+        1821
+      ],
+      "size": [
+        336,
+        34
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3568,
+        1792,
+        3583,
+        1816
+      ],
+      "size": [
+        15,
+        24
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3580,
+        1792,
+        3596,
+        1816
+      ],
+      "size": [
+        16,
+        24
+      ],
+      "depth": 3
+    },
+    {
+      "name": "젝시블프",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3260,
+        1787,
+        3384,
+        1821
+      ],
+      "size": [
+        124,
+        34
+      ],
+      "depth": 3,
+      "type": {
+        "text": "젝시블프",
+        "font_size": 156.1516,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3395,
+        1788,
+        3555,
+        1819
+      ],
+      "size": [
+        160,
+        31
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.31458,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 36",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3216,
+        1733,
+        3520,
+        1777
+      ],
+      "size": [
+        304,
+        44
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1184 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3217,
+        1734,
+        3520,
+        1777
+      ],
+      "size": [
+        303,
+        43
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1184",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3216,
+        1733,
+        3519,
+        1776
+      ],
+      "size": [
+        303,
+        43
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택!",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3251,
+        1741,
+        3487,
+        1767
+      ],
+      "size": [
+        236,
+        26
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택!",
+        "font_size": 155.70575,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3584,
+        1725,
+        3765,
+        1830
+      ],
+      "size": [
+        181,
+        105
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3584,
+        1725,
+        3765,
+        1812
+      ],
+      "size": [
+        181,
+        87
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3596,
+        1736,
+        3747,
+        1830
+      ],
+      "size": [
+        151,
+        94
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3596,
+        1739,
+        3747,
+        1830
+      ],
+      "size": [
+        151,
+        91
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3596,
+        1736,
+        3747,
+        1827
+      ],
+      "size": [
+        151,
+        91
+      ],
+      "depth": 4
+    },
+    {
+      "name": "레이어 29 복사",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        3112,
+        1310,
+        4312,
+        1938
+      ],
+      "size": [
+        1200,
+        628
+      ],
+      "depth": 1
+    },
+    {
+      "name": "구글DA_1200x1200",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        3102,
+        0,
+        4302,
+        1200
+      ],
+      "size": [
+        1200,
+        1200
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 39",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        2999,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1654,
+        2154
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        2999,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1654,
+        2154
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3085,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3085,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3085,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3696,
+        1420,
+        3846,
+        1688
+      ],
+      "size": [
+        150,
+        268
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        3088,
+        -17,
+        4044,
+        586
+      ],
+      "size": [
+        956,
+        603
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        2999,
+        543,
+        4497,
+        1437
+      ],
+      "size": [
+        1498,
+        894
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 5",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3066,
+        233,
+        3630,
+        620
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3066,
+        233,
+        3630,
+        620
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3066,
+        233,
+        3630,
+        620
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3316,
+        253,
+        3441,
+        301
+      ],
+      "size": [
+        125,
+        48
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3316,
+        253,
+        3441,
+        301
+      ],
+      "size": [
+        125,
+        48
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3328,
+        262,
+        3429,
+        291
+      ],
+      "size": [
+        101,
+        29
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3328,
+        262,
+        3358,
+        291
+      ],
+      "size": [
+        30,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3364,
+        262,
+        3393,
+        291
+      ],
+      "size": [
+        29,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3399,
+        262,
+        3429,
+        291
+      ],
+      "size": [
+        30,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3333,
+        269,
+        3354,
+        286
+      ],
+      "size": [
+        21,
+        17
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3180,
+        323,
+        3577,
+        587
+      ],
+      "size": [
+        397,
+        264
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3180,
+        323,
+        3346,
+        587
+      ],
+      "size": [
+        166,
+        264
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3301,
+        323,
+        3460,
+        586
+      ],
+      "size": [
+        159,
+        263
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3411,
+        323,
+        3577,
+        587
+      ],
+      "size": [
+        166,
+        264
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3085,
+        -78,
+        4653,
+        2076
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3162,
+        696,
+        4084,
+        989
+      ],
+      "size": [
+        922,
+        293
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        3162,
+        706,
+        4086,
+        905
+      ],
+      "size": [
+        924,
+        199
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3162,
+        696,
+        3564,
+        755
+      ],
+      "size": [
+        402,
+        59
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3162,
+        696,
+        3564,
+        755
+      ],
+      "size": [
+        402,
+        59
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3178,
+        706,
+        3542,
+        746
+      ],
+      "size": [
+        364,
+        40
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3162,
+        790,
+        4084,
+        989
+      ],
+      "size": [
+        922,
+        199
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3414,
+        896,
+        3778,
+        997
+      ],
+      "size": [
+        364,
+        101
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3167,
+        65,
+        4242,
+        103
+      ],
+      "size": [
+        1075,
+        38
+      ],
+      "depth": 2
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        3164,
+        68,
+        3456,
+        106
+      ],
+      "size": [
+        292,
+        38
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4059,
+        73,
+        4242,
+        96
+      ],
+      "size": [
+        183,
+        23
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 45.26598,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3167,
+        65,
+        3459,
+        103
+      ],
+      "size": [
+        292,
+        38
+      ],
+      "depth": 3
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3070,
+        951,
+        4380,
+        1208
+      ],
+      "size": [
+        1310,
+        257
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1182 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3070,
+        985,
+        4380,
+        1208
+      ],
+      "size": [
+        1310,
+        223
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 64",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        3102,
+        0,
+        3889,
+        1200
+      ],
+      "size": [
+        787,
+        1200
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1182",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        3093,
+        1037,
+        4311,
+        1194
+      ],
+      "size": [
+        1218,
+        157
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3163,
+        1097,
+        3999,
+        1141
+      ],
+      "size": [
+        836,
+        44
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3957,
+        1101,
+        3980,
+        1137
+      ],
+      "size": [
+        23,
+        36
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3975,
+        1101,
+        3999,
+        1137
+      ],
+      "size": [
+        24,
+        36
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택! 젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3163,
+        1097,
+        3729,
+        1141
+      ],
+      "size": [
+        566,
+        44
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택! 젝시블프",
+        "font_size": 153.23921,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        3740,
+        1099,
+        3947,
+        1140
+      ],
+      "size": [
+        207,
+        41
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.17398,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3951,
+        951,
+        4313,
+        1161
+      ],
+      "size": [
+        362,
+        210
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        3951,
+        951,
+        4313,
+        1124
+      ],
+      "size": [
+        362,
+        173
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        3973,
+        973,
+        4277,
+        1161
+      ],
+      "size": [
+        304,
+        188
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3973,
+        978,
+        4277,
+        1161
+      ],
+      "size": [
+        304,
+        183
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        3973,
+        973,
+        4277,
+        1156
+      ],
+      "size": [
+        304,
+        183
+      ],
+      "depth": 4
+    },
+    {
+      "name": "레이어 18 복사",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        3101,
+        0,
+        4303,
+        1202
+      ],
+      "size": [
+        1202,
+        1202
+      ],
+      "depth": 1
+    },
+    {
+      "name": "구글DA_960x1200",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        4402,
+        0,
+        5362,
+        1200
+      ],
+      "size": [
+        960,
+        1200
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 40",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4272,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1442,
+        1878
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4272,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1442,
+        1878
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4347,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1367,
+        1878
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4347,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1367,
+        1878
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4347,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1367,
+        1878
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4880,
+        1261,
+        5011,
+        1495
+      ],
+      "size": [
+        131,
+        234
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        4349,
+        -13,
+        5183,
+        534
+      ],
+      "size": [
+        834,
+        547
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4272,
+        496,
+        5578,
+        1276
+      ],
+      "size": [
+        1306,
+        780
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 5",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4330,
+        226,
+        4822,
+        564
+      ],
+      "size": [
+        492,
+        338
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4330,
+        226,
+        4822,
+        564
+      ],
+      "size": [
+        492,
+        338
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4330,
+        226,
+        4822,
+        564
+      ],
+      "size": [
+        492,
+        338
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4548,
+        244,
+        4658,
+        285
+      ],
+      "size": [
+        110,
+        41
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4548,
+        244,
+        4658,
+        285
+      ],
+      "size": [
+        110,
+        41
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4559,
+        251,
+        4647,
+        277
+      ],
+      "size": [
+        88,
+        26
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4559,
+        251,
+        4585,
+        277
+      ],
+      "size": [
+        26,
+        26
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4590,
+        251,
+        4616,
+        277
+      ],
+      "size": [
+        26,
+        26
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4621,
+        251,
+        4647,
+        277
+      ],
+      "size": [
+        26,
+        26
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4563,
+        257,
+        4581,
+        273
+      ],
+      "size": [
+        18,
+        16
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4430,
+        305,
+        4776,
+        535
+      ],
+      "size": [
+        346,
+        230
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4430,
+        305,
+        4575,
+        535
+      ],
+      "size": [
+        145,
+        230
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4535,
+        305,
+        4674,
+        534
+      ],
+      "size": [
+        139,
+        229
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4631,
+        305,
+        4776,
+        535
+      ],
+      "size": [
+        145,
+        230
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4347,
+        -45,
+        5714,
+        1833
+      ],
+      "size": [
+        1367,
+        1878
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4446,
+        760,
+        5250,
+        1015
+      ],
+      "size": [
+        804,
+        255
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        4447,
+        768,
+        5252,
+        942
+      ],
+      "size": [
+        805,
+        174
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4446,
+        760,
+        4797,
+        811
+      ],
+      "size": [
+        351,
+        51
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4446,
+        760,
+        4797,
+        811
+      ],
+      "size": [
+        351,
+        51
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4460,
+        769,
+        4778,
+        804
+      ],
+      "size": [
+        318,
+        35
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4447,
+        842,
+        5250,
+        1015
+      ],
+      "size": [
+        803,
+        173
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4666,
+        934,
+        4984,
+        1023
+      ],
+      "size": [
+        318,
+        89
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4443,
+        31,
+        5323,
+        62
+      ],
+      "size": [
+        880,
+        31
+      ],
+      "depth": 2
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4443,
+        31,
+        4677,
+        62
+      ],
+      "size": [
+        234,
+        31
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5151,
+        40,
+        5323,
+        61
+      ],
+      "size": [
+        172,
+        21
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 39.75598,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        5149,
+        38,
+        5270,
+        54
+      ],
+      "size": [
+        121,
+        16
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 45.26598,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4382,
+        1009,
+        5417,
+        1201
+      ],
+      "size": [
+        1035,
+        192
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1182 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4382,
+        1032,
+        5417,
+        1201
+      ],
+      "size": [
+        1035,
+        169
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 66",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        4402,
+        0,
+        4843,
+        1200
+      ],
+      "size": [
+        441,
+        1200
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1182",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        4401,
+        1077,
+        5363,
+        1202
+      ],
+      "size": [
+        962,
+        125
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4457,
+        1125,
+        5114,
+        1160
+      ],
+      "size": [
+        657,
+        35
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5081,
+        1128,
+        5099,
+        1157
+      ],
+      "size": [
+        18,
+        29
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5096,
+        1128,
+        5114,
+        1157
+      ],
+      "size": [
+        18,
+        29
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택! 젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4457,
+        1125,
+        4902,
+        1160
+      ],
+      "size": [
+        445,
+        35
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택! 젝시블프",
+        "font_size": 153.23921,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4911,
+        1126,
+        5073,
+        1159
+      ],
+      "size": [
+        162,
+        33
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.17398,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5079,
+        1009,
+        5364,
+        1174
+      ],
+      "size": [
+        285,
+        165
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5079,
+        1009,
+        5364,
+        1146
+      ],
+      "size": [
+        285,
+        137
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5096,
+        1027,
+        5335,
+        1174
+      ],
+      "size": [
+        239,
+        147
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5096,
+        1031,
+        5335,
+        1174
+      ],
+      "size": [
+        239,
+        143
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5096,
+        1027,
+        5335,
+        1170
+      ],
+      "size": [
+        239,
+        143
+      ],
+      "depth": 4
+    },
+    {
+      "name": "네이버GFA_1200x1200",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        4412,
+        1310,
+        5612,
+        2510
+      ],
+      "size": [
+        1200,
+        1200
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 41",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4309,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1654,
+        2154
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4309,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1654,
+        2154
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4395,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4395,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4395,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5006,
+        2730,
+        5156,
+        2998
+      ],
+      "size": [
+        150,
+        268
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        4398,
+        1293,
+        5354,
+        1896
+      ],
+      "size": [
+        956,
+        603
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4309,
+        1853,
+        5807,
+        2747
+      ],
+      "size": [
+        1498,
+        894
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 5",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4376,
+        1543,
+        4940,
+        1930
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4376,
+        1543,
+        4940,
+        1930
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4376,
+        1543,
+        4940,
+        1930
+      ],
+      "size": [
+        564,
+        387
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4626,
+        1563,
+        4751,
+        1611
+      ],
+      "size": [
+        125,
+        48
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4626,
+        1563,
+        4751,
+        1611
+      ],
+      "size": [
+        125,
+        48
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4638,
+        1572,
+        4739,
+        1601
+      ],
+      "size": [
+        101,
+        29
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4638,
+        1572,
+        4668,
+        1601
+      ],
+      "size": [
+        30,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4674,
+        1572,
+        4703,
+        1601
+      ],
+      "size": [
+        29,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4709,
+        1572,
+        4739,
+        1601
+      ],
+      "size": [
+        30,
+        29
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4643,
+        1579,
+        4664,
+        1596
+      ],
+      "size": [
+        21,
+        17
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4490,
+        1633,
+        4887,
+        1897
+      ],
+      "size": [
+        397,
+        264
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4490,
+        1633,
+        4656,
+        1897
+      ],
+      "size": [
+        166,
+        264
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4611,
+        1633,
+        4770,
+        1896
+      ],
+      "size": [
+        159,
+        263
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4721,
+        1633,
+        4887,
+        1897
+      ],
+      "size": [
+        166,
+        264
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        4395,
+        1232,
+        5963,
+        3386
+      ],
+      "size": [
+        1568,
+        2154
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4472,
+        2006,
+        5394,
+        2299
+      ],
+      "size": [
+        922,
+        293
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        4472,
+        2016,
+        5396,
+        2215
+      ],
+      "size": [
+        924,
+        199
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4472,
+        2006,
+        4874,
+        2065
+      ],
+      "size": [
+        402,
+        59
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4472,
+        2006,
+        4874,
+        2065
+      ],
+      "size": [
+        402,
+        59
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4488,
+        2016,
+        4852,
+        2056
+      ],
+      "size": [
+        364,
+        40
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4472,
+        2100,
+        5394,
+        2299
+      ],
+      "size": [
+        922,
+        199
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4724,
+        2206,
+        5088,
+        2307
+      ],
+      "size": [
+        364,
+        101
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4477,
+        1375,
+        5552,
+        1413
+      ],
+      "size": [
+        1075,
+        38
+      ],
+      "depth": 2
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        4474,
+        1378,
+        4766,
+        1416
+      ],
+      "size": [
+        292,
+        38
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5369,
+        1383,
+        5552,
+        1406
+      ],
+      "size": [
+        183,
+        23
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 45.26598,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4477,
+        1375,
+        4769,
+        1413
+      ],
+      "size": [
+        292,
+        38
+      ],
+      "depth": 3
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4380,
+        2261,
+        5690,
+        2518
+      ],
+      "size": [
+        1310,
+        257
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1182 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        4380,
+        2295,
+        5690,
+        2518
+      ],
+      "size": [
+        1310,
+        223
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 65",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        4412,
+        1310,
+        5104,
+        2510
+      ],
+      "size": [
+        692,
+        1200
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1182",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        4403,
+        2347,
+        5621,
+        2504
+      ],
+      "size": [
+        1218,
+        157
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        4473,
+        2407,
+        5309,
+        2451
+      ],
+      "size": [
+        836,
+        44
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5267,
+        2411,
+        5290,
+        2447
+      ],
+      "size": [
+        23,
+        36
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5285,
+        2411,
+        5309,
+        2447
+      ],
+      "size": [
+        24,
+        36
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택! 젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        4473,
+        2407,
+        5039,
+        2451
+      ],
+      "size": [
+        566,
+        44
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택! 젝시블프",
+        "font_size": 153.23921,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5050,
+        2409,
+        5257,
+        2450
+      ],
+      "size": [
+        207,
+        41
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.17398,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5261,
+        2261,
+        5623,
+        2471
+      ],
+      "size": [
+        362,
+        210
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5261,
+        2261,
+        5623,
+        2434
+      ],
+      "size": [
+        362,
+        173
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5283,
+        2283,
+        5587,
+        2471
+      ],
+      "size": [
+        304,
+        188
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5283,
+        2288,
+        5587,
+        2471
+      ],
+      "size": [
+        304,
+        183
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5283,
+        2283,
+        5587,
+        2466
+      ],
+      "size": [
+        304,
+        183
+      ],
+      "depth": 4
+    },
+    {
+      "name": "레이어 18 복사",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        4411,
+        1310,
+        5613,
+        2512
+      ],
+      "size": [
+        1202,
+        1202
+      ],
+      "depth": 1
+    },
+    {
+      "name": "네이버GFA_1250x560",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        5712,
+        1310,
+        6962,
+        1870
+      ],
+      "size": [
+        1250,
+        560
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 42",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5656,
+        1252,
+        6962,
+        2330
+      ],
+      "size": [
+        1306,
+        1078
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5656,
+        1252,
+        6962,
+        2330
+      ],
+      "size": [
+        1306,
+        1078
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5656,
+        1252,
+        6962,
+        2330
+      ],
+      "size": [
+        1306,
+        1078
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5656,
+        1252,
+        6962,
+        2330
+      ],
+      "size": [
+        1306,
+        1078
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6133,
+        1258,
+        6915,
+        2330
+      ],
+      "size": [
+        782,
+        1072
+      ],
+      "depth": 5
+    },
+    {
+      "name": "생성형 채우기",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5773,
+        1304,
+        6163,
+        1904
+      ],
+      "size": [
+        390,
+        600
+      ],
+      "depth": 5
+    },
+    {
+      "name": "생성형 채우기 2",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5656,
+        1252,
+        6962,
+        1925
+      ],
+      "size": [
+        1306,
+        673
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        5776,
+        1276,
+        6611,
+        1650
+      ],
+      "size": [
+        835,
+        374
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "곡선 7",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 9",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6272,
+        1414,
+        6450,
+        1536
+      ],
+      "size": [
+        178,
+        122
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6272,
+        1414,
+        6450,
+        1536
+      ],
+      "size": [
+        178,
+        122
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6272,
+        1414,
+        6450,
+        1536
+      ],
+      "size": [
+        178,
+        122
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6341,
+        1420,
+        6382,
+        1437
+      ],
+      "size": [
+        41,
+        17
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6341,
+        1420,
+        6382,
+        1437
+      ],
+      "size": [
+        41,
+        17
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6344,
+        1423,
+        6378,
+        1434
+      ],
+      "size": [
+        34,
+        11
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6344,
+        1423,
+        6356,
+        1434
+      ],
+      "size": [
+        12,
+        11
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6356,
+        1423,
+        6367,
+        1434
+      ],
+      "size": [
+        11,
+        11
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6367,
+        1423,
+        6378,
+        1434
+      ],
+      "size": [
+        11,
+        11
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6346,
+        1425,
+        6355,
+        1433
+      ],
+      "size": [
+        9,
+        8
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6300,
+        1443,
+        6422,
+        1524
+      ],
+      "size": [
+        122,
+        81
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6300,
+        1443,
+        6351,
+        1524
+      ],
+      "size": [
+        51,
+        81
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6338,
+        1443,
+        6388,
+        1524
+      ],
+      "size": [
+        50,
+        81
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6371,
+        1443,
+        6422,
+        1524
+      ],
+      "size": [
+        51,
+        81
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6133,
+        1258,
+        6915,
+        2330
+      ],
+      "size": [
+        782,
+        1072
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 10",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5992,
+        1579,
+        6476,
+        1746
+      ],
+      "size": [
+        484,
+        167
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        5993,
+        1595,
+        6472,
+        1699
+      ],
+      "size": [
+        479,
+        104
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5992,
+        1579,
+        6250,
+        1618
+      ],
+      "size": [
+        258,
+        39
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5992,
+        1579,
+        6250,
+        1618
+      ],
+      "size": [
+        258,
+        39
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        6003,
+        1586,
+        6236,
+        1612
+      ],
+      "size": [
+        233,
+        26
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5993,
+        1640,
+        6476,
+        1746
+      ],
+      "size": [
+        483,
+        106
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 75.82492,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6127,
+        1695,
+        6324,
+        1751
+      ],
+      "size": [
+        197,
+        56
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5958,
+        1365,
+        6713,
+        1386
+      ],
+      "size": [
+        755,
+        21
+      ],
+      "depth": 2
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        6601,
+        1368,
+        6713,
+        1383
+      ],
+      "size": [
+        112,
+        15
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 45.26598,
+        "color_hex": "#1D1A11"
+      }
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5958,
+        1365,
+        6111,
+        1386
+      ],
+      "size": [
+        153,
+        21
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 3",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 3 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5611,
+        1280,
+        7030,
+        1871
+      ],
+      "size": [
+        1419,
+        591
+      ],
+      "depth": 4
+    },
+    {
+      "name": "그룹 1",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6618,
+        1359,
+        6722,
+        1453
+      ],
+      "size": [
+        104,
+        94
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "pride DAY",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6620,
+        1392,
+        6721,
+        1451
+      ],
+      "size": [
+        101,
+        59
+      ],
+      "depth": 5
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6694,
+        1361,
+        6715,
+        1397
+      ],
+      "size": [
+        21,
+        36
+      ],
+      "depth": 5
+    },
+    {
+      "name": "BLACK",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6637,
+        1361,
+        6698,
+        1397
+      ],
+      "size": [
+        61,
+        36
+      ],
+      "depth": 5
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5990,
+        1715,
+        6686,
+        1833
+      ],
+      "size": [
+        696,
+        118
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1183",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5990,
+        1768,
+        6686,
+        1833
+      ],
+      "size": [
+        696,
+        65
+      ],
+      "depth": 2
+    },
+    {
+      "name": "레이어 67",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        5712,
+        1310,
+        6382,
+        1870
+      ],
+      "size": [
+        670,
+        560
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6021,
+        1787,
+        6515,
+        1813
+      ],
+      "size": [
+        494,
+        26
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6489,
+        1789,
+        6503,
+        1811
+      ],
+      "size": [
+        14,
+        22
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6500,
+        1789,
+        6515,
+        1811
+      ],
+      "size": [
+        15,
+        22
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택! 젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        6021,
+        1787,
+        6349,
+        1813
+      ],
+      "size": [
+        328,
+        26
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택! 젝시블프",
+        "font_size": 153.6185,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        6354,
+        1788,
+        6481,
+        1813
+      ],
+      "size": [
+        127,
+        25
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 144.54327,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6503,
+        1715,
+        6685,
+        1822
+      ],
+      "size": [
+        182,
+        107
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6503,
+        1715,
+        6685,
+        1803
+      ],
+      "size": [
+        182,
+        88
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6515,
+        1728,
+        6667,
+        1822
+      ],
+      "size": [
+        152,
+        94
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6515,
+        1730,
+        6667,
+        1822
+      ],
+      "size": [
+        152,
+        92
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6515,
+        1728,
+        6667,
+        1820
+      ],
+      "size": [
+        152,
+        92
+      ],
+      "depth": 4
+    },
+    {
+      "name": "네이버GFA_342x228",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        5730,
+        1970,
+        6072,
+        2198
+      ],
+      "size": [
+        342,
+        228
+      ],
+      "depth": 0
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5601,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        526,
+        494
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 35",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5601,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        526,
+        494
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5601,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        526,
+        494
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5601,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        526,
+        494
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5767,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        360,
+        494
+      ],
+      "depth": 5
+    },
+    {
+      "name": "생성형 채우기",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5601,
+        1956,
+        5780,
+        2232
+      ],
+      "size": [
+        179,
+        276
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        5602,
+        1943,
+        5987,
+        2116
+      ],
+      "size": [
+        385,
+        173
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "곡선 7",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 8",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5753,
+        2027,
+        5878,
+        2113
+      ],
+      "size": [
+        125,
+        86
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5753,
+        2027,
+        5878,
+        2113
+      ],
+      "size": [
+        125,
+        86
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5753,
+        2027,
+        5878,
+        2113
+      ],
+      "size": [
+        125,
+        86
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5801,
+        2032,
+        5830,
+        2044
+      ],
+      "size": [
+        29,
+        12
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5801,
+        2032,
+        5830,
+        2044
+      ],
+      "size": [
+        29,
+        12
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5804,
+        2033,
+        5828,
+        2042
+      ],
+      "size": [
+        24,
+        9
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5804,
+        2033,
+        5812,
+        2042
+      ],
+      "size": [
+        8,
+        9
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5811,
+        2033,
+        5820,
+        2042
+      ],
+      "size": [
+        9,
+        9
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5819,
+        2033,
+        5828,
+        2042
+      ],
+      "size": [
+        9,
+        9
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5805,
+        2035,
+        5811,
+        2041
+      ],
+      "size": [
+        6,
+        6
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5772,
+        2047,
+        5858,
+        2103
+      ],
+      "size": [
+        86,
+        56
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5772,
+        2047,
+        5808,
+        2103
+      ],
+      "size": [
+        36,
+        56
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5799,
+        2047,
+        5834,
+        2103
+      ],
+      "size": [
+        35,
+        56
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5822,
+        2047,
+        5858,
+        2103
+      ],
+      "size": [
+        36,
+        56
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5767,
+        1935,
+        6127,
+        2429
+      ],
+      "size": [
+        360,
+        494
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "선택 색상 1",
+      "kind": "selectivecolor",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "곡선 1",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "곡선 11",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 2
+    },
+    {
+      "name": "블프",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5741,
+        1978,
+        6066,
+        2187
+      ],
+      "size": [
+        325,
+        209
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5998,
+        1978,
+        6066,
+        2020
+      ],
+      "size": [
+        68,
+        42
+      ],
+      "depth": 2
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5998,
+        1979,
+        6066,
+        2020
+      ],
+      "size": [
+        68,
+        41
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5998,
+        1978,
+        6066,
+        2019
+      ],
+      "size": [
+        68,
+        41
+      ],
+      "depth": 3
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5741,
+        1980,
+        5865,
+        1998
+      ],
+      "size": [
+        124,
+        18
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 36",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5747,
+        2123,
+        5901,
+        2187
+      ],
+      "size": [
+        154,
+        64
+      ],
+      "depth": 2
+    },
+    {
+      "name": "카카오모먼트_800x1000",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        5432,
+        0,
+        6232,
+        1000
+      ],
+      "size": [
+        800,
+        1000
+      ],
+      "depth": 0
+    },
+    {
+      "name": "그룹 43",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5337,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1166,
+        1500
+      ],
+      "depth": 1
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5337,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1166,
+        1500
+      ],
+      "depth": 2
+    },
+    {
+      "name": "bg",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5411,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1092,
+        1500
+      ],
+      "depth": 3
+    },
+    {
+      "name": "러닝",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5411,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1092,
+        1500
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 6",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5411,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1092,
+        1500
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Generative Fill",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5838,
+        989,
+        5943,
+        1176
+      ],
+      "size": [
+        105,
+        187
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Hue/Saturation 1",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Levels 1",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 12",
+      "kind": "pixel",
+      "visible": true,
+      "bbox": [
+        5413,
+        -29,
+        6079,
+        409
+      ],
+      "size": [
+        666,
+        438
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Curves 3",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Rectangle 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5337,
+        403,
+        6414,
+        1046
+      ],
+      "size": [
+        1077,
+        643
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 5",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "곡선 6",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5385,
+        181,
+        5791,
+        460
+      ],
+      "size": [
+        406,
+        279
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Rectangle 4",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5385,
+        181,
+        5791,
+        460
+      ],
+      "size": [
+        406,
+        279
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5385,
+        181,
+        5791,
+        460
+      ],
+      "size": [
+        406,
+        279
+      ],
+      "depth": 4
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5565,
+        195,
+        5656,
+        230
+      ],
+      "size": [
+        91,
+        35
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 4 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5565,
+        195,
+        5656,
+        230
+      ],
+      "size": [
+        91,
+        35
+      ],
+      "depth": 5
+    },
+    {
+      "name": "color",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5574,
+        202,
+        5647,
+        224
+      ],
+      "size": [
+        73,
+        22
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Ellipse 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5574,
+        202,
+        5596,
+        224
+      ],
+      "size": [
+        22,
+        22
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5599,
+        202,
+        5621,
+        224
+      ],
+      "size": [
+        22,
+        22
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Ellipse 1 copy 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5625,
+        202,
+        5647,
+        224
+      ],
+      "size": [
+        22,
+        22
+      ],
+      "depth": 6
+    },
+    {
+      "name": "Rectangle 7",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5577,
+        207,
+        5592,
+        219
+      ],
+      "size": [
+        15,
+        12
+      ],
+      "depth": 6
+    },
+    {
+      "name": "제품 누끼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5468,
+        246,
+        5752,
+        435
+      ],
+      "size": [
+        284,
+        189
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Layer 9",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5468,
+        246,
+        5587,
+        435
+      ],
+      "size": [
+        119,
+        189
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 8",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5554,
+        246,
+        5669,
+        435
+      ],
+      "size": [
+        115,
+        189
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 1 copy",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5633,
+        246,
+        5752,
+        435
+      ],
+      "size": [
+        119,
+        189
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Layer 6 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5411,
+        -54,
+        6503,
+        1446
+      ],
+      "size": [
+        1092,
+        1500
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Hue/Saturation 1 복사",
+      "kind": "huesaturation",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Levels 1 복사",
+      "kind": "levels",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Curves 3 복사 2",
+      "kind": "curves",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "카피",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5481,
+        549,
+        6125,
+        754
+      ],
+      "size": [
+        644,
+        205
+      ],
+      "depth": 3
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        5482,
+        557,
+        6127,
+        695
+      ],
+      "size": [
+        645,
+        138
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "sub",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5481,
+        549,
+        5762,
+        591
+      ],
+      "size": [
+        281,
+        42
+      ],
+      "depth": 4
+    },
+    {
+      "name": "Rectangle 5",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5481,
+        549,
+        5762,
+        591
+      ],
+      "size": [
+        281,
+        42
+      ],
+      "depth": 5
+    },
+    {
+      "name": "Gradient Fill 1",
+      "kind": "gradientfill",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        6962,
+        2560
+      ],
+      "size": [
+        6962,
+        2560
+      ],
+      "depth": 5
+    },
+    {
+      "name": "RX 그리드 플리스 후디",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5492,
+        557,
+        5747,
+        585
+      ],
+      "size": [
+        255,
+        28
+      ],
+      "depth": 5,
+      "type": {
+        "text": "RX 그리드 플리스 후디",
+        "font_size": 80.68676,
+        "color_hex": "#3D3D3D"
+      }
+    },
+    {
+      "name": "땀은 날리고 온기는 지키고 완벽한 겨울 러닝",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5482,
+        616,
+        6125,
+        754
+      ],
+      "size": [
+        643,
+        138
+      ],
+      "depth": 4,
+      "type": {
+        "text": "땀은 날리고 온기는 지키고\r완벽한 겨울 러닝",
+        "font_size": 77.75729,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "Rectangle 6",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5657,
+        689,
+        5912,
+        760
+      ],
+      "size": [
+        255,
+        71
+      ],
+      "depth": 4
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5473,
+        103,
+        6186,
+        129
+      ],
+      "size": [
+        713,
+        26
+      ],
+      "depth": 2
+    },
+    {
+      "name": "Group 2",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 1 복사 2",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6065,
+        98,
+        6192,
+        212
+      ],
+      "size": [
+        127,
+        114
+      ],
+      "depth": 5
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "pride DAY",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6066,
+        138,
+        6190,
+        210
+      ],
+      "size": [
+        124,
+        72
+      ],
+      "depth": 6
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6157,
+        99,
+        6183,
+        143
+      ],
+      "size": [
+        26,
+        44
+      ],
+      "depth": 6
+    },
+    {
+      "name": "BLACK",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6088,
+        99,
+        6162,
+        143
+      ],
+      "size": [
+        74,
+        44
+      ],
+      "depth": 6
+    },
+    {
+      "name": "그룹 1",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6065,
+        98,
+        6192,
+        212
+      ],
+      "size": [
+        127,
+        114
+      ],
+      "depth": 5
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "pride DAY",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6066,
+        138,
+        6190,
+        210
+      ],
+      "size": [
+        124,
+        72
+      ],
+      "depth": 6
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6157,
+        99,
+        6183,
+        143
+      ],
+      "size": [
+        26,
+        44
+      ],
+      "depth": 6
+    },
+    {
+      "name": "BLACK",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6088,
+        99,
+        6162,
+        143
+      ],
+      "size": [
+        74,
+        44
+      ],
+      "depth": 6
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1182",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5479,
+        824,
+        5940,
+        887
+      ],
+      "size": [
+        461,
+        63
+      ],
+      "depth": 4
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "그룹 32",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5778,
+        844,
+        5793,
+        866
+      ],
+      "size": [
+        15,
+        22
+      ],
+      "depth": 6
+    },
+    {
+      "name": "사각형 1181 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5791,
+        844,
+        5805,
+        866
+      ],
+      "size": [
+        14,
+        22
+      ],
+      "depth": 6
+    },
+    {
+      "name": "젝시블프 ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5513,
+        840,
+        5619,
+        869
+      ],
+      "size": [
+        106,
+        29
+      ],
+      "depth": 6,
+      "type": {
+        "text": "젝시블프",
+        "font_size": 154.74931,
+        "color_hex": "#E4FF00"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5628,
+        842,
+        5768,
+        869
+      ],
+      "size": [
+        140,
+        27
+      ],
+      "depth": 6,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.31458,
+        "color_hex": "#E4FF00"
+      }
+    },
+    {
+      "name": "그룹 25",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "사각형 652",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5480,
+        786,
+        5643,
+        834
+      ],
+      "size": [
+        163,
+        48
+      ],
+      "depth": 6
+    },
+    {
+      "name": "1년에 단 한 번! ",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5499,
+        796,
+        5624,
+        819
+      ],
+      "size": [
+        125,
+        23
+      ],
+      "depth": 6,
+      "type": {
+        "text": "1년에 단 한 번!",
+        "font_size": 16.92328,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "1년에 단 한 번! ",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        5514,
+        794,
+        5628,
+        813
+      ],
+      "size": [
+        114,
+        19
+      ],
+      "depth": 5,
+      "type": {
+        "text": "1년에 단 한 번!",
+        "font_size": 152.58031,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "블프",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 4
+    },
+    {
+      "name": "그룹 1 복사 2",
+      "kind": "group",
+      "visible": false,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5823,
+        783,
+        5930,
+        879
+      ],
+      "size": [
+        107,
+        96
+      ],
+      "depth": 6
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 6
+    },
+    {
+      "name": "pride DAY",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5825,
+        817,
+        5928,
+        877
+      ],
+      "size": [
+        103,
+        60
+      ],
+      "depth": 7
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5900,
+        785,
+        5922,
+        821
+      ],
+      "size": [
+        22,
+        36
+      ],
+      "depth": 7
+    },
+    {
+      "name": "BLACK",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5843,
+        785,
+        5905,
+        822
+      ],
+      "size": [
+        62,
+        37
+      ],
+      "depth": 7
+    },
+    {
+      "name": "그룹 1",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 5
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5820,
+        780,
+        5930,
+        879
+      ],
+      "size": [
+        110,
+        99
+      ],
+      "depth": 6
+    },
+    {
+      "name": "logo",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "depth": 6
+    },
+    {
+      "name": "pride DAY",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5821,
+        815,
+        5928,
+        877
+      ],
+      "size": [
+        107,
+        62
+      ],
+      "depth": 7
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5899,
+        782,
+        5922,
+        819
+      ],
+      "size": [
+        23,
+        37
+      ],
+      "depth": 7
+    },
+    {
+      "name": "BLACK",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5839,
+        782,
+        5904,
+        820
+      ],
+      "size": [
+        65,
+        38
+      ],
+      "depth": 7
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        6065,
+        108,
+        6186,
+        124
+      ],
+      "size": [
+        121,
+        16
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 45.26598,
+        "color_hex": "#282840"
+      }
+    },
+    {
+      "name": "XEXYMIX_LOGO_M",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5473,
+        103,
+        5670,
+        129
+      ],
+      "size": [
+        197,
+        26
+      ],
+      "depth": 3
+    },
+    {
+      "name": "* AI Generated",
+      "kind": "type",
+      "visible": false,
+      "bbox": [
+        5945,
+        867,
+        6060,
+        882
+      ],
+      "size": [
+        115,
+        15
+      ],
+      "depth": 3,
+      "type": {
+        "text": "* AI Generated",
+        "font_size": 39.53456,
+        "color_hex": "#FFFFFF"
+      }
+    },
+    {
+      "name": "블프버튼",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5470,
+        783,
+        5998,
+        893
+      ],
+      "size": [
+        528,
+        110
+      ],
+      "depth": 1
+    },
+    {
+      "name": "사각형 1183",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5478,
+        822,
+        5998,
+        893
+      ],
+      "size": [
+        520,
+        71
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 30",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5512,
+        843,
+        5832,
+        875
+      ],
+      "size": [
+        320,
+        32
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1181",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5805,
+        847,
+        5820,
+        870
+      ],
+      "size": [
+        15,
+        23
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1181 복사 2",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5817,
+        847,
+        5832,
+        870
+      ],
+      "size": [
+        15,
+        23
+      ],
+      "depth": 3
+    },
+    {
+      "name": "젝시블프",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5512,
+        843,
+        5630,
+        875
+      ],
+      "size": [
+        118,
+        32
+      ],
+      "depth": 3,
+      "type": {
+        "text": "젝시블프",
+        "font_size": 156.1516,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "UP TO 80%",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5640,
+        843,
+        5793,
+        873
+      ],
+      "size": [
+        153,
+        30
+      ],
+      "depth": 3,
+      "type": {
+        "text": "UP TO 80%",
+        "font_size": 145.31458,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 36",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5470,
+        788,
+        5761,
+        834
+      ],
+      "size": [
+        291,
+        46
+      ],
+      "depth": 2
+    },
+    {
+      "name": "사각형 1184 복사",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5471,
+        790,
+        5761,
+        834
+      ],
+      "size": [
+        290,
+        44
+      ],
+      "depth": 3
+    },
+    {
+      "name": "사각형 1184",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5470,
+        788,
+        5759,
+        832
+      ],
+      "size": [
+        289,
+        44
+      ],
+      "depth": 3
+    },
+    {
+      "name": "다시 없을 마지막 혜택!",
+      "kind": "type",
+      "visible": true,
+      "bbox": [
+        5501,
+        798,
+        5730,
+        823
+      ],
+      "size": [
+        229,
+        25
+      ],
+      "depth": 3,
+      "type": {
+        "text": "다시 없을 마지막 혜택!",
+        "font_size": 157.88518,
+        "color_hex": "#000000"
+      }
+    },
+    {
+      "name": "그룹 31",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5821,
+        783,
+        5993,
+        884
+      ],
+      "size": [
+        172,
+        101
+      ],
+      "depth": 2
+    },
+    {
+      "name": "모양 1",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        5821,
+        783,
+        5993,
+        867
+      ],
+      "size": [
+        172,
+        84
+      ],
+      "depth": 3
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        5832,
+        794,
+        5976,
+        884
+      ],
+      "size": [
+        144,
+        90
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5832,
+        797,
+        5976,
+        884
+      ],
+      "size": [
+        144,
+        87
+      ],
+      "depth": 4
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        5832,
+        794,
+        5976,
+        881
+      ],
+      "size": [
+        144,
+        87
+      ],
+      "depth": 4
+    },
+    {
+      "name": "사각형 5 복사",
+      "kind": "shape",
+      "visible": false,
+      "bbox": [
+        5425,
+        -1,
+        6244,
+        1001
+      ],
+      "size": [
+        819,
+        1002
+      ],
+      "depth": 1
+    },
+    {
+      "name": "네이버스마트채널_260x280",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        6119,
+        1970,
+        6379,
+        2250
+      ],
+      "size": [
+        260,
+        280
+      ],
+      "depth": 0
+    },
+    {
+      "name": "bg",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        -1243,
+        670,
+        7053,
+        3230
+      ],
+      "size": [
+        8296,
+        2560
+      ],
+      "depth": 1
+    },
+    {
+      "name": "곡선 5 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6198,
+        1973,
+        6400,
+        2475
+      ],
+      "size": [
+        202,
+        502
+      ],
+      "depth": 1
+    },
+    {
+      "name": "Group 20",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6129,
+        1986,
+        6232,
+        2239
+      ],
+      "size": [
+        103,
+        253
+      ],
+      "depth": 1
+    },
+    {
+      "name": "logo",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6131,
+        1986,
+        6231,
+        2001
+      ],
+      "size": [
+        100,
+        15
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6129,
+        2010,
+        6232,
+        2073
+      ],
+      "size": [
+        103,
+        63
+      ],
+      "depth": 2
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6129,
+        2012,
+        6232,
+        2073
+      ],
+      "size": [
+        103,
+        61
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6129,
+        2010,
+        6232,
+        2071
+      ],
+      "size": [
+        103,
+        61
+      ],
+      "depth": 3
+    },
+    {
+      "name": "레이어 62",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6132,
+        2158,
+        6214,
+        2239
+      ],
+      "size": [
+        82,
+        81
+      ],
+      "depth": 2
+    },
+    {
+      "name": "카카오비즈보드_314x300",
+      "kind": "artboard",
+      "visible": true,
+      "bbox": [
+        6293,
+        0,
+        6607,
+        300
+      ],
+      "size": [
+        314,
+        300
+      ],
+      "depth": 0
+    },
+    {
+      "name": "bg",
+      "kind": "pixel",
+      "visible": false,
+      "bbox": [
+        16,
+        0,
+        8312,
+        2560
+      ],
+      "size": [
+        8296,
+        2560
+      ],
+      "depth": 1
+    },
+    {
+      "name": "곡선 5 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6305,
+        4,
+        6507,
+        506
+      ],
+      "size": [
+        202,
+        502
+      ],
+      "depth": 1
+    },
+    {
+      "name": "블프",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6449,
+        14,
+        6599,
+        288
+      ],
+      "size": [
+        150,
+        274
+      ],
+      "depth": 1
+    },
+    {
+      "name": "logo",
+      "kind": "shape",
+      "visible": true,
+      "bbox": [
+        6449,
+        14,
+        6594,
+        34
+      ],
+      "size": [
+        145,
+        20
+      ],
+      "depth": 2
+    },
+    {
+      "name": "그룹 13",
+      "kind": "group",
+      "visible": true,
+      "bbox": [
+        6484,
+        47,
+        6599,
+        118
+      ],
+      "size": [
+        115,
+        71
+      ],
+      "depth": 2
+    },
+    {
+      "name": "벡터 스마트 오브젝트",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6484,
+        49,
+        6599,
+        118
+      ],
+      "size": [
+        115,
+        69
+      ],
+      "depth": 3
+    },
+    {
+      "name": "벡터 스마트 오브젝트 복사",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6484,
+        47,
+        6599,
+        116
+      ],
+      "size": [
+        115,
+        69
+      ],
+      "depth": 3
+    },
+    {
+      "name": "Layer 3",
+      "kind": "smartobject",
+      "visible": true,
+      "bbox": [
+        6458,
+        222,
+        6595,
+        288
+      ],
+      "size": [
+        137,
+        66
+      ],
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width={{WIDTH}}, initial-scale=1.0" />
+  <title>{{TASK_ID}} — {{DIMENSION_NAME}} ({{WIDTH}}x{{HEIGHT}})</title>
+  <link rel="stylesheet" href="{{BASE_CSS_HREF}}" />
+  <link rel="stylesheet" href="{{ARCHETYPES_CSS_HREF}}" />
+  <style>
+    html, body {
+      width: {{WIDTH}}px;
+      height: {{HEIGHT}}px;
+    }
+  </style>
+</head>
+<body>
+  <main class="ad-canvas" data-layout="{{LAYOUT_TYPE}}" data-cta-style="{{CTA_STYLE}}" data-has-visual="{{HAS_VISUAL_STAGE}}">
+    {{SLOT_HEADER}}
+    {{SLOT_HOOK}}
+    {{SLOT_VISUAL_STAGE}}
+    {{SLOT_CTA}}
+    {{SLOT_DISCLAIMERS}}
+  </main>
+</body>
+</html>

@@ -1,3 +1,7 @@
 node_modules/
 out/
 .DS_Store
+
+# Large PSD binary assets (>100MB)
+assets/Task 1 - XEXYMIX/*.psd
+

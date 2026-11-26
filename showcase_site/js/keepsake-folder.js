@@ -9,49 +9,49 @@
 
   const DEFAULT_I18N = Object.freeze({
     en: {
-      folder_title: '11-Ratio Archival Suite',
-      folder_hint_open: '[ CLICK TO FAN OUT 11 RATIOS ]',
-      folder_hint_close: '[ COLLAPSE ARCHIVE ]',
-      flip_hint: 'HOVER ANY CARD TO FLIP & INSPECT TELEMETRY',
-      items_count_suffix: 'RATIOS',
-      label_resolution: 'RESOLUTION',
+      folder_title: '11-Size Ad Banner Collection',
+      folder_hint_open: '[ CLICK TO VIEW ALL 11 SIZES ]',
+      folder_hint_close: '[ CLOSE COLLECTION ]',
+      flip_hint: 'HOVER ANY CARD TO VIEW AD SPECS',
+      items_count_suffix: 'SIZES',
+      label_resolution: 'DIMENSIONS',
       label_ratio: 'ASPECT RATIO',
-      label_weight: 'FILE WEIGHT',
-      label_stepping: 'ORTHOGONAL',
+      label_weight: 'FILE SIZE',
+      label_stepping: 'CLEAN GUIDES',
       label_watermark: 'AI WATERMARK',
       status_passed: 'PASSED',
-      watermark_compliant: '0% COMPLIANT',
-      footer_verified: 'VERIFIED'
+      watermark_compliant: 'NONE (CLEAN)',
+      footer_verified: 'READY'
     },
     ko: {
-      folder_title: '11종 규격 아카이브 폴더',
-      folder_hint_open: '[ 클릭하여 11종 규격 펼치기 ]',
-      folder_hint_close: '[ 폴더 접기 ]',
-      flip_hint: '카드에 마우스를 올려 기술 사양 확인',
+      folder_title: '11종 광고 배너 컬렉션',
+      folder_hint_open: '[ 클릭하여 11종 배너 펼치기 ]',
+      folder_hint_close: '[ 컬렉션 접기 ]',
+      flip_hint: '카드에 마우스를 올려 매체 규격 확인',
       items_count_suffix: '종 규격',
       label_resolution: '해상도',
-      label_ratio: '종횡비',
+      label_ratio: '화면 비율',
       label_weight: '파일 용량',
-      label_stepping: '직교 스태핑',
+      label_stepping: '직각 가이드',
       label_watermark: 'AI 워터마크',
-      status_passed: '통과 (PASSED)',
-      watermark_compliant: '0% 준수',
-      footer_verified: '검증 완료'
+      status_passed: '통과',
+      watermark_compliant: '없음 (정상)',
+      footer_verified: '검수 완료'
     },
     vi: {
-      folder_title: 'Thư Mục Lưu Trữ 11 Tỷ Lệ',
-      folder_hint_open: '[ NHẤN ĐỂ XÒE 11 TỶ LỆ ]',
-      folder_hint_close: '[ THU GỌN THƯ MỤC ]',
-      flip_hint: 'RÊ CHUỘT VÀO THẺ ĐỂ LẬT XEM THÔNG SỐ',
-      items_count_suffix: 'TỶ LỆ',
-      label_resolution: 'ĐỘ PHÂN GIẢI',
+      folder_title: 'Bộ Sưu Tập 11 Kích Thước Banner',
+      folder_hint_open: '[ NHẤN ĐỂ XEM ĐỦ 11 KÍCH THƯỚC ]',
+      folder_hint_close: '[ THU GỌN BỘ SƯU TẬP ]',
+      flip_hint: 'RÊ CHUỘT VÀO THẺ ĐỂ XEM THÔNG SỐ BANNER',
+      items_count_suffix: 'KÍCH THƯỚC',
+      label_resolution: 'KÍCH THƯỚC',
       label_ratio: 'TỶ LỆ KHUNG',
       label_weight: 'DUNG LƯỢNG',
-      label_stepping: 'BƯỚC TRỰC GIAO',
+      label_stepping: 'ĐƯỜNG DẪN GỌN',
       label_watermark: 'WATERMARK AI',
-      status_passed: 'ĐẠT (PASSED)',
-      watermark_compliant: '0% TUÂN THỦ',
-      footer_verified: 'ĐÃ KIỂM ĐỊNH'
+      status_passed: 'ĐẠT CHUẨN',
+      watermark_compliant: 'KHÔNG CÓ (SẠCH)',
+      footer_verified: 'SẴN SÀNG'
     }
   });
 

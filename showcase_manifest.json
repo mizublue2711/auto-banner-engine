@@ -19,10 +19,10 @@
       "source_master": "11_40462_261106_젝시믹스.psd",
       "total_dimensions": 11,
       "engine_highlights": [
-        "Orthogonal Manhattan Stepping (Zero Slanted Lines)",
-        "Zero Fabric Occlusion (Outer Silhouette Tangent)",
-        "Non-linear Soft Alpha Feathering (Landscape Seam Removal)",
-        "Policy Compliant: 0% AI Watermark"
+        "Clean Right-Angle Callout Lines (Zero Messy Diagonals)",
+        "100% Clear Product View (No Text Covering Apparel)",
+        "Seamless Soft Background Extension for Wide Banners",
+        "100% Brand-Safe: Zero AI Watermarks"
       ],
       "placements": [
         {
@@ -117,17 +117,17 @@
       "options": [
         {
           "option_id": "opt1_conservative",
-          "label": "Option 1 // Conservative Corporate",
+          "label": "Option 1 // Classic Direct-Response",
           "psd_path": "deliverables/task2_meritz/meritz_partners_master.psd",
           "preview_path": "deliverables/task2_meritz/meritz_partners_preview.jpg",
-          "art_direction": "Direct-response financial layout, 2-column split with metallic 3D gold coin hook."
+          "art_direction": "Clean, trustworthy 2-column financial ad layout paired with a gleaming 3D gold coin highlight that directs attention straight to the offer."
         },
         {
           "option_id": "opt2_monumental",
-          "label": "Option 2 // Monumental 3D Zero-Gravity",
+          "label": "Option 2 // Bold 3D Floating Visual",
           "psd_path": "deliverables/task2_meritz/meritz_partners_option2.psd",
           "preview_path": "deliverables/task2_meritz/meritz_partners_option2_preview.jpg",
-          "art_direction": "High-concept low-angle perspective, matte textured red 150 monolith inside Electric Cobalt wireframe gem cage, 5 zero-gravity coins with cinematic depth-of-field blur."
+          "art_direction": "Dynamic hero-angle perspective featuring a matte Vermillion Red '150' 3D centerpiece inside a metallic gold geometric frame, surrounded by 5 floating coins with soft cinematic blur."
         }
       ],
       "qa_compliance": {
@@ -156,11 +156,11 @@
       },
       "data": {
         "option_id": "opt1_conservative",
-        "title": "Option 1 // Conservative Corporate",
+        "title": "Option 1 // Classic Direct-Response",
         "tag": "DIRECT RESPONSE // MASTER .PSD",
         "image": "./deliverables/task2_meritz/meritz_partners_preview.jpg",
         "download": "./deliverables/task2_meritz/meritz_partners_master.psd",
-        "desc": "Standard financial direct-response layout featuring a high-contrast 2-column split and metallic 3D gold coin visual hook."
+        "desc": "Clear, trustworthy financial layout with a balanced 2-column split and eye-catching 3D gold coin visuals built to drive clicks."
       }
     },
     {
@@ -179,11 +179,11 @@
       },
       "data": {
         "option_id": "opt2_monumental",
-        "title": "Option 2 // Monumental 3D Zero-Gravity",
-        "tag": "INNOVATIVE 3D // MASTER .PSD",
+        "title": "Option 2 // Bold 3D Floating Visual",
+        "tag": "BOLD 3D CONCEPT // MASTER .PSD",
         "image": "./deliverables/task2_meritz/meritz_partners_option2_preview.jpg",
         "download": "./deliverables/task2_meritz/meritz_partners_option2.psd",
-        "desc": "Matte Vermillion '150' monolith suspended inside an Electric Cobalt wireframe gem cage with 5 zero-gravity coins."
+        "desc": "Matte Vermillion '150' 3D centerpiece framed inside a sleek metallic gold geometric cage with 5 floating gold coins."
       }
     },
     {
@@ -194,7 +194,7 @@
       "badge": "QA",
       "type": "existing_dom_target",
       "targetSelector": "#popup-spec-card",
-      "label": "15/15 QA TELEMETRY",
+      "label": "15/15 QUALITY CHECK",
       "i18n": {
         "pin_label": "hero_hotspots.spec_pin_label",
         "tag": "hero_hotspots.spec_tag",

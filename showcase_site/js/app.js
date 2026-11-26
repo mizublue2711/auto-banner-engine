@@ -42,10 +42,10 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
       source_master: '11_40462_261106_젝시믹스.psd',
       total_dimensions: 11,
       engine_highlights: [
-        'Orthogonal Manhattan Stepping (Zero Slanted Lines)',
-        'Zero Fabric Occlusion (Outer Silhouette Tangent)',
-        'Non-linear Soft Alpha Feathering (Landscape Seam Removal)',
-        'Policy Compliant: 0% AI Watermark'
+        'Clean Right-Angle Callout Lines (Zero Messy Diagonals)',
+        '100% Clear Product View (No Text Covering Apparel)',
+        'Seamless Soft Background Extension for Wide Banners',
+        '100% Brand-Safe: Zero AI Watermarks'
       ],
       placements: [
         { id: '01', name: 'Meta Story', ratio: '9:16', resolution: '1440x2560', file: 'deliverables/task1_xexymix/01_meta_story_1440x2560.jpg' },
@@ -74,17 +74,17 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
       options: [
         {
           option_id: 'opt1_conservative',
-          label: 'Option 1 // Conservative Corporate',
+          label: 'Option 1 // Classic Direct-Response',
           psd_path: 'deliverables/task2_meritz/meritz_partners_master.psd',
           preview_path: 'deliverables/task2_meritz/meritz_partners_preview.jpg',
-          art_direction: 'Direct-response financial layout, 2-column split with metallic 3D gold coin hook.'
+          art_direction: 'Clean, trustworthy 2-column financial ad layout paired with a gleaming 3D gold coin highlight that directs attention straight to the offer.'
         },
         {
           option_id: 'opt2_monumental',
-          label: 'Option 2 // Monumental 3D Zero-Gravity',
+          label: 'Option 2 // Bold 3D Floating Visual',
           psd_path: 'deliverables/task2_meritz/meritz_partners_option2.psd',
           preview_path: 'deliverables/task2_meritz/meritz_partners_option2_preview.jpg',
-          art_direction: 'High-concept low-angle perspective, matte textured red 150 monolith inside Electric Cobalt wireframe gem cage, 5 zero-gravity coins with cinematic depth-of-field blur.'
+          art_direction: "Dynamic hero-angle perspective featuring a matte Vermillion Red '150' 3D centerpiece inside a metallic gold geometric frame, surrounded by 5 floating coins with soft cinematic blur."
         }
       ],
       qa_compliance: {
@@ -113,11 +113,11 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
       },
       data: {
         option_id: 'opt1_conservative',
-        title: 'Option 1 // Conservative Corporate',
+        title: 'Option 1 // Classic Direct-Response',
         tag: 'DIRECT RESPONSE // MASTER .PSD',
         image: './deliverables/task2_meritz/meritz_partners_preview.jpg',
         download: './deliverables/task2_meritz/meritz_partners_master.psd',
-        desc: 'Standard financial direct-response layout featuring a high-contrast 2-column split and metallic 3D gold coin visual hook.'
+        desc: 'Clear, trustworthy financial layout with a balanced 2-column split and eye-catching 3D gold coin visuals built to drive clicks.'
       }
     },
     {
@@ -136,11 +136,11 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
       },
       data: {
         option_id: 'opt2_monumental',
-        title: 'Option 2 // Monumental 3D Zero-Gravity',
-        tag: 'INNOVATIVE 3D // MASTER .PSD',
+        title: 'Option 2 // Bold 3D Floating Visual',
+        tag: 'BOLD 3D CONCEPT // MASTER .PSD',
         image: './deliverables/task2_meritz/meritz_partners_option2_preview.jpg',
         download: './deliverables/task2_meritz/meritz_partners_option2.psd',
-        desc: "Matte Vermillion '150' monolith suspended inside an Electric Cobalt wireframe gem cage with 5 zero-gravity coins."
+        desc: "Matte Vermillion '150' 3D centerpiece framed inside a sleek metallic gold geometric cage with 5 floating gold coins."
       }
     },
     {
@@ -151,7 +151,7 @@ const FALLBACK_MANIFEST_SNAPSHOT = {
       badge: 'QA',
       type: 'existing_dom_target',
       targetSelector: '#popup-spec-card',
-      label: '15/15 QA TELEMETRY',
+      label: '15/15 QUALITY CHECK',
       i18n: {
         pin_label: 'hero_hotspots.spec_pin_label',
         tag: 'hero_hotspots.spec_tag',
@@ -318,9 +318,9 @@ function renderZoneHero(manifest, locale) {
   if (telemetryMount) {
     const initialReadout = AppState.heroStageFallback
       ? '3D STAGE FALLBACK // STATIC PREVIEW (WEBGL UNAVAILABLE)'
-      : '3D STAGE QUATERNION: PITCH +0.0° // YAW +0.0° (CLAMP ±12°/±18°)';
+      : 'INTERACTIVE 3D PREVIEW: PITCH +0.0° // YAW +0.0°';
     telemetryMount.innerHTML = `
-      <span>CAD VIEWPORT // ${opt2Title}</span>
+      <span>SHOWCASE STAGE // ${opt2Title}</span>
       <span id="hero-tilt-readout">${initialReadout}</span>
     `;
   }
@@ -391,7 +391,7 @@ function renderZoneHero(manifest, locale) {
     const readoutEl = document.getElementById('hero-tilt-readout');
     if (!readoutEl) return;
     const modeTag = mode === 'IDLE_THROTTLED' ? 'IDLE' : '60FPS';
-    readoutEl.textContent = `3D STAGE QUATERNION: PITCH ${formatSigned(pitchDeg)} // YAW ${formatSigned(yawDeg)} [${modeTag}]`;
+    readoutEl.textContent = `INTERACTIVE 3D PREVIEW: PITCH ${formatSigned(pitchDeg)} // YAW ${formatSigned(yawDeg)} [${modeTag}]`;
   };
 
   if (!HeroThreeStage.isWebGLAvailable()) {
@@ -645,25 +645,25 @@ function openDeepZoomModal(manifest, optionId) {
   modal.innerHTML = `
     <div class="cyber-modal-dialog">
       <div class="cyber-modal-header">
-        <span>DEEP-ZOOM MICRO-SURFACE INSPECTOR // ${opt.label.toUpperCase()}</span>
+        <span>CLOSE-UP 3D DETAIL VIEWER // ${opt.label.toUpperCase()}</span>
         <button type="button" class="cyber-btn" data-close-zoom="true">
           <span>[ ESC // CLOSE ]</span>
         </button>
       </div>
 
       <div class="cyber-modal-body">
-        <div id="deep-zoom-stage" class="deep-zoom-stage is-magnified" title="Click or move cursor to pan across the 3D '150' matte grain core">
+        <div id="deep-zoom-stage" class="deep-zoom-stage is-magnified" title="Click or move cursor to pan across the 3D '150' matte finish">
           <img id="deep-zoom-target-img" src="${imgUrl}" alt="${opt.label} Deep Zoom" class="deep-zoom-img" />
         </div>
 
         <div class="deep-zoom-sidebar">
           <div>
-            <span class="zone-eyebrow">OPTICAL TELEMETRY // 3D '150' MONOLITH</span>
-            <h3 class="zone-title" style="font-size:22px;margin-bottom:10px;">Matte Grain &amp; Wireframe Cage</h3>
+            <span class="zone-eyebrow">ACCURACY SPECIFICATIONS // 3D '150' CENTERPIECE</span>
+            <h3 class="zone-title" style="font-size:22px;margin-bottom:10px;">Matte Finish &amp; Geometric Gold Frame</h3>
             <p class="meritz-art-direction">
-              Move cursor across the viewport to inspect the micro-matte diffusion grain on the
-              Vermillion Red (#EF3B24) '150' core, Electric Cobalt polyhedral wireframe intersections,
-              and zero-collision Korean typography kerning.
+              Move your cursor across the banner to inspect the natural matte finish on the
+              Meritz Red (#EF3B24) '150' sculpture, crisp gold frame lines,
+              and balanced Korean typography.
             </p>
           </div>
 

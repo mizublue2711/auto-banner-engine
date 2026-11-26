@@ -143,5 +143,14 @@
     "task2_download_label": "TASK 02 // MERITZ CREATIVE PACKAGE",
     "repo_label": "DOWNLOAD CAMPAIGN CONFIG (.JSON)",
     "browse_all_11": "VIEW ALL 11 AD SIZES"
+  },
+  "assembly": {
+    "status_init": "⚙️ INITIALIZING BLUEPRINT FRAME...",
+    "status_injecting": "⚙️ COMPOSING PRODUCT & COPY MODULES...",
+    "status_assembling": "⚙️ LIVE ASSEMBLING MODULES...",
+    "status_aligned": "✓ PERFECTLY ALIGNED",
+    "btn_live_preview": "LAUNCH LIVE 11-RATIO ASSEMBLY",
+    "btn_replay": "▶ REPLAY ASSEMBLY",
+    "modal_ratio_title": "LIVE PARAMETRIC ASSEMBLY // XEXYMIX 11 RATIOS"
   }
 }

@@ -1,0 +1,43 @@
+{
+  "brand": "gsshop",
+  "products": [
+    {
+      "id": "padding",
+      "gs_sku": "1139264988",
+      "kream_url": "https://kream.co.kr/products/250560?base_product_id=250560",
+      "raw_path": "assets/brands/gsshop/raw/gsshop_padding_raw.png",
+      "clean_path": "assets/brands/gsshop/products/gsshop_padding_clean.png",
+      "shadow_layers": {
+        "clean": "assets/brands/gsshop/products/shadows/gsshop_padding_clean_clean.png",
+        "contact": "assets/brands/gsshop/products/shadows/gsshop_padding_clean_shadow_contact.png",
+        "ambient": "assets/brands/gsshop/products/shadows/gsshop_padding_clean_shadow_ambient.png",
+        "metadata": "assets/brands/gsshop/products/shadows/gsshop_padding_clean_shadow_metadata.json"
+      }
+    },
+    {
+      "id": "knit",
+      "gs_sku": "1139548966",
+      "kream_url": "https://kream.co.kr/products/715923?base_product_id=715923",
+      "raw_path": "assets/brands/gsshop/raw/gsshop_knit_raw.png",
+      "clean_path": "assets/brands/gsshop/products/gsshop_knit_clean.png",
+      "shadow_layers": {
+        "clean": "assets/brands/gsshop/products/shadows/gsshop_knit_clean_clean.png",
+        "contact": "assets/brands/gsshop/products/shadows/gsshop_knit_clean_shadow_contact.png",
+        "ambient": "assets/brands/gsshop/products/shadows/gsshop_knit_clean_shadow_ambient.png",
+        "metadata": "assets/brands/gsshop/products/shadows/gsshop_knit_clean_shadow_metadata.json"
+      }
+    },
+    {
+      "id": "tangerine",
+      "korean_name": "제주 서귀포 감귤 생과",
+      "raw_path": "assets/brands/gsshop/raw/gsshop_tangerine_raw.jpg",
+      "clean_path": "assets/brands/gsshop/products/gsshop_tangerine_clean.png",
+      "shadow_layers": {
+        "clean": "assets/brands/gsshop/products/shadows/gsshop_tangerine_clean_clean.png",
+        "contact": "assets/brands/gsshop/products/shadows/gsshop_tangerine_clean_shadow_contact.png",
+        "ambient": "assets/brands/gsshop/products/shadows/gsshop_tangerine_clean_shadow_ambient.png",
+        "metadata": "assets/brands/gsshop/products/shadows/gsshop_tangerine_clean_shadow_metadata.json"
+      }
+    }
+  ]
+}

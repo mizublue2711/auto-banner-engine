@@ -158,6 +158,15 @@
     "task2_download_label": "TASK 02 // MERITZ CREATIVE PACKAGE",
     "repo_label": "DOWNLOAD CAMPAIGN CONFIG (.JSON)",
     "browse_all_11": "VIEW ALL 11 AD SIZES"
+  },
+  "assembly": {
+    "status_init": "⚙️ INITIALIZING BLUEPRINT FRAME...",
+    "status_injecting": "⚙️ COMPOSING PRODUCT & COPY MODULES...",
+    "status_assembling": "⚙️ LIVE ASSEMBLING MODULES...",
+    "status_aligned": "✓ PERFECTLY ALIGNED",
+    "btn_live_preview": "LAUNCH LIVE 11-RATIO ASSEMBLY",
+    "btn_replay": "▶ REPLAY ASSEMBLY",
+    "modal_ratio_title": "LIVE PARAMETRIC ASSEMBLY // XEXYMIX 11 RATIOS"
   }
 },
     ko: {
@@ -305,6 +314,15 @@
     "task2_download_label": "과제 02 // 메리츠 크리에이티브 패키지",
     "repo_label": "캠페인 설정 파일 다운로드 (.JSON)",
     "browse_all_11": "11종 전체 배너 보기"
+  },
+  "assembly": {
+    "status_init": "⚙️ 블루프린트 프레임 초기화 중...",
+    "status_injecting": "⚙️ 상품 · 카피 모듈 데이터 배치 중...",
+    "status_assembling": "⚙️ 실시간 모듈 조합 중...",
+    "status_aligned": "✓ 규격 정렬 완료",
+    "btn_live_preview": "11종 실시간 모듈 조합 미리보기",
+    "btn_replay": "▶ 레이어 조립 다시보기",
+    "modal_ratio_title": "실시간 파라메트릭 조합 // 젝시믹스 11종"
   }
 },
     vi: {
@@ -452,6 +470,15 @@
     "task2_download_label": "BÀI 02 // TRỌN BỘ SÁNG TẠO MERITZ",
     "repo_label": "TẢI FILE CẤU HÌNH CHIẾN DỊCH (.JSON)",
     "browse_all_11": "XEM ĐỦ 11 KÍCH THƯỚC"
+  },
+  "assembly": {
+    "status_init": "⚙️ ĐANG KHỞI TẠO BỘ KHUNG...",
+    "status_injecting": "⚙️ ĐANG ĐỔ DỮ LIỆU SẢN PHẨM & CHỮ...",
+    "status_assembling": "⚙️ ĐANG LẮP RÁP TỰ ĐỘNG...",
+    "status_aligned": "✓ ĐÃ KHÓA CHUẨN TỶ LỆ",
+    "btn_live_preview": "XEM LẮP RÁP TRỰC TIẾP 11 TỶ LỆ",
+    "btn_replay": "▶ Xem Lại Lắp Ráp",
+    "modal_ratio_title": "BUỒNG LẮP RÁP TRỰC TIẾP // 11 TỶ LỆ XEXYMIX"
   }
 }
   });

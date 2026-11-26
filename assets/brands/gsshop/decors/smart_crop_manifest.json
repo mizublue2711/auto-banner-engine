@@ -1,0 +1,352 @@
+{
+  "source": "assets/brands/gsshop/raw/9 christmas items azure blue.jpg",
+  "source_size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "safe_padding_px": 15,
+  "items": [
+    {
+      "index": 0,
+      "file": "decor_snowman.png",
+      "detected_bbox": {
+        "x": 39,
+        "y": 25,
+        "w": 302,
+        "h": 324,
+        "area": 47420
+      },
+      "crop_box": {
+        "x0": 24,
+        "y0": 10,
+        "x1": 356,
+        "y1": 364,
+        "width": 332,
+        "height": 354
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 1,
+      "file": "decor_snowflake.png",
+      "detected_bbox": {
+        "x": 406,
+        "y": 66,
+        "w": 251,
+        "h": 282,
+        "area": 34452
+      },
+      "crop_box": {
+        "x0": 391,
+        "y0": 51,
+        "x1": 672,
+        "y1": 363,
+        "width": 281,
+        "height": 312
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 2,
+      "file": "decor_gift_box.png",
+      "detected_bbox": {
+        "x": 718,
+        "y": 96,
+        "w": 260,
+        "h": 237,
+        "area": 48223
+      },
+      "crop_box": {
+        "x0": 703,
+        "y0": 81,
+        "x1": 993,
+        "y1": 348,
+        "width": 290,
+        "height": 267
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 3,
+      "file": "decor_bauble.png",
+      "detected_bbox": {
+        "x": 106,
+        "y": 394,
+        "w": 237,
+        "h": 264,
+        "area": 36573
+      },
+      "crop_box": {
+        "x0": 91,
+        "y0": 379,
+        "x1": 358,
+        "y1": 673,
+        "width": 267,
+        "height": 294
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 4,
+      "file": "decor_tree.png",
+      "detected_bbox": {
+        "x": 439,
+        "y": 351,
+        "w": 216,
+        "h": 301,
+        "area": 32381
+      },
+      "crop_box": {
+        "x0": 424,
+        "y0": 336,
+        "x1": 670,
+        "y1": 667,
+        "width": 246,
+        "height": 331
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 5,
+      "file": "decor_candy_cane.png",
+      "detected_bbox": {
+        "x": 765,
+        "y": 385,
+        "w": 180,
+        "h": 258,
+        "area": 27838
+      },
+      "crop_box": {
+        "x0": 750,
+        "y0": 370,
+        "x1": 960,
+        "y1": 658,
+        "width": 210,
+        "height": 288
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 6,
+      "file": "decor_santa_hat.png",
+      "detected_bbox": {
+        "x": 83,
+        "y": 718,
+        "w": 309,
+        "h": 218,
+        "area": 44503
+      },
+      "crop_box": {
+        "x0": 68,
+        "y0": 703,
+        "x1": 407,
+        "y1": 951,
+        "width": 339,
+        "height": 248
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 7,
+      "file": "decor_gingerbread.png",
+      "detected_bbox": {
+        "x": 430,
+        "y": 680,
+        "w": 221,
+        "h": 261,
+        "area": 33199
+      },
+      "crop_box": {
+        "x0": 415,
+        "y0": 665,
+        "x1": 666,
+        "y1": 956,
+        "width": 251,
+        "height": 291
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    },
+    {
+      "index": 8,
+      "file": "decor_stocking.png",
+      "detected_bbox": {
+        "x": 705,
+        "y": 717,
+        "w": 252,
+        "h": 223,
+        "area": 34851
+      },
+      "crop_box": {
+        "x0": 690,
+        "y0": 702,
+        "x1": 972,
+        "y1": 955,
+        "width": 282,
+        "height": 253
+      },
+      "applied_padding": {
+        "top": 15,
+        "bottom": 15,
+        "left": 15,
+        "right": 15
+      },
+      "attempts": 1,
+      "clipping": {
+        "is_clipped": false,
+        "total_clipped_pixels": 0,
+        "clipped_edges": [],
+        "edge_counts": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "status": "PASS (COMPLETE)"
+      }
+    }
+  ]
+}

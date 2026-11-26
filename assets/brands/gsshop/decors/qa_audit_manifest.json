@@ -1,0 +1,550 @@
+[
+  {
+    "file": "decor_bauble.png",
+    "category": "mixed",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 131,
+      "ymin": 40,
+      "xmax": 891,
+      "ymax": 983,
+      "width": 760,
+      "height": 943
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.12,
+      "contaminated_edge_px": 5,
+      "evaluated_edge_px": 4162,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 53.3
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_box_back_interior.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 247,
+      "ymin": 310,
+      "xmax": 857,
+      "ymax": 877,
+      "width": 610,
+      "height": 567
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 4701,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 77.1
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_box_contact_shadow.png",
+    "category": "pure_colored",
+    "status": "FAIL",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 228,
+      "ymin": 493,
+      "xmax": 933,
+      "ymax": 942,
+      "width": 705,
+      "height": 449
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 227255,
+      "bottom_shadow_pixels": 19094,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 19094,
+      "transparency_ratio": 74.6
+    },
+    "issues": [
+      "Residual bottom floor shadow must be < 50 px: got 19094 px (semi=19094, opaque_protrusion=0)."
+    ]
+  },
+  {
+    "file": "decor_box_front_rim.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 247,
+      "ymin": 416,
+      "xmax": 857,
+      "ymax": 878,
+      "width": 610,
+      "height": 462
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 4861,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 86.4
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_box_lid_flying.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 129,
+      "ymin": 93,
+      "xmax": 750,
+      "ymax": 500,
+      "width": 621,
+      "height": 407
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 4253,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 86.9
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_candy_cane.png",
+    "category": "mixed",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 268,
+      "ymin": 40,
+      "xmax": 755,
+      "ymax": 983,
+      "width": 487,
+      "height": 943
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.72,
+      "contaminated_edge_px": 27,
+      "evaluated_edge_px": 3772,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 78.5
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_gift_box.png",
+    "category": "mixed",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 46,
+      "ymin": 43,
+      "xmax": 273,
+      "ymax": 274,
+      "width": 227,
+      "height": 231
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 1.27,
+      "contaminated_edge_px": 24,
+      "evaluated_edge_px": 1886,
+      "bottom_shadow_pixels": 3,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 3,
+      "transparency_ratio": 53.9
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_gingerbread.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 61,
+      "ymin": 37,
+      "xmax": 259,
+      "ymax": 283,
+      "width": 198,
+      "height": 246
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 3889,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 74.0
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_santa_hat.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 27,
+      "ymin": 58,
+      "xmax": 293,
+      "ymax": 261,
+      "width": 266,
+      "height": 203
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 3643,
+      "bottom_shadow_pixels": 17,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 17,
+      "transparency_ratio": 64.6
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_snowflake.png",
+    "category": "pure_white",
+    "status": "PASS",
+    "dimensions": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 93,
+      "ymin": 40,
+      "xmax": 930,
+      "ymax": 983,
+      "width": 837,
+      "height": 943
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 0,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 67.9
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_snowman.png",
+    "category": "mixed",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 23,
+      "ymin": 17,
+      "xmax": 297,
+      "ymax": 303,
+      "width": 274,
+      "height": 286
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.64,
+      "contaminated_edge_px": 23,
+      "evaluated_edge_px": 3619,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 63.5
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_stocking.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 45,
+      "ymin": 60,
+      "xmax": 274,
+      "ymax": 259,
+      "width": 229,
+      "height": 199
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 2993,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 0,
+      "transparency_ratio": 72.3
+    },
+    "issues": []
+  },
+  {
+    "file": "decor_tree.png",
+    "category": "pure_colored",
+    "status": "PASS",
+    "dimensions": {
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    "clipping": {
+      "is_clipped": false,
+      "total_clipped_pixels": 0,
+      "clipped_edges": [],
+      "edge_counts": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "status": "PASS (COMPLETE)"
+    },
+    "bbox": {
+      "xmin": 70,
+      "ymin": 21,
+      "xmax": 248,
+      "ymax": 299,
+      "width": 178,
+      "height": 278
+    },
+    "metrics": {
+      "clipped_pixels": 0,
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 4072,
+      "bottom_shadow_pixels": 19,
+      "opaque_shadow_protrusion_px": 0,
+      "bottom_shadow_total_pixels": 19,
+      "transparency_ratio": 78.1
+    },
+    "issues": []
+  }
+]

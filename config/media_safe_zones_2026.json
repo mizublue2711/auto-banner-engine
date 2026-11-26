@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "2026.1.0",
+  "metadata": {
+    "title": "Universal Digital Advertising Safe Zones Matrix 2026",
+    "description": "Deterministic coordinate constraints, platform UI clearances, and margin padding for automated banner generation and QA inspection.",
+    "supported_platforms": ["Meta", "Google_GDN", "Google_Demand_Gen", "Kakao_Display", "Criteo", "Mobile_Portal_DA"]
+  },
+  "global_rules": {
+    "unit": "pixel",
+    "fail_closed_threshold_violation": true,
+    "max_text_visual_weight_percentage": 25.0
+  },
+  "ratios": {
+    "1080x1080": {
+      "name": "Meta_Square_Feed_Master",
+      "aspect_ratio": "1:1",
+      "width": 1080,
+      "height": 1080,
+      "safe_margins": {
+        "top": 54,
+        "bottom": 54,
+        "left": 54,
+        "right": 54
+      },
+      "restricted_zones": [],
+      "description": "Standard square DA for GS SHOP Master. Symmetrical padding 5%."
+    },
+    "1200x1200": {
+      "name": "Meta_Square_Ecom_Master",
+      "aspect_ratio": "1:1",
+      "width": 1200,
+      "height": 1200,
+      "safe_margins": {
+        "top": 60,
+        "bottom": 60,
+        "left": 60,
+        "right": 60
+      },
+      "restricted_zones": [],
+      "description": "High-res square DA for COSRX x ULTA Master. Symmetrical padding 5%."
+    },
+    "1200x600": {
+      "name": "Kakao_Display_Horizontal_DA",
+      "aspect_ratio": "2:1",
+      "width": 1200,
+      "height": 600,
+      "safe_margins": {
+        "top": 40,
+        "bottom": 40,
+        "left": 50,
+        "right": 50
+      },
+      "restricted_zones": [
+        {
+          "name": "Platform_Ad_Badge_Clearance",
+          "anchor": "top-right",
+          "x": 1100,
+          "y": 15,
+          "width": 85,
+          "height": 35,
+          "prohibited_elements": ["logo", "headline", "cta_button"]
+        }
+      ],
+      "description": "GS SHOP Horizontal adaptation. Requires top-right clearance for platform ad identifier."
+    },
+    "300x250": {
+      "name": "GDN_Medium_Rectangle_Micro",
+      "aspect_ratio": "6:5",
+      "width": 300,
+      "height": 250,
+      "safe_margins": {
+        "top": 12,
+        "bottom": 12,
+        "left": 14,
+        "right": 14
+      },
+      "restricted_zones": [
+        {
+          "name": "Google_AdChoices_Zone",
+          "anchor": "top-right",
+          "x": 265,
+          "y": 0,
+          "width": 35,
+          "height": 20,
+          "prohibited_elements": ["essential_text", "logo_details"]
+        }
+      ],
+      "description": "Micro box format. Minimal text footprint, high-legibility bold fonts."
+    },
+    "800x1500": {
+      "name": "Mobile_Portal_Vertical_DA",
+      "aspect_ratio": "1:1.875",
+      "width": 800,
+      "height": 1500,
+      "safe_margins": {
+        "top": 120,
+        "bottom": 100,
+        "left": 40,
+        "right": 40
+      },
+      "restricted_zones": [
+        {
+          "name": "Mobile_System_StatusBar_Clearance",
+          "anchor": "top",
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 90,
+          "prohibited_elements": ["primary_text", "logo_mark"]
+        },
+        {
+          "name": "Bottom_Navigation_Clearance",
+          "anchor": "bottom",
+          "x": 0,
+          "y": 1420,
+          "width": 800,
+          "height": 80,
+          "prohibited_elements": ["cta_button", "legal_disclaimer"]
+        }
+      ],
+      "description": "GS SHOP Tall Mobile Portal format. Clearance required for mobile device top/bottom overlays."
+    },
+    "1080x1920": {
+      "name": "Meta_Story_Reels_Vertical",
+      "aspect_ratio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "safe_margins": {
+        "top": 250,
+        "bottom": 320,
+        "left": 65,
+        "right": 65
+      },
+      "restricted_zones": [
+        {
+          "name": "Instagram_Header_Overlay",
+          "anchor": "top",
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 240,
+          "prohibited_elements": ["logo", "headline", "hook"]
+        },
+        {
+          "name": "Instagram_Interactive_Bottom_Zone",
+          "anchor": "bottom",
+          "x": 0,
+          "y": 1600,
+          "width": 1080,
+          "height": 320,
+          "prohibited_elements": ["cta_button", "interactive_visuals"]
+        }
+      ],
+      "description": "COSRX x ULTA 9:16 Story format. Restrict all focal elements within central 1080x1360 zone."
+    },
+    "1200x628": {
+      "name": "Google_Demand_Gen_Landscape",
+      "aspect_ratio": "1.91:1",
+      "width": 1200,
+      "height": 628,
+      "safe_margins": {
+        "top": 45,
+        "bottom": 45,
+        "left": 55,
+        "right": 55
+      },
+      "restricted_zones": [],
+      "description": "COSRX x ULTA Demand Gen. Split 2-column layout (Left: Text/CTA, Right: Visual Bag Stage)."
+    },
+    "800x1200": {
+      "name": "Criteo_Vertical_Catalog_DA",
+      "aspect_ratio": "2:3",
+      "width": 800,
+      "height": 1200,
+      "safe_margins": {
+        "top": 50,
+        "bottom": 50,
+        "left": 40,
+        "right": 40
+      },
+      "restricted_zones": [],
+      "description": "COSRX x ULTA Criteo Vertical format. Clean stacked hierarchy with product emphasis."
+    }
+  }
+}

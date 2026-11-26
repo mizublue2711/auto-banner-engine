@@ -1,0 +1,51 @@
+{
+  "source": "assets/brands/gsshop/products/gsshop_knit_clean.png",
+  "canvas": {
+    "width": 1024,
+    "height": 1024
+  },
+  "anchor": {
+    "x": 511,
+    "y": 860
+  },
+  "anchor_points": [
+    {
+      "name": "ground_center",
+      "x": 511,
+      "y": 860
+    },
+    {
+      "name": "ground_left",
+      "x": 205,
+      "y": 860
+    },
+    {
+      "name": "ground_right",
+      "x": 818,
+      "y": 860
+    }
+  ],
+  "recommended_z_indices": {
+    "ambient_shadow": 1,
+    "contact_shadow": 2,
+    "clean_cutout": 3
+  },
+  "opacity_tokens": {
+    "ambient": "rgba(12,14,20,0.28)",
+    "contact": "rgba(8,10,16,0.68)"
+  },
+  "light_angle_degrees": 90.0,
+  "shadow_offset": {
+    "x": 6,
+    "y": 1
+  },
+  "blur": {
+    "contact": 6.0,
+    "ambient": 35.0
+  },
+  "layers": {
+    "clean": "gsshop_knit_clean_clean.png",
+    "shadow_contact": "gsshop_knit_clean_shadow_contact.png",
+    "shadow_ambient": "gsshop_knit_clean_shadow_ambient.png"
+  }
+}

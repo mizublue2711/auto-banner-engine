@@ -218,8 +218,409 @@ const AppState = {
   heroStageFallback: false,
   whiteLabelMode: false,
   modalZoomMagnified: false,
+  assemblyObserver: null,
   lang: 'ko'
 };
+
+const ASSEMBLY_MODAL_DELAY_MS = 220;
+const REMOTION_SETTLE_DURATION_MS = 1950;
+const REPLAY_DEBOUNCE_MS = 180;
+const PRELOAD_TIMEOUT_MS = 800;
+
+const assemblyTimers = new WeakMap();
+const assemblyRunTokens = new WeakMap();
+const assemblyReplayTimestamps = new WeakMap();
+const ASSET_PRELOAD_CACHE = new Map();
+
+const XEXYMIX_CUTOUT_ASSETS = Object.freeze({
+  modelCutout: './assets/cutouts/xexymix/base_model_scene.png',
+  logo: './assets/cutouts/xexymix/logo_xexymix.png',
+  pocketCard: './assets/cutouts/xexymix/card_pocket_clean.png',
+  fleeceCard: './assets/cutouts/xexymix/card_fleece_clean.png',
+  promoStory: './assets/cutouts/xexymix/meta_story_9_16_promo.png',
+  promoMaster: './assets/cutouts/xexymix/promo_master.png',
+  promoWide: './assets/cutouts/xexymix/naver_gfa_wide_promo.png',
+  promoThumb: './assets/cutouts/xexymix/naver_thumb_small_promo.png',
+  promoSmart: './assets/cutouts/xexymix/naver_smart_channel_promo.png',
+  promoBizboard: './assets/cutouts/xexymix/kakao_bizboard_promo.png'
+});
+
+const MERITZ_CUTOUT_ASSETS = Object.freeze({
+  logo: './assets/cutouts/meritz/logo.png',
+  coin3d: './assets/cutouts/meritz/hero_coin_3d.png',
+  heroOption2: './assets/cutouts/meritz/hero_option2_scene.png',
+  iconSprout: './assets/cutouts/meritz/icon_sprout_beginner.png',
+  iconGrowth: './assets/cutouts/meritz/icon_flexible_growth.png',
+  iconHoney: './assets/cutouts/meritz/icon_honey_sidejob.png'
+});
+
+/**
+ * Safeguard 4: Asset Preload & Pop-In Prevention
+ * Pre-decodes cutout PNGs before spring animations begin so zero blank frames slide in.
+ */
+function preloadImageAsset(url) {
+  if (!url || typeof Image === 'undefined') return Promise.resolve();
+  if (ASSET_PRELOAD_CACHE.has(url)) {
+    return ASSET_PRELOAD_CACHE.get(url);
+  }
+  const promise = new Promise((resolve) => {
+    const img = new Image();
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+    const timeoutId = window.setTimeout(finish, PRELOAD_TIMEOUT_MS);
+    const done = () => {
+      window.clearTimeout(timeoutId);
+      finish();
+    };
+    img.onload = () => {
+      if (typeof img.decode === 'function') {
+        img.decode().then(done, done);
+      } else {
+        done();
+      }
+    };
+    img.onerror = done;
+    img.src = url;
+    if (img.complete && img.naturalWidth > 0) {
+      if (typeof img.decode === 'function') {
+        img.decode().then(done, done);
+      } else {
+        done();
+      }
+    }
+  });
+  ASSET_PRELOAD_CACHE.set(url, promise);
+  return promise;
+}
+
+function preloadSceneAssets(urls) {
+  const unique = Array.from(new Set((urls || []).filter(Boolean)));
+  if (!unique.length) return Promise.resolve();
+  return Promise.all(unique.map((u) => preloadImageAsset(u)));
+}
+
+function prewarmAllCutoutAssets() {
+  const allPaths = [
+    ...Object.values(XEXYMIX_CUTOUT_ASSETS),
+    ...Object.values(MERITZ_CUTOUT_ASSETS)
+  ].map((p) => resolveAssetPath(p));
+  preloadSceneAssets(allPaths).catch(() => {});
+}
+
+function clearAssemblyTimers(containerElement) {
+  const existing = assemblyTimers.get(containerElement);
+  if (!existing) return;
+  if (existing.startTimerId) window.clearTimeout(existing.startTimerId);
+  if (existing.completeTimerId) window.clearTimeout(existing.completeTimerId);
+  if (existing.rafId) window.cancelAnimationFrame(existing.rafId);
+  assemblyTimers.delete(containerElement);
+}
+
+/**
+ * Safeguard 1: Deterministic DOM Teardown & Clean Unmounting
+ * Cancels active timers, Web Animations, invalidates in-flight async preloads via
+ * monotonic runToken, and wipes all prior discrete layer nodes before mounting new ones.
+ */
+function teardownAssemblyStage(stageCanvas) {
+  if (!stageCanvas) return 0;
+  const nextToken = (assemblyRunTokens.get(stageCanvas) || 0) + 1;
+  assemblyRunTokens.set(stageCanvas, nextToken);
+  clearAssemblyTimers(stageCanvas);
+
+  if (typeof stageCanvas.getAnimations === 'function') {
+    try {
+      stageCanvas.getAnimations({ subtree: true }).forEach((anim) => anim.cancel());
+    } catch (_) {
+      /* ignore browser animation API quirks */
+    }
+  }
+
+  stageCanvas.classList.remove('is-assembling', 'is-assembled', 'is-preloading');
+  stageCanvas.replaceChildren();
+  return nextToken;
+}
+
+/**
+ * Resolve exact aspect ratio, layout archetype, and promo badge PNG for all 11 XEXYMIX placements.
+ */
+function resolveXexymixSceneConfig(placement) {
+  const id = String((placement && placement.id) || '01').padStart(2, '0');
+  let ratioFloat = 0.5625;
+  if (placement && typeof placement.resolution === 'string') {
+    const match = placement.resolution.match(/(\d+)\s*x\s*(\d+)/i);
+    if (match) {
+      const w = parseInt(match[1], 10);
+      const h = parseInt(match[2], 10);
+      if (w > 0 && h > 0) {
+        ratioFloat = w / h;
+      }
+    }
+  }
+
+  let layoutMode = 'vertical-tall';
+  let promoPath = XEXYMIX_CUTOUT_ASSETS.promoStory;
+
+  if (id === '01') {
+    layoutMode = 'vertical-tall';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoStory;
+  } else if (id === '02' || id === '03' || id === '04') {
+    layoutMode = 'vertical-feed';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoMaster;
+  } else if (id === '05' || id === '06') {
+    layoutMode = 'square';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoMaster;
+  } else if (id === '07' || id === '08') {
+    layoutMode = 'wide';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoWide;
+  } else if (id === '09') {
+    layoutMode = 'display-thumb';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoThumb;
+  } else if (id === '10') {
+    layoutMode = 'micro-right';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoSmart;
+  } else {
+    layoutMode = 'micro-flipped';
+    promoPath = XEXYMIX_CUTOUT_ASSETS.promoBizboard;
+  }
+
+  const assets = {
+    modelSrc: resolveAssetPath(XEXYMIX_CUTOUT_ASSETS.modelCutout),
+    logoSrc: resolveAssetPath(XEXYMIX_CUTOUT_ASSETS.logo),
+    pocketSrc: resolveAssetPath(XEXYMIX_CUTOUT_ASSETS.pocketCard),
+    fleeceSrc: resolveAssetPath(XEXYMIX_CUTOUT_ASSETS.fleeceCard),
+    promoSrc: resolveAssetPath(promoPath)
+  };
+
+  return {
+    sceneKey: `xexymix-${id}`,
+    layoutMode,
+    ratioFloat,
+    assets,
+    preloadUrls: Object.values(assets)
+  };
+}
+
+function buildXexymixLayersMarkup(scene) {
+  const { modelSrc, logoSrc, pocketSrc, fleeceSrc, promoSrc } = scene.assets;
+  return `
+    <div class="layer-canvas-bg" aria-hidden="true"></div>
+    <div class="layer-product-cutout">
+      <img src="${modelSrc}" alt="XEXYMIX Black Label 360N Leggings Model Cutout" decoding="async" />
+    </div>
+    <div class="layer-typography-group">
+      <img src="${logoSrc}" alt="XEXYMIX" class="assembly-brand-logo" decoding="async" />
+      <div class="assembly-copy-block">
+        <span class="assembly-eyebrow-pill">RX 블랙라벨 시그니처 360N 기모 포켓 레깅스</span>
+        <div class="assembly-headline-line">허리 압박은 덜고</div>
+        <div class="assembly-headline-line"><span class="assembly-headline-accent">기모의 온기</span>는 더했어요</div>
+      </div>
+    </div>
+    <div class="layer-feature-card">
+      <div class="feature-callout-circle-wrap">
+        <div class="feature-callout-circle">
+          <img src="${pocketSrc}" alt="사이드 삼각 포켓" decoding="async" />
+        </div>
+        <span class="feature-callout-label">사이드 삼각 포켓</span>
+        <span class="feature-callout-connector" aria-hidden="true"></span>
+      </div>
+      <div class="feature-callout-circle-wrap">
+        <div class="feature-callout-circle">
+          <img src="${fleeceSrc}" alt="하이 게이지 편직 및 기모 소재" decoding="async" />
+        </div>
+        <span class="feature-callout-label">기모 보온 소재</span>
+        <span class="feature-callout-connector" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="layer-badge-cta">
+      <img src="${promoSrc}" alt="다시 없을 마지막 혜택! 젝시블프 UP TO 80%" class="assembly-promo-bar-img" decoding="async" />
+    </div>
+  `;
+}
+
+function resolveMeritzSceneConfig(optionId) {
+  const isOpt2 = optionId === 'opt2_monumental';
+  const assets = {
+    logoSrc: resolveAssetPath(MERITZ_CUTOUT_ASSETS.logo),
+    heroSrc: resolveAssetPath(isOpt2 ? MERITZ_CUTOUT_ASSETS.heroOption2 : MERITZ_CUTOUT_ASSETS.coin3d),
+    iconSproutSrc: resolveAssetPath(MERITZ_CUTOUT_ASSETS.iconSprout),
+    iconGrowthSrc: resolveAssetPath(MERITZ_CUTOUT_ASSETS.iconGrowth),
+    iconHoneySrc: resolveAssetPath(MERITZ_CUTOUT_ASSETS.iconHoney)
+  };
+  return {
+    sceneKey: isOpt2 ? 'meritz-opt2' : 'meritz-opt1',
+    layoutMode: isOpt2 ? 'meritz-opt2' : 'meritz-opt1',
+    isOpt2,
+    ratioFloat: 1,
+    assets,
+    preloadUrls: Object.values(assets)
+  };
+}
+
+function buildMeritzLayersMarkup(scene) {
+  const { logoSrc, heroSrc, iconSproutSrc, iconGrowthSrc, iconHoneySrc } = scene.assets;
+  const headlineHtml = scene.isOpt2
+    ? `
+      <div class="meritz-headline-wrap">
+        <span class="meritz-eyebrow">초보자도 첫달부터 수익+</span>
+        <div class="meritz-subhead">첫달 평균 수익</div>
+      </div>
+      <div class="meritz-unit-callout">
+        <span>만원</span>
+        <span class="meritz-unit-bar" aria-hidden="true"></span>
+      </div>
+    `
+    : `
+      <div class="meritz-headline-wrap">
+        <span class="meritz-eyebrow">초보자도 첫달부터 수익+</span>
+        <div class="meritz-subhead">첫달 평균 수익</div>
+        <div class="meritz-hero-numeral">150<span class="meritz-hero-unit">만원</span></div>
+      </div>
+    `;
+
+  return `
+    <div class="layer-canvas-bg" aria-hidden="true">
+      <div class="meritz-canvas-card"></div>
+    </div>
+    <div class="layer-product-cutout">
+      <img src="${heroSrc}" alt="${scene.isOpt2 ? "Meritz 3D '150' Floating Sculpture" : 'Meritz 3D Gold Coin'}" decoding="async" />
+    </div>
+    <div class="layer-typography-group">
+      <div class="meritz-header-bar">
+        <img src="${logoSrc}" alt="Meritz Partners" class="meritz-brand-logo" decoding="async" />
+        <div class="meritz-header-chips">
+          <span class="meritz-header-chip">경력무관</span>
+          <span class="meritz-header-chip">나이 무관</span>
+        </div>
+      </div>
+      ${headlineHtml}
+    </div>
+    <div class="layer-feature-card">
+      <div class="meritz-benefit-card">
+        <img src="${iconSproutSrc}" alt="" class="meritz-benefit-icon" decoding="async" />
+        <div>
+          <div class="meritz-benefit-title">경력무관</div>
+          <div class="meritz-benefit-sub">초보자 누구나 시작</div>
+        </div>
+      </div>
+      <div class="meritz-benefit-card">
+        <img src="${iconGrowthSrc}" alt="" class="meritz-benefit-icon" decoding="async" />
+        <div>
+          <div class="meritz-benefit-title">첫달부터 수익+</div>
+          <div class="meritz-benefit-sub">체결 즉시 실적 반영</div>
+        </div>
+      </div>
+      <div class="meritz-benefit-card">
+        <img src="${iconHoneySrc}" alt="" class="meritz-benefit-icon" decoding="async" />
+        <div>
+          <div class="meritz-benefit-title">나이 안보는 부업</div>
+          <div class="meritz-benefit-sub">원하는 시간 꿀부업</div>
+        </div>
+      </div>
+    </div>
+    <div class="layer-badge-cta">
+      <div class="meritz-cta-button">꿀부업 시작 바로가기 &gt;</div>
+      <div class="meritz-legal-note">*‘24년 8월 ~ ‘25년 7월 수익자의 첫 달 평균 금액 기준, 수익은 보험체결 후 발생, 개인차 있음</div>
+    </div>
+  `;
+}
+
+/**
+ * STEP 20 (PHASE 2): Hardened Multi-Layer Remotion-Style Motion Assembly Trigger
+ * Enforces all 4 mandatory safeguards:
+ *   1. Clean DOM teardown (teardownAssemblyStage + monotonic runToken)
+ *   2. Fluid % / cqw coordinates via --stage-ratio + data-layout-mode
+ *   3. Replay debounce (180ms) + synchronous reflow flush + rAF start
+ *   4. Cutout PNG preload & decode gate before spring translations begin
+ */
+function triggerLiveAssembly(stageCanvas, config = {}) {
+  if (!stageCanvas) return;
+
+  const opts = typeof config === 'object' && config !== null ? config : {};
+
+  /* Safeguard 3: Replay debounce prevents rapid-click storming & visual flicker */
+  if (opts.isReplay) {
+    const now = performance.now();
+    const lastTs = assemblyReplayTimestamps.get(stageCanvas) || 0;
+    if (now - lastTs < REPLAY_DEBOUNCE_MS) {
+      return;
+    }
+    assemblyReplayTimestamps.set(stageCanvas, now);
+  }
+
+  /* Safeguard 1: Clean teardown of prior layers, timers, and animations */
+  const runToken = teardownAssemblyStage(stageCanvas);
+
+  const brand = opts.brand || 'xexymix';
+  const scene =
+    brand === 'meritz'
+      ? resolveMeritzSceneConfig(opts.optionId || 'opt2_monumental')
+      : resolveXexymixSceneConfig(opts.placement || { id: '01', resolution: '1440x2560' });
+
+  stageCanvas.style.setProperty('--stage-ratio', String(Number(scene.ratioFloat.toFixed(4))));
+  stageCanvas.setAttribute('data-layout-mode', scene.layoutMode);
+  stageCanvas.setAttribute('data-scene-key', scene.sceneKey);
+  stageCanvas.classList.add('is-preloading');
+
+  stageCanvas.innerHTML =
+    brand === 'meritz' ? buildMeritzLayersMarkup(scene) : buildXexymixLayersMarkup(scene);
+
+  const initialDelayMs =
+    typeof opts.initialDelayMs === 'number' && opts.initialDelayMs > 0 ? opts.initialDelayMs : 0;
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const effectiveDelay = prefersReducedMotion ? 0 : initialDelayMs;
+  const settleMs = prefersReducedMotion ? 60 : REMOTION_SETTLE_DURATION_MS;
+
+  const timerBag = { startTimerId: null, completeTimerId: null, rafId: null };
+  assemblyTimers.set(stageCanvas, timerBag);
+
+  /* Safeguard 4: Await cutout PNG preload/decode (never hangs or aborts on delay) */
+  preloadSceneAssets(scene.preloadUrls)
+    .catch(() => {})
+    .then(() => {
+      if (assemblyRunTokens.get(stageCanvas) !== runToken || !stageCanvas.isConnected) {
+        return;
+      }
+
+      const startSpringSequence = () => {
+        if (assemblyRunTokens.get(stageCanvas) !== runToken || !stageCanvas.isConnected) {
+          return;
+        }
+        stageCanvas.classList.remove('is-preloading', 'is-assembling', 'is-assembled');
+        /* Explicit synchronous reflow flush before re-applying animation class */
+        void stageCanvas.offsetWidth;
+        timerBag.rafId = window.requestAnimationFrame(() => {
+          if (assemblyRunTokens.get(stageCanvas) !== runToken || !stageCanvas.isConnected) {
+            return;
+          }
+          stageCanvas.classList.add('is-assembling');
+          timerBag.completeTimerId = window.setTimeout(() => {
+            if (assemblyRunTokens.get(stageCanvas) !== runToken) return;
+            stageCanvas.classList.remove('is-assembling');
+            stageCanvas.classList.add('is-assembled');
+            assemblyTimers.delete(stageCanvas);
+          }, settleMs);
+        });
+      };
+
+      if (effectiveDelay > 0) {
+        timerBag.startTimerId = window.setTimeout(startSpringSequence, effectiveDelay);
+      } else {
+        startSpringSequence();
+      }
+    });
+}
+
+if (typeof window !== 'undefined') {
+  window.triggerLiveAssembly = triggerLiveAssembly;
+  window.teardownAssemblyStage = teardownAssemblyStage;
+}
 
 /**
  * Helper: lookup a dot-separated key from active locale dictionary
@@ -459,13 +860,40 @@ function renderZoneXexymix(manifest, locale) {
     `;
   }
 
-  /* Sync Master ZIP download button href & translated label */
+  /* Sync Master ZIP download button href & translated label + Live 11-Ratio Assembly launcher */
   const zipBtn = mount.querySelector('#xexymix-master-zip-btn');
+  const ctaWrap = mount.querySelector('.keepsake-zip-cta-wrap');
   if (zipBtn) {
     zipBtn.setAttribute('href', resolveAssetPath(SHOWCASE_CONFIG.xexymixZipPath));
     const zipLabelEl = zipBtn.querySelector('[data-i18n="keepsake.btn_download_zip"]');
     if (zipLabelEl) {
       zipLabelEl.textContent = t(locale, 'keepsake.btn_download_zip', 'DOWNLOAD ALL 11 SIZES (.ZIP)');
+    }
+  }
+
+  if (ctaWrap && zipBtn) {
+    let ctaRow = ctaWrap.querySelector('.keepsake-cta-row');
+    if (!ctaRow) {
+      ctaRow = document.createElement('div');
+      ctaRow.className = 'keepsake-cta-row';
+      zipBtn.parentNode.insertBefore(ctaRow, zipBtn);
+      ctaRow.appendChild(zipBtn);
+    }
+
+    let liveBtn = ctaRow.querySelector('#xexymix-live-assembly-btn');
+    if (!liveBtn) {
+      liveBtn = document.createElement('button');
+      liveBtn.type = 'button';
+      liveBtn.id = 'xexymix-live-assembly-btn';
+      liveBtn.className = 'keepsake-live-assembly-btn';
+      liveBtn.setAttribute('data-open-ratio-preview', placements[0] ? placements[0].id : '01');
+      liveBtn.innerHTML = `<span data-i18n="assembly.btn_live_preview">${t(locale, 'assembly.btn_live_preview', 'LAUNCH LIVE 11-RATIO ASSEMBLY')}</span>`;
+      ctaRow.insertBefore(liveBtn, zipBtn);
+    } else {
+      const liveLabelEl = liveBtn.querySelector('[data-i18n="assembly.btn_live_preview"]');
+      if (liveLabelEl) {
+        liveLabelEl.textContent = t(locale, 'assembly.btn_live_preview', 'LAUNCH LIVE 11-RATIO ASSEMBLY');
+      }
     }
   }
 
@@ -480,6 +908,26 @@ function renderZoneXexymix(manifest, locale) {
         lang: AppState.lang,
         locale
       });
+
+      /* Desktop click on any expanded Keepsake ratio card launches Live Parametric Assembly preview */
+      const keepsakeContainer = mount.querySelector('.keepsake-container');
+      if (keepsakeContainer) {
+        keepsakeContainer.addEventListener('click', (event) => {
+          const isCoarse =
+            typeof window !== 'undefined' &&
+            window.matchMedia &&
+            window.matchMedia('(pointer: coarse)').matches;
+          if (isCoarse) return;
+          const root = keepsakeContainer.querySelector('[data-keepsake-root]');
+          if (!root || !root.classList.contains('is-expanded')) return;
+          const slot = event.target.closest('.keepsake-card-slot');
+          if (!slot) return;
+          const placementId = slot.getAttribute('data-placement-id');
+          if (placementId && AppState.manifest) {
+            openRatioPreviewModal(AppState.manifest, placementId);
+          }
+        });
+      }
     } else {
       AppState.keepsakeFolder.setLocale(locale, AppState.lang);
     }
@@ -598,8 +1046,20 @@ function renderZoneMeritz(manifest, locale) {
   });
 }
 
+function closeShowcaseModal(modal) {
+  if (!modal) return;
+  const activeCanvas = modal.querySelector('#assembly-stage-canvas');
+  if (activeCanvas) {
+    teardownAssemblyStage(activeCanvas);
+  }
+  modal.classList.remove('is-open');
+  if (AppState.heroStage && typeof AppState.heroStage.resume === 'function') {
+    AppState.heroStage.resume();
+  }
+}
+
 /**
- * Deep-Zoom Modal for inspecting the Matte Grain Texture on the 3D '150' Core
+ * Deep-Zoom & Multi-Layer Assembly Modal Host
  */
 function ensureDeepZoomModal(manifest) {
   let modal = document.getElementById('meritz-deep-zoom-modal');
@@ -609,11 +1069,17 @@ function ensureDeepZoomModal(manifest) {
     modal.className = 'cyber-modal-backdrop';
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Meritz 3D Matte Grain Deep-Zoom Inspector');
+    modal.setAttribute('aria-label', 'Auto-Banner Multi-Layer Assembly Inspector');
     document.body.appendChild(modal);
   }
 
   document.addEventListener('click', (event) => {
+    const ratioTrigger = event.target.closest('[data-open-ratio-preview]');
+    if (ratioTrigger) {
+      const placementId = ratioTrigger.getAttribute('data-open-ratio-preview');
+      openRatioPreviewModal(manifest, placementId);
+      return;
+    }
     const trigger = event.target.closest('[data-open-zoom]');
     if (trigger) {
       const optionId = trigger.getAttribute('data-open-zoom');
@@ -621,13 +1087,13 @@ function ensureDeepZoomModal(manifest) {
       return;
     }
     if (event.target.matches('#meritz-deep-zoom-modal') || event.target.closest('[data-close-zoom]')) {
-      modal.classList.remove('is-open');
+      closeShowcaseModal(modal);
     }
   });
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal.classList.contains('is-open')) {
-      modal.classList.remove('is-open');
+      closeShowcaseModal(modal);
     }
   });
 }
@@ -637,33 +1103,59 @@ function openDeepZoomModal(manifest, optionId) {
   if (!modal) return;
 
   const task2 = manifest.tasks.task2_meritz;
-  const opt = task2.options.find((o) => o.option_id === optionId) || task2.options[1];
-  const imgUrl = resolveAssetPath(opt.preview_path);
+  let activeOpt = task2.options.find((o) => o.option_id === optionId) || task2.options[1];
+  const locale = AppState.locale;
+  const replayLabel = t(locale, 'assembly.btn_replay', '▶ Xem Lại Lắp Ráp');
 
-  AppState.modalZoomMagnified = true;
+  AppState.modalZoomMagnified = false;
+  if (AppState.heroStage && typeof AppState.heroStage.pause === 'function') {
+    AppState.heroStage.pause();
+  }
+  prewarmAllCutoutAssets();
 
   modal.innerHTML = `
     <div class="cyber-modal-dialog">
       <div class="cyber-modal-header">
-        <span>CLOSE-UP 3D DETAIL VIEWER // ${opt.label.toUpperCase()}</span>
-        <button type="button" class="cyber-btn" data-close-zoom="true">
-          <span>[ ESC // CLOSE ]</span>
-        </button>
+        <span id="meritz-modal-title">${t(locale, 'task2_meritz.modal_title', 'CLOSE-UP 3D DETAIL VIEWER')} // ${activeOpt.label.toUpperCase()}</span>
+        <div class="modal-header-actions">
+          <button type="button" id="replay-assembly-btn" class="replay-assembly-btn">
+            <span data-i18n="assembly.btn_replay">${replayLabel}</span>
+          </button>
+          <button type="button" class="cyber-btn" data-close-zoom="true">
+            <span>[ ESC // CLOSE ]</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-ratio-strip" role="tablist" aria-label="Switch Creative Option">
+        ${task2.options
+          .map(
+            (o, idx) => `
+          <button
+            type="button"
+            class="modal-ratio-pill ${o.option_id === activeOpt.option_id ? 'is-active' : ''}"
+            data-switch-meritz-opt="${o.option_id}"
+            role="tab"
+            aria-selected="${String(o.option_id === activeOpt.option_id)}"
+          >
+            <span>OPT 0${idx + 1}</span>
+            <span>// ${o.option_id === 'opt2_monumental' ? '3D FLOATING' : 'CLASSIC DR'}</span>
+          </button>`
+          )
+          .join('')}
       </div>
 
       <div class="cyber-modal-body">
-        <div id="deep-zoom-stage" class="deep-zoom-stage is-magnified" title="Click or move cursor to pan across the 3D '150' matte finish">
-          <img id="deep-zoom-target-img" src="${imgUrl}" alt="${opt.label} Deep Zoom" class="deep-zoom-img" />
+        <div id="deep-zoom-stage" class="deep-zoom-stage has-assembly-canvas supports-loupe" title="Click to toggle 2.35x loupe and move cursor to pan">
+          <div id="assembly-stage-canvas" class="assembly-stage-canvas"></div>
         </div>
 
         <div class="deep-zoom-sidebar">
           <div>
-            <span class="zone-eyebrow">ACCURACY SPECIFICATIONS // 3D '150' CENTERPIECE</span>
-            <h3 class="zone-title" style="font-size:22px;margin-bottom:10px;">Matte Finish &amp; Geometric Gold Frame</h3>
-            <p class="meritz-art-direction">
-              Move your cursor across the banner to inspect the natural matte finish on the
-              Meritz Red (#EF3B24) '150' sculpture, crisp gold frame lines,
-              and balanced Korean typography.
+            <span class="zone-eyebrow" data-i18n="task2_meritz.modal_eyebrow">${t(locale, 'task2_meritz.modal_eyebrow', "ACCURACY SPECIFICATIONS // 3D '150' CENTERPIECE")}</span>
+            <h3 class="zone-title" id="meritz-modal-heading" style="font-size:22px;margin-bottom:10px;" data-i18n="task2_meritz.modal_heading">${t(locale, 'task2_meritz.modal_heading', 'Matte Finish & Geometric Gold Frame')}</h3>
+            <p class="meritz-art-direction" id="meritz-modal-desc" data-i18n="task2_meritz.modal_desc">
+              ${t(locale, 'task2_meritz.modal_desc', "Move your cursor across the banner to inspect the natural matte finish on the Meritz Red (#EF3B24) '150' sculpture, crisp gold frame lines, and balanced Korean typography.")}
             </p>
           </div>
 
@@ -682,16 +1174,16 @@ function openDeepZoomModal(manifest, optionId) {
             </li>
             <li class="cad-spec-item">
               <span class="cad-spec-key">MAGNIFICATION</span>
-              <span class="cad-spec-val" id="zoom-scale-readout">2.35x LOUPE ACTIVE</span>
+              <span class="cad-spec-val" id="zoom-scale-readout">1.00x FULL FRAME</span>
             </li>
           </ul>
 
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
-            <button type="button" id="toggle-zoom-scale-btn" class="cyber-btn emerald-toggle is-active">
-              <span>TOGGLE 2.35x / 1.0x ZOOM</span>
+            <button type="button" id="toggle-zoom-scale-btn" class="cyber-btn emerald-toggle">
+              <span data-i18n="task2_meritz.modal_toggle_zoom">${t(locale, 'task2_meritz.modal_toggle_zoom', 'TOGGLE 2.35x / 1.0x ZOOM')}</span>
             </button>
-            <a href="${resolveAssetPath(opt.psd_path)}" download class="cyber-btn">
-              <span>DOWNLOAD LAYERED .PSD</span>
+            <a id="meritz-download-psd-link" href="${resolveAssetPath(activeOpt.psd_path)}" download class="cyber-btn">
+              <span data-i18n="task2_meritz.modal_download_psd">${t(locale, 'task2_meritz.modal_download_psd', 'DOWNLOAD LAYERED .PSD')}</span>
             </a>
           </div>
         </div>
@@ -702,20 +1194,90 @@ function openDeepZoomModal(manifest, optionId) {
   modal.classList.add('is-open');
 
   const stage = modal.querySelector('#deep-zoom-stage');
-  const img = modal.querySelector('#deep-zoom-target-img');
+  const canvasEl = modal.querySelector('#assembly-stage-canvas');
+  const replayBtn = modal.querySelector('#replay-assembly-btn');
   const toggleBtn = modal.querySelector('#toggle-zoom-scale-btn');
   const readout = modal.querySelector('#zoom-scale-readout');
+  const titleBar = modal.querySelector('#meritz-modal-title');
+  const psdLink = modal.querySelector('#meritz-download-psd-link');
 
-  if (stage && img) {
+  if (canvasEl) {
+    triggerLiveAssembly(canvasEl, {
+      brand: 'meritz',
+      optionId: activeOpt.option_id,
+      initialDelayMs: ASSEMBLY_MODAL_DELAY_MS
+    });
+  }
+
+  const syncZoomUi = () => {
+    if (stage) {
+      stage.classList.toggle('is-magnified', AppState.modalZoomMagnified);
+    }
+    if (toggleBtn) {
+      toggleBtn.classList.toggle('is-active', AppState.modalZoomMagnified);
+    }
+    if (readout) {
+      readout.textContent = AppState.modalZoomMagnified ? '2.35x LOUPE ACTIVE' : '1.00x FULL FRAME';
+    }
+  };
+
+  if (replayBtn && canvasEl) {
+    replayBtn.addEventListener('click', () => {
+      AppState.modalZoomMagnified = false;
+      syncZoomUi();
+      triggerLiveAssembly(canvasEl, {
+        brand: 'meritz',
+        optionId: activeOpt.option_id,
+        initialDelayMs: 0,
+        isReplay: true
+      });
+    });
+  }
+
+  const optPills = modal.querySelectorAll('[data-switch-meritz-opt]');
+  optPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const nextOptId = pill.getAttribute('data-switch-meritz-opt');
+      const nextOpt = task2.options.find((o) => o.option_id === nextOptId);
+      if (!nextOpt || !canvasEl) return;
+      activeOpt = nextOpt;
+      AppState.modalZoomMagnified = false;
+      syncZoomUi();
+
+      optPills.forEach((btn) => {
+        const active = btn === pill;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+
+      if (titleBar) {
+        titleBar.textContent = `${t(locale, 'task2_meritz.modal_title', 'CLOSE-UP 3D DETAIL VIEWER')} // ${activeOpt.label.toUpperCase()}`;
+      }
+      if (psdLink) {
+        psdLink.setAttribute('href', resolveAssetPath(activeOpt.psd_path));
+      }
+
+      triggerLiveAssembly(canvasEl, {
+        brand: 'meritz',
+        optionId: activeOpt.option_id,
+        initialDelayMs: 0
+      });
+    });
+  });
+
+  if (stage && canvasEl) {
     const updateZoomOrigin = (clientX, clientY) => {
       const rect = stage.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
       const xPct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
       const yPct = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
-      img.style.transformOrigin = `${xPct.toFixed(1)}% ${yPct.toFixed(1)}%`;
+      canvasEl.style.transformOrigin = `${xPct.toFixed(1)}% ${yPct.toFixed(1)}%`;
     };
 
     stage.addEventListener('mousemove', (e) => {
-      updateZoomOrigin(e.clientX, e.clientY);
+      if (AppState.modalZoomMagnified) {
+        updateZoomOrigin(e.clientX, e.clientY);
+      }
     });
 
     stage.addEventListener(
@@ -730,22 +1292,189 @@ function openDeepZoomModal(manifest, optionId) {
 
     stage.addEventListener('click', () => {
       AppState.modalZoomMagnified = !AppState.modalZoomMagnified;
-      stage.classList.toggle('is-magnified', AppState.modalZoomMagnified);
-      if (readout) {
-        readout.textContent = AppState.modalZoomMagnified ? '2.35x LOUPE ACTIVE' : '1.00x FULL FRAME';
-      }
+      syncZoomUi();
     });
   }
 
-  if (toggleBtn && stage) {
+  if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
       AppState.modalZoomMagnified = !AppState.modalZoomMagnified;
-      stage.classList.toggle('is-magnified', AppState.modalZoomMagnified);
-      if (readout) {
-        readout.textContent = AppState.modalZoomMagnified ? '2.35x LOUPE ACTIVE' : '1.00x FULL FRAME';
-      }
+      syncZoomUi();
     });
   }
+}
+
+/**
+ * Live 11-Ratio Multi-Layer Remotion Assembly Modal for all XEXYMIX placements
+ * Switching any ratio pill cleanly tears down prior layers and re-mounts the target archetype.
+ */
+function openRatioPreviewModal(manifest, placementId) {
+  const modal = document.getElementById('meritz-deep-zoom-modal');
+  if (!modal) return;
+
+  const task1 = manifest.tasks.task1_xexymix;
+  const placements = task1.placements || [];
+  if (!placements.length) return;
+
+  let activePlacement =
+    placements.find((p) => String(p.id) === String(placementId)) || placements[0];
+  const imgUrl = resolveAssetPath(activePlacement.file);
+  const locale = AppState.locale;
+  const replayLabel = t(locale, 'assembly.btn_replay', '▶ Xem Lại Lắp Ráp');
+
+  AppState.modalZoomMagnified = false;
+  if (AppState.heroStage && typeof AppState.heroStage.pause === 'function') {
+    AppState.heroStage.pause();
+  }
+  prewarmAllCutoutAssets();
+
+  modal.innerHTML = `
+    <div class="cyber-modal-dialog">
+      <div class="cyber-modal-header">
+        <span data-i18n="assembly.modal_ratio_title">${t(locale, 'assembly.modal_ratio_title', 'LIVE PARAMETRIC ASSEMBLY // XEXYMIX 11 RATIOS')}</span>
+        <div class="modal-header-actions">
+          <button type="button" id="replay-assembly-btn" class="replay-assembly-btn">
+            <span data-i18n="assembly.btn_replay">${replayLabel}</span>
+          </button>
+          <button type="button" class="cyber-btn" data-close-zoom="true">
+            <span>[ ESC // CLOSE ]</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-ratio-strip" role="tablist" aria-label="Select Banner Ratio">
+        ${placements
+          .map(
+            (p) => `
+          <button
+            type="button"
+            class="modal-ratio-pill ${p.id === activePlacement.id ? 'is-active' : ''}"
+            data-select-ratio-id="${p.id}"
+            role="tab"
+            aria-selected="${String(p.id === activePlacement.id)}"
+          >
+            <span>#${p.id}</span>
+            <span>${p.ratio}</span>
+          </button>`
+          )
+          .join('')}
+      </div>
+
+      <div class="cyber-modal-body">
+        <div id="deep-zoom-stage" class="deep-zoom-stage has-assembly-canvas">
+          <div id="assembly-stage-canvas" class="assembly-stage-canvas"></div>
+        </div>
+
+        <div class="deep-zoom-sidebar">
+          <div>
+            <span class="zone-eyebrow" id="ratio-sidebar-eyebrow">PLACEMENT #${activePlacement.id} // ${getPlacementCategory(activePlacement)}</span>
+            <h3 class="zone-title" id="ratio-sidebar-title" style="font-size:22px;margin-bottom:10px;">${activePlacement.name}</h3>
+            <p class="meritz-art-direction" data-i18n="task1_xexymix.description">
+              ${t(locale, 'task1_xexymix.description', task1.title)}
+            </p>
+          </div>
+
+          <ul class="cad-spec-list">
+            <li class="cad-spec-item">
+              <span class="cad-spec-key" data-i18n="keepsake.label_resolution">${t(locale, 'keepsake.label_resolution', 'DIMENSIONS')}</span>
+              <span class="cad-spec-val" id="ratio-spec-res" style="color:var(--accent-cyan);">${activePlacement.resolution} px</span>
+            </li>
+            <li class="cad-spec-item">
+              <span class="cad-spec-key" data-i18n="keepsake.label_ratio">${t(locale, 'keepsake.label_ratio', 'ASPECT RATIO')}</span>
+              <span class="cad-spec-val" id="ratio-spec-ratio">${activePlacement.ratio}</span>
+            </li>
+            <li class="cad-spec-item">
+              <span class="cad-spec-key" data-i18n="keepsake.label_stepping">${t(locale, 'keepsake.label_stepping', 'CLEAN GUIDES')}</span>
+              <span class="cad-spec-val" style="color:var(--status-emerald);" data-i18n="keepsake.status_passed">${t(locale, 'keepsake.status_passed', 'PASSED')}</span>
+            </li>
+            <li class="cad-spec-item">
+              <span class="cad-spec-key" data-i18n="keepsake.label_watermark">${t(locale, 'keepsake.label_watermark', 'AI WATERMARK')}</span>
+              <span class="cad-spec-val" style="color:var(--status-emerald);" data-i18n="keepsake.watermark_compliant">${t(locale, 'keepsake.watermark_compliant', 'NONE (CLEAN)')}</span>
+            </li>
+          </ul>
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <a id="ratio-download-jpg" href="${imgUrl}" download class="cyber-btn emerald-toggle is-active">
+              <span data-i18n="task2_meritz.btn_preview_jpg">${t(locale, 'task2_meritz.btn_preview_jpg', 'DOWNLOAD PREVIEW .JPG')}</span>
+            </a>
+            <a href="${resolveAssetPath(SHOWCASE_CONFIG.xexymixZipPath)}" download class="cyber-btn">
+              <span data-i18n="keepsake.btn_download_zip">${t(locale, 'keepsake.btn_download_zip', 'DOWNLOAD ALL 11 SIZES (.ZIP)')}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('is-open');
+
+  const canvasEl = modal.querySelector('#assembly-stage-canvas');
+  const replayBtn = modal.querySelector('#replay-assembly-btn');
+
+  if (canvasEl) {
+    triggerLiveAssembly(canvasEl, {
+      brand: 'xexymix',
+      placement: activePlacement,
+      initialDelayMs: ASSEMBLY_MODAL_DELAY_MS
+    });
+  }
+
+  if (replayBtn && canvasEl) {
+    replayBtn.addEventListener('click', () => {
+      triggerLiveAssembly(canvasEl, {
+        brand: 'xexymix',
+        placement: activePlacement,
+        initialDelayMs: 0,
+        isReplay: true
+      });
+    });
+  }
+
+  /* In-place 11-size switcher: clean teardown + dynamic aspect-ratio & layer repositioning */
+  const pills = modal.querySelectorAll('[data-select-ratio-id]');
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const nextId = pill.getAttribute('data-select-ratio-id');
+      const nextPlacement = placements.find((p) => String(p.id) === String(nextId));
+      if (!nextPlacement || !canvasEl) return;
+      activePlacement = nextPlacement;
+
+      pills.forEach((btn) => {
+        const active = btn === pill;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+
+      const nextUrl = resolveAssetPath(nextPlacement.file);
+      const eyebrow = modal.querySelector('#ratio-sidebar-eyebrow');
+      const titleEl = modal.querySelector('#ratio-sidebar-title');
+      const resEl = modal.querySelector('#ratio-spec-res');
+      const ratioEl = modal.querySelector('#ratio-spec-ratio');
+      const dlLink = modal.querySelector('#ratio-download-jpg');
+
+      if (eyebrow) {
+        eyebrow.textContent = `PLACEMENT #${nextPlacement.id} // ${getPlacementCategory(nextPlacement)}`;
+      }
+      if (titleEl) {
+        titleEl.textContent = nextPlacement.name;
+      }
+      if (resEl) {
+        resEl.textContent = `${nextPlacement.resolution} px`;
+      }
+      if (ratioEl) {
+        ratioEl.textContent = nextPlacement.ratio;
+      }
+      if (dlLink) {
+        dlLink.setAttribute('href', nextUrl);
+      }
+
+      triggerLiveAssembly(canvasEl, {
+        brand: 'xexymix',
+        placement: nextPlacement,
+        initialDelayMs: 0
+      });
+    });
+  });
 }
 
 /**
@@ -1195,6 +1924,10 @@ if (typeof document !== 'undefined') {
   }
 
   window.addEventListener('pagehide', () => {
+    if (AppState.assemblyObserver) {
+      AppState.assemblyObserver.disconnect();
+      AppState.assemblyObserver = null;
+    }
     if (AppState.hotspotController) {
       AppState.hotspotController.destroy();
       AppState.hotspotController = null;

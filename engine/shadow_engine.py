@@ -14,6 +14,9 @@ from __future__ import annotations
 import os
 import sys
 import time
+import json
+import argparse
+from pathlib import Path
 from typing import Tuple, Union
 
 import numpy as np
@@ -301,9 +304,108 @@ def apply_soft_directional_shadow(
     }
 
 
-if __name__ == "__main__":
-    import argparse
+def export_shadow_layers(
+    input_png_path: str,
+    output_dir: str,
+    canvas_size: CanvasSize = (1024, 1024),
+    contact_blur: float = 6.0,
+    ambient_blur: float = 35.0,
+    light_angle: float = 90.0,
+) -> dict:
+    """Export clean cutout and isolated contact/ambient RGBA shadow layers."""
+    canvas_w, canvas_h = resolve_canvas_size(canvas_size)
+    with Image.open(input_png_path) as src:
+        product, (pos_x, pos_y) = normalize_to_grid(
+            src,
+            canvas_size=(canvas_w, canvas_h),
+            grid_ratio=0.75,
+            bottom_margin_ratio=0.16,
+            trim_transparent=True,
+        )
 
+    target_w, target_h = product.size
+    alpha = np.array(product.getchannel("A"), dtype=np.uint8)
+    bottom_y = pos_y + target_h
+    anchor_x = pos_x + target_w // 2
+    anchor_y = bottom_y
+
+    clean = Image.new("RGBA", (canvas_w, canvas_h), (0, 0, 0, 0))
+    clean.alpha_composite(product, dest=(pos_x, pos_y))
+
+    angle_rad = np.deg2rad(light_angle)
+    shadow_distance = max(4.0, ambient_blur * 0.18)
+    offset_x = int(round(np.sin(angle_rad) * shadow_distance))
+    offset_y = int(round(max(1.0, np.cos(angle_rad) * shadow_distance)))
+
+    contact_alpha = np.zeros_like(alpha, dtype=np.float32)
+    contact_start = int(target_h * 0.78)
+    if contact_start < target_h:
+        rows = np.linspace(0.0, 1.0, target_h - contact_start, dtype=np.float32)[:, None]
+        contact_alpha[contact_start:, :] = alpha[contact_start:, :].astype(np.float32) * (rows ** 1.5)
+    contact_alpha = np.clip(contact_alpha * 0.68, 0, 255).astype(np.uint8)
+    contact_mask = Image.fromarray(contact_alpha, "L")
+    contact_raw = Image.new("RGBA", (target_w, target_h), (8, 10, 16, 255))
+    contact_raw.putalpha(contact_mask)
+    contact_raw = contact_raw.filter(ImageFilter.GaussianBlur(radius=max(0.0, contact_blur)))
+
+    ambient_alpha = np.clip(alpha.astype(np.float32) * 0.28, 0, 255).astype(np.uint8)
+    ambient_mask = Image.fromarray(ambient_alpha, "L").filter(
+        ImageFilter.GaussianBlur(radius=max(0.0, ambient_blur))
+    )
+    ambient_raw = Image.new("RGBA", (target_w, target_h), (12, 14, 20, 255))
+    ambient_raw.putalpha(ambient_mask)
+
+    contact = Image.new("RGBA", (canvas_w, canvas_h), (0, 0, 0, 0))
+    ambient = Image.new("RGBA", (canvas_w, canvas_h), (0, 0, 0, 0))
+    contact.alpha_composite(contact_raw, dest=(pos_x + offset_x, pos_y + max(2, offset_y)))
+    ambient.alpha_composite(ambient_raw, dest=(pos_x + offset_x, pos_y + max(4, offset_y)))
+
+    stem = Path(input_png_path).stem
+    out_dir = Path(output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    clean_path = out_dir / f"{stem}_clean.png"
+    contact_path = out_dir / f"{stem}_shadow_contact.png"
+    ambient_path = out_dir / f"{stem}_shadow_ambient.png"
+    metadata_path = out_dir / f"{stem}_shadow_metadata.json"
+
+    clean.save(clean_path, "PNG", optimize=True)
+    contact.save(contact_path, "PNG", optimize=True)
+    ambient.save(ambient_path, "PNG", optimize=True)
+
+    metadata = {
+        "source": str(input_png_path),
+        "canvas": {"width": canvas_w, "height": canvas_h},
+        "anchor": {"x": anchor_x, "y": anchor_y},
+        "anchor_points": [
+            {"name": "ground_center", "x": anchor_x, "y": anchor_y},
+            {"name": "ground_left", "x": pos_x, "y": bottom_y},
+            {"name": "ground_right", "x": pos_x + target_w, "y": bottom_y},
+        ],
+        "recommended_z_indices": {
+            "ambient_shadow": 1,
+            "contact_shadow": 2,
+            "clean_cutout": 3,
+        },
+        "opacity_tokens": {
+            "ambient": "rgba(12,14,20,0.28)",
+            "contact": "rgba(8,10,16,0.68)",
+        },
+        "light_angle_degrees": float(light_angle),
+        "shadow_offset": {"x": offset_x, "y": offset_y},
+        "blur": {"contact": float(contact_blur), "ambient": float(ambient_blur)},
+        "layers": {
+            "clean": clean_path.name,
+            "shadow_contact": contact_path.name,
+            "shadow_ambient": ambient_path.name,
+        },
+    }
+    metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Exported layers: {clean_path}, {contact_path}, {ambient_path}")
+    print(f"Metadata: {metadata_path}")
+    return metadata
+
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Apply Puffy Adaptive Bed Shadow Engine or Soft Directional Shadow to a transparent cutout."
     )
@@ -333,10 +435,52 @@ if __name__ == "__main__":
     parser.add_argument("--blur", type=float, default=24.0, help="Directional shadow Gaussian blur radius.")
     parser.add_argument("--opacity", type=float, default=0.18, help="Directional shadow opacity (0..1).")
     parser.add_argument("--format", choices=["png", "webp"], default="png", help="Output format for directional mode.")
+    parser.add_argument("--input-dir", default=None, help="Batch directory mode for multiple product cutouts.")
+    parser.add_argument("--output-dir", default=None, help="Target directory for batch shadow generation.")
+    parser.add_argument("--export-layers", action="store_true", help="Export clean, contact shadow, and ambient shadow RGBA PNG layers.")
+    parser.add_argument("--contact-blur", type=float, default=6.0, help="Blur radius for the tight contact shadow.")
+    parser.add_argument("--ambient-blur", type=float, default=35.0, help="Blur radius for the soft ambient shadow.")
+    parser.add_argument("--light-angle", type=float, default=90.0, help="Light incident angle in degrees.")
     args = parser.parse_args()
 
-    if os.path.exists(args.input):
-        if args.mode == "directional":
+    supported = {".png", ".jpg", ".jpeg", ".webp"}
+    if args.input_dir:
+        input_dir = Path(args.input_dir).expanduser()
+        output_dir = Path(args.output_dir).expanduser() if args.output_dir else input_dir / "shadows"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        if not input_dir.is_dir():
+            print(f"Input directory not found: {input_dir}", file=sys.stderr)
+            sys.exit(1)
+        for source in sorted(input_dir.iterdir()):
+            if source.is_file() and source.suffix.lower() in supported:
+                if args.export_layers:
+                    export_shadow_layers(
+                        str(source),
+                        str(output_dir),
+                        canvas_size=args.canvas_size,
+                        contact_blur=args.contact_blur,
+                        ambient_blur=args.ambient_blur,
+                        light_angle=args.light_angle,
+                    )
+                else:
+                    export_puffy_adaptive_shadow(
+                        str(source),
+                        str(output_dir / f"{source.stem}_shadow.png"),
+                        canvas_size=args.canvas_size,
+                    )
+    elif os.path.exists(args.input):
+        if args.export_layers:
+            output_path = Path(args.output).expanduser()
+            output_dir = output_path if not output_path.suffix else output_path.parent
+            export_shadow_layers(
+                args.input,
+                str(output_dir),
+                canvas_size=args.canvas_size,
+                contact_blur=args.contact_blur,
+                ambient_blur=args.ambient_blur,
+                light_angle=args.light_angle,
+            )
+        elif args.mode == "directional":
             apply_soft_directional_shadow(
                 args.input,
                 args.output,

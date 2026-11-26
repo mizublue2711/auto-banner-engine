@@ -143,5 +143,14 @@
     "task2_download_label": "BÀI 02 // TRỌN BỘ SÁNG TẠO MERITZ",
     "repo_label": "TẢI FILE CẤU HÌNH CHIẾN DỊCH (.JSON)",
     "browse_all_11": "XEM ĐỦ 11 KÍCH THƯỚC"
+  },
+  "assembly": {
+    "status_init": "⚙️ ĐANG KHỞI TẠO BỘ KHUNG...",
+    "status_injecting": "⚙️ ĐANG ĐỔ DỮ LIỆU SẢN PHẨM & CHỮ...",
+    "status_assembling": "⚙️ ĐANG LẮP RÁP TỰ ĐỘNG...",
+    "status_aligned": "✓ ĐÃ KHÓA CHUẨN TỶ LỆ",
+    "btn_live_preview": "XEM LẮP RÁP TRỰC TIẾP 11 TỶ LỆ",
+    "btn_replay": "▶ Xem Lại Lắp Ráp",
+    "modal_ratio_title": "BUỒNG LẮP RÁP TRỰC TIẾP // 11 TỶ LỆ XEXYMIX"
   }
 }

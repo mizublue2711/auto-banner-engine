@@ -5,3 +5,6 @@ out/
 # Large PSD binary assets (>100MB)
 assets/Task 1 - XEXYMIX/*.psd
 
+__pycache__/
+.wrangler/
+*.pyc

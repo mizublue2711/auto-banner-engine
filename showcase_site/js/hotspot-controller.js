@@ -74,6 +74,7 @@ export class HotspotOverlayController {
       typeof options.enterDelayMs === 'number' ? options.enterDelayMs : HOVER_ENTER_DELAY_MS;
     this.exitGraceMs =
       typeof options.exitGraceMs === 'number' ? options.exitGraceMs : HOVER_EXIT_GRACE_MS;
+    this.onShow = typeof options.onShow === 'function' ? options.onShow : null;
 
     this.overlayLayer = null;
     this.entries = new Map();
@@ -442,6 +443,9 @@ export class HotspotOverlayController {
     nextEntry.cardEl.classList.add('is-active');
     nextEntry.cardEl.setAttribute('aria-hidden', 'false');
     this.activeId = id;
+    if (this.onShow) {
+      this.onShow(id, nextEntry);
+    }
   }
 
   _deactivateEntry(entry) {

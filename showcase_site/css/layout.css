@@ -1113,9 +1113,11 @@ img {
 
 .cyber-modal-dialog {
   width: 100%;
-  max-width: 1120px;
+  max-width: min(1120px, 100%);
+  min-width: 0;
   max-height: 92vh;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   background-color: var(--surface-titanium);
   border: 1px solid var(--accent-cyan);
@@ -1129,6 +1131,8 @@ img {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  max-width: 100%;
   padding: 16px 22px;
   background-color: var(--surface-mist);
   border-bottom: 1px solid var(--hairline-border);
@@ -1138,14 +1142,18 @@ img {
 
 .cyber-modal-body {
   display: grid;
-  grid-template-columns: 1.45fr 1fr;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
   gap: 20px;
   padding: 22px;
   align-items: stretch;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .deep-zoom-stage {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
   background-color: var(--bg-obsidian);
   border: 1px solid var(--hairline-border);
   border-radius: var(--radius-md);
@@ -1369,4 +1377,1166 @@ img {
 
 [data-i18n].i18n-fading {
   opacity: 0.25;
+}
+
+/* --------------------------------------------------------------------------
+   In-Modal Ratio / Option Switcher Pill Strip & Keepsake CTA Row
+   -------------------------------------------------------------------------- */
+.modal-ratio-strip {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background-color: var(--bg-obsidian, #05050A);
+  border-bottom: 1px solid var(--hairline-border, #222536);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.modal-ratio-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-ratio-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm, 8px);
+  border: 1px solid var(--hairline-border, #222536);
+  background-color: var(--surface-mist, #14141E);
+  color: var(--text-muted-gray, #767676);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+.modal-ratio-pill:hover {
+  border-color: var(--accent-cyan, #00E5FF);
+  color: var(--text-laser-white, #F4F4F6);
+}
+
+.modal-ratio-pill.is-active {
+  border-color: var(--accent-volt, #EDFF57);
+  background-color: rgba(237, 255, 87, 0.12);
+  color: var(--accent-volt, #EDFF57);
+}
+
+.keepsake-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.keepsake-live-assembly-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  background-color: rgba(237, 255, 87, 0.1);
+  border: 1px solid rgba(237, 255, 87, 0.65);
+  color: var(--accent-volt, #EDFF57);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.22s var(--ease-cyber), background-color 0.22s var(--ease-cyber), box-shadow 0.22s var(--ease-cyber), transform 0.22s var(--ease-cyber);
+}
+
+.keepsake-live-assembly-btn:hover,
+.keepsake-live-assembly-btn:focus-visible {
+  background-color: rgba(237, 255, 87, 0.18);
+  border-color: var(--accent-volt, #EDFF57);
+  box-shadow: 0 0 18px rgba(237, 255, 87, 0.24);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .modal-ratio-strip {
+    padding: 10px 14px;
+  }
+
+  .keepsake-live-assembly-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assembly-stage-canvas.is-assembling .layer-canvas-bg,
+  .assembly-stage-canvas.is-assembling .layer-product-cutout,
+  .assembly-stage-canvas.is-assembling .layer-typography-group,
+  .assembly-stage-canvas.is-assembling .layer-feature-card,
+  .assembly-stage-canvas.is-assembling .layer-badge-cta {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   STEP 20 (PHASE 2): Fluid % / cqw Multi-Layer Remotion-Style Motion Assembly
+   Covers all 11 XEXYMIX placements + Meritz Option 1 & Option 2 modal views
+   Zero fixed px layer offsets; GPU-only transform & opacity spring physics
+   -------------------------------------------------------------------------- */
+@keyframes remotionBgReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes remotionCutoutRise {
+  0% {
+    opacity: 0;
+    transform: translateY(16%) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes remotionTypoGlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-14%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes remotionFeatureCardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-6deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes remotionBadgeBounce {
+  0% {
+    opacity: 0;
+    transform: scale(1.55) translateY(-12%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.replay-assembly-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm, 8px);
+  border: 1px solid rgba(237, 255, 87, 0.72);
+  background-color: rgba(237, 255, 87, 0.12);
+  color: var(--accent-volt, #EDFF57);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-mono-xs, 11px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.replay-assembly-btn:hover,
+.replay-assembly-btn:focus-visible {
+  background-color: rgba(237, 255, 87, 0.22);
+  box-shadow: 0 0 14px rgba(237, 255, 87, 0.28);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.replay-assembly-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.deep-zoom-stage.has-assembly-canvas {
+  cursor: default;
+  padding: 18px;
+  min-height: 460px;
+  background-image: radial-gradient(circle at 50% 45%, rgba(83, 34, 255, 0.12) 0%, #05050A 72%);
+}
+
+.deep-zoom-stage.has-assembly-canvas.supports-loupe {
+  cursor: zoom-in;
+}
+
+.deep-zoom-stage.has-assembly-canvas.supports-loupe.is-magnified {
+  cursor: zoom-out;
+}
+
+/* Aspect-ratio locked fluid container driven by --stage-ratio */
+.assembly-stage-canvas {
+  --stage-ratio: 0.5625;
+  --stage-max-h: min(560px, 64vh);
+  position: relative;
+  overflow: hidden;
+  width: min(100%, calc(var(--stage-max-h) * var(--stage-ratio)));
+  aspect-ratio: var(--stage-ratio);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.62);
+  container-type: inline-size;
+  contain: layout paint;
+  user-select: none;
+  transition: transform 140ms ease-out;
+  transform-origin: center center;
+}
+
+.deep-zoom-stage.has-assembly-canvas.is-magnified .assembly-stage-canvas {
+  transform: scale(2.35);
+}
+
+/* Preload guard: keep discrete layers hidden until cutouts finish decoding */
+.assembly-stage-canvas.is-preloading .layer-product-cutout,
+.assembly-stage-canvas.is-preloading .layer-typography-group,
+.assembly-stage-canvas.is-preloading .layer-feature-card,
+.assembly-stage-canvas.is-preloading .layer-badge-cta {
+  opacity: 0;
+}
+
+/* GPU-accelerated Remotion spring sequence (will-change scoped strictly to .is-assembling) */
+.assembly-stage-canvas.is-assembling .layer-canvas-bg {
+  animation: remotionBgReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+  will-change: transform, opacity;
+}
+
+.assembly-stage-canvas.is-assembling .layer-product-cutout {
+  animation: remotionCutoutRise 0.78s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  will-change: transform, opacity;
+}
+
+.assembly-stage-canvas.is-assembling .layer-typography-group {
+  animation: remotionTypoGlide 0.72s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  will-change: transform, opacity;
+}
+
+.assembly-stage-canvas.is-assembling .layer-feature-card {
+  animation: remotionFeatureCardPop 0.68s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+  will-change: transform, opacity;
+}
+
+.assembly-stage-canvas.is-assembling .layer-badge-cta {
+  animation: remotionBadgeBounce 0.72s cubic-bezier(0.34, 1.56, 0.64, 1) 1.1s both;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   XEXYMIX BASE 5-LAYER RULES (Fluid % & cqw coordinates)
+   ========================================================================== */
+.assembly-stage-canvas .layer-canvas-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, #E8E9ED 0%, #DADCE2 52%, #6E717A 82%, #2B2D34 100%);
+}
+
+.assembly-stage-canvas .layer-product-cutout {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.assembly-stage-canvas .layer-product-cutout img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 24%;
+  display: block;
+}
+
+.assembly-stage-canvas .layer-product-cutout::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 38%,
+    rgba(18, 20, 26, 0.16) 64%,
+    rgba(12, 14, 20, 0.58) 100%
+  );
+  pointer-events: none;
+}
+
+.assembly-stage-canvas .layer-typography-group {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.assembly-stage-canvas .assembly-brand-logo {
+  position: absolute;
+  top: 4.2%;
+  left: 5.5%;
+  width: 34%;
+  height: auto;
+  filter: drop-shadow(0 0.3cqw 1.2cqw rgba(255, 255, 255, 0.45));
+}
+
+.assembly-stage-canvas .assembly-copy-block {
+  position: absolute;
+  bottom: 16.5%;
+  left: 5.5%;
+  right: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.8cqw;
+}
+
+.assembly-stage-canvas .assembly-eyebrow-pill {
+  display: inline-block;
+  padding: 1.2cqw 2.4cqw;
+  background-color: rgba(34, 36, 42, 0.92);
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3.3cqw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  border-radius: 0.6cqw;
+}
+
+.assembly-stage-canvas .assembly-headline-line {
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 8.4cqw;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+  text-shadow: 0 0.6cqw 3.2cqw rgba(0, 0, 0, 0.45);
+}
+
+.assembly-stage-canvas .assembly-headline-accent {
+  color: #FF8E3C;
+}
+
+/* Layer 4: Circular Fabric Close-up Callouts (tightened crop: zero caption sliver) */
+.assembly-stage-canvas .layer-feature-card {
+  position: absolute;
+  top: 15%;
+  left: 5.5%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 3cqw;
+  pointer-events: none;
+}
+
+.assembly-stage-canvas .feature-callout-circle-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2cqw;
+}
+
+.assembly-stage-canvas .feature-callout-circle {
+  width: 26cqw;
+  height: 26cqw;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.6cqw solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2.6cqw 6cqw rgba(0, 0, 0, 0.28);
+  background: #D8D4CE;
+}
+
+.assembly-stage-canvas .feature-callout-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transform: scale(1.38);
+  display: block;
+}
+
+.assembly-stage-canvas .feature-callout-label {
+  padding: 0.8cqw 2cqw;
+  border-radius: 999px;
+  background: rgba(18, 20, 26, 0.78);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 2.5cqw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.assembly-stage-canvas .feature-callout-connector {
+  position: absolute;
+  top: 13cqw;
+  left: 26.5cqw;
+  width: 14cqw;
+  height: 0.45cqw;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.assembly-stage-canvas .feature-callout-connector::after {
+  content: '';
+  position: absolute;
+  right: -0.9cqw;
+  top: -0.65cqw;
+  width: 1.7cqw;
+  height: 1.7cqw;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 1.6cqw rgba(255, 255, 255, 0.9);
+}
+
+/* Layer 5: Promo Badge & CTA */
+.assembly-stage-canvas .layer-badge-cta {
+  position: absolute;
+  bottom: 3.4%;
+  left: 4.5%;
+  right: 4.5%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.assembly-stage-canvas .assembly-promo-bar-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2cqw 4.5cqw rgba(0, 0, 0, 0.35));
+}
+
+/* ==========================================================================
+   ARCHETYPE 2: Vertical Feed (4:5 — #02 Meta Feed, #03 Kakao Feed, #04 Google DA)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .assembly-brand-logo {
+  top: 4%;
+  left: 5%;
+  width: 28%;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .layer-feature-card {
+  top: 12.5%;
+  left: 5%;
+  gap: 2.4cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .feature-callout-circle {
+  width: 22cqw;
+  height: 22cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .feature-callout-connector {
+  top: 11cqw;
+  left: 22.5cqw;
+  width: 18cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .assembly-copy-block {
+  bottom: 17.5%;
+  left: 5%;
+  gap: 1.4cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .assembly-eyebrow-pill {
+  font-size: 2.7cqw;
+  padding: 0.9cqw 1.8cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .assembly-headline-line {
+  font-size: 6.9cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="vertical-feed"] .layer-badge-cta {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ==========================================================================
+   ARCHETYPE 3: Square (1:1 — #05 Google Square, #06 Naver Square)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="square"] .layer-canvas-bg {
+  background: linear-gradient(90deg, #E3E5EA 0%, #DADDE3 42%, #C9CDD5 100%);
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .layer-product-cutout {
+  left: 20%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 22%);
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .layer-product-cutout img {
+  object-position: 66% 20%;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .assembly-brand-logo {
+  top: 4.5%;
+  left: 5%;
+  width: 24%;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .layer-feature-card {
+  top: 13.5%;
+  left: 5%;
+  gap: 2.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .feature-callout-circle {
+  width: 18cqw;
+  height: 18cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .feature-callout-label {
+  font-size: 2.1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .feature-callout-connector {
+  top: 9cqw;
+  left: 18.5cqw;
+  width: 24cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .assembly-copy-block {
+  bottom: 18%;
+  left: 5%;
+  right: 32%;
+  gap: 1.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .assembly-eyebrow-pill {
+  font-size: 2.4cqw;
+  padding: 0.8cqw 1.6cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .assembly-headline-line {
+  font-size: 6.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="square"] .layer-badge-cta {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ==========================================================================
+   ARCHETYPE 4: Wide Landscape (1.91:1 #07 Google Landscape, 2.23:1 #08 Naver Wide)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-canvas-bg {
+  background: linear-gradient(90deg, #E2E4E9 0%, #D9DCE2 55%, #C7CBD3 100%);
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-product-cutout {
+  left: 58%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-product-cutout img {
+  object-position: 74% 18%;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-product-cutout::after {
+  background: linear-gradient(90deg, rgba(226, 228, 233, 0.35) 0%, transparent 32%);
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .assembly-brand-logo {
+  top: 7.5%;
+  left: 4.5%;
+  width: 17%;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .assembly-copy-block {
+  top: 24%;
+  bottom: auto;
+  left: 4.5%;
+  right: 51%;
+  gap: 1.1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .assembly-eyebrow-pill {
+  font-size: 1.9cqw;
+  padding: 0.6cqw 1.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .assembly-headline-line {
+  font-size: 4.5cqw;
+  text-shadow: 0 0.3cqw 1.8cqw rgba(0, 0, 0, 0.28);
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-feature-card {
+  top: 10%;
+  left: 51.5%;
+  gap: 1.8cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .feature-callout-circle {
+  width: 12.5cqw;
+  height: 12.5cqw;
+  border-width: 0.35cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .feature-callout-label {
+  font-size: 1.45cqw;
+  padding: 0.45cqw 1.1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .feature-callout-connector {
+  top: 6.25cqw;
+  left: 12.8cqw;
+  width: 11cqw;
+  height: 0.25cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .feature-callout-connector::after {
+  width: 0.95cqw;
+  height: 0.95cqw;
+  right: -0.5cqw;
+  top: -0.35cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="wide"] .layer-badge-cta {
+  bottom: 7%;
+  left: 4.5%;
+  right: auto;
+  width: 43%;
+}
+
+/* ==========================================================================
+   ARCHETYPE 5: Display Thumbnail (3:2 — #09 Naver Thumbnail 342x228)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .layer-canvas-bg {
+  background: linear-gradient(90deg, #E2E4E9 0%, #D9DCE2 50%, #C7CBD3 100%);
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .layer-product-cutout {
+  left: 48%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .layer-product-cutout img {
+  object-position: 72% 18%;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .assembly-brand-logo {
+  top: 5.5%;
+  left: 4.5%;
+  width: 28%;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .layer-feature-card {
+  top: 17%;
+  left: 4.5%;
+  flex-direction: row;
+  gap: 2.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .feature-callout-circle {
+  width: 14cqw;
+  height: 14cqw;
+  border-width: 0.4cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .feature-callout-label,
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .feature-callout-connector {
+  display: none;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .assembly-copy-block {
+  top: 41%;
+  bottom: auto;
+  left: 4.5%;
+  right: 48%;
+  gap: 1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .assembly-eyebrow-pill {
+  font-size: 2.05cqw;
+  padding: 0.55cqw 1.1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .assembly-headline-line {
+  font-size: 4.9cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="display-thumb"] .layer-badge-cta {
+  bottom: 4.5%;
+  left: 4.5%;
+  right: auto;
+  width: 48%;
+}
+
+/* ==========================================================================
+   ARCHETYPE 6: Micro Right (13:14 — #10 Naver Smart Channel 260x280)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="micro-right"] .layer-canvas-bg {
+  background: linear-gradient(90deg, #DFE2E8 0%, #D5D9E0 48%, #C4C8D0 100%);
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .layer-product-cutout {
+  left: 38%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .layer-product-cutout img {
+  object-position: 68% 18%;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .assembly-brand-logo {
+  top: 5%;
+  left: 5%;
+  width: 34%;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .layer-feature-card {
+  top: 15%;
+  left: 5%;
+  flex-direction: row;
+  gap: 2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .feature-callout-circle {
+  width: 17cqw;
+  height: 17cqw;
+  border-width: 0.5cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .feature-callout-label,
+.assembly-stage-canvas[data-layout-mode="micro-right"] .feature-callout-connector {
+  display: none;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .assembly-copy-block {
+  top: 39%;
+  bottom: auto;
+  left: 5%;
+  right: 40%;
+  gap: 1.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .assembly-eyebrow-pill {
+  font-size: 2.35cqw;
+  padding: 0.7cqw 1.3cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .assembly-headline-line {
+  font-size: 6cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-right"] .layer-badge-cta {
+  bottom: 4.5%;
+  left: 5%;
+  right: auto;
+  width: 32%;
+}
+
+/* ==========================================================================
+   ARCHETYPE 7: Micro Flipped (314x300 — #11 Kakao Bizboard)
+   Model anchored LEFT; Copy + Badge column on RIGHT
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .layer-canvas-bg {
+  background: linear-gradient(270deg, #E2E4E9 0%, #D7DAE1 48%, #C4C8D0 100%);
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .layer-product-cutout {
+  left: 0;
+  right: 44%;
+  top: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #000 24%);
+  mask-image: linear-gradient(to left, transparent 0%, #000 24%);
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .layer-product-cutout img {
+  object-position: 68% 18%;
+  transform: scaleX(-1);
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .assembly-brand-logo {
+  top: 4.5%;
+  left: auto;
+  right: 5%;
+  width: 35%;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .layer-feature-card {
+  top: 13.5%;
+  left: auto;
+  right: 5%;
+  flex-direction: row;
+  gap: 1.8cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .feature-callout-circle {
+  width: 14cqw;
+  height: 14cqw;
+  border-width: 0.45cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .feature-callout-label,
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .feature-callout-connector {
+  display: none;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .assembly-copy-block {
+  top: 31.5%;
+  bottom: auto;
+  left: 46%;
+  right: 4.5%;
+  align-items: flex-end;
+  text-align: right;
+  gap: 1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .assembly-eyebrow-pill {
+  font-size: 2.1cqw;
+  padding: 0.6cqw 1.1cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .assembly-headline-line {
+  font-size: 5.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="micro-flipped"] .layer-badge-cta {
+  bottom: 3.5%;
+  left: auto;
+  right: 5%;
+  width: 24%;
+}
+
+/* ==========================================================================
+   MERITZ DUAL-CORE 5-LAYER RULES (Option 1 & Option 2 — 1:1 Brand Canvas)
+   ========================================================================== */
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .layer-canvas-bg {
+  background: #F4F4F5;
+  padding: 3%;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-canvas-card {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 1.2cqw;
+  border: 0.25cqw solid #E4E4E7;
+  border-top: 0.9cqw solid #EF3B24;
+  box-shadow: 0 1.2cqw 3.2cqw rgba(0, 0, 0, 0.06);
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .layer-product-cutout::after {
+  display: none;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .layer-product-cutout {
+  top: 17%;
+  right: 5%;
+  left: auto;
+  bottom: auto;
+  width: 39%;
+  height: 39%;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .layer-product-cutout img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .layer-product-cutout {
+  top: 23%;
+  left: 11%;
+  right: auto;
+  bottom: auto;
+  width: 58%;
+  height: 41%;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .layer-product-cutout img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-header-bar {
+  position: absolute;
+  top: 6.2%;
+  left: 6.5%;
+  right: 6.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2.2cqw;
+  border-bottom: 0.25cqw solid #ECECEE;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-brand-logo {
+  height: 3.1cqw;
+  width: auto;
+  display: block;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-header-chips {
+  display: inline-flex;
+  gap: 1.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-header-chip {
+  padding: 0.7cqw 1.6cqw;
+  border: 0.22cqw solid #3F3F46;
+  border-radius: 0.7cqw;
+  color: #141414;
+  font-size: 1.9cqw;
+  font-weight: 700;
+  background: #FFFFFF;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .meritz-headline-wrap {
+  position: absolute;
+  top: 19%;
+  left: 6.8%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .meritz-headline-wrap {
+  position: absolute;
+  top: 13.5%;
+  left: 6.5%;
+  right: 6.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1cqw;
+  color: #EF3B24;
+  font-size: 2.5cqw;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-eyebrow::before {
+  content: '';
+  width: 0.65cqw;
+  height: 2.4cqw;
+  background: #EF3B24;
+  display: inline-block;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .meritz-subhead {
+  color: #141414;
+  font-size: 5.3cqw;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .meritz-subhead {
+  color: #141414;
+  font-size: 6cqw;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .meritz-hero-numeral {
+  color: #141414;
+  font-size: 11.5cqw;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt1"] .meritz-hero-unit {
+  font-size: 8.8cqw;
+  font-weight: 800;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .meritz-unit-callout {
+  position: absolute;
+  top: 41%;
+  right: 13%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .meritz-unit-callout span {
+  color: #141414;
+  font-size: 5.8cqw;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .meritz-unit-bar {
+  width: 5.2cqw;
+  height: 0.6cqw;
+  background: #EF3B24;
+}
+
+/* Meritz Layer 4: 3 Benefit Cards */
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .layer-feature-card {
+  top: auto;
+  bottom: 28%;
+  left: 6.5%;
+  right: 6.5%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode="meritz-opt2"] .layer-feature-card {
+  bottom: 29.5%;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-benefit-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  padding: 2cqw 1.8cqw;
+  border-radius: 1.4cqw;
+  background: #F4F4F5;
+  border: 0.2cqw solid #E4E4E7;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-benefit-icon {
+  width: 5.4cqw;
+  height: 5.4cqw;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-benefit-title {
+  color: #141414;
+  font-size: 2.25cqw;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-benefit-sub {
+  color: #52525B;
+  font-size: 1.65cqw;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+/* Meritz Layer 5: Vermillion Red CTA Button + Legal Footnote */
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .layer-badge-cta {
+  bottom: 6%;
+  left: 6.5%;
+  right: 6.5%;
+  gap: 2.2cqw;
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-cta-button {
+  width: 64%;
+  padding: 2.6cqw 4cqw;
+  border-radius: 1.5cqw;
+  background: #EF3B24;
+  color: #FFFFFF;
+  font-size: 3.4cqw;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  box-shadow: 0 1.4cqw 3.2cqw rgba(239, 59, 36, 0.34);
+}
+
+.assembly-stage-canvas[data-layout-mode^="meritz-"] .meritz-legal-note {
+  color: #71717A;
+  font-size: 1.5cqw;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Mobile Responsive Adjustments (375px - 768px) */
+@media (max-width: 768px) {
+  .cyber-modal-backdrop {
+    padding: 10px;
+  }
+
+  .cyber-modal-body {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .deep-zoom-stage.has-assembly-canvas {
+    padding: 10px;
+    min-height: 260px;
+  }
+
+  .assembly-stage-canvas {
+    --stage-max-h: min(400px, 52vh);
+  }
+
+  .replay-assembly-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .cyber-modal-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
 }

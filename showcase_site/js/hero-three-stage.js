@@ -559,6 +559,7 @@ export class HeroThreeStage {
     this.isDestroyed = false;
     this.isVisible = true;
     this.isTabVisible = true;
+    this.isExternallyPaused = false;
     this.isPointerActive = false;
     this.isReducedMotion =
       typeof window !== 'undefined' &&
@@ -1180,8 +1181,23 @@ export class HeroThreeStage {
     }
   }
 
+  pause() {
+    if (this.isDestroyed || this.isExternallyPaused) return;
+    this.isExternallyPaused = true;
+    this._stopLoop();
+  }
+
+  resume() {
+    if (this.isDestroyed || !this.isExternallyPaused) return;
+    this.isExternallyPaused = false;
+    if (this.isVisible && this.isTabVisible && !this.isReducedMotion) {
+      this.lastFrameTs = performance.now();
+      this._startLoop();
+    }
+  }
+
   _startLoop() {
-    if (this.isDestroyed || this.rafId !== null) return;
+    if (this.isDestroyed || this.isExternallyPaused || this.rafId !== null) return;
     this.rafId = window.requestAnimationFrame(this._animate);
   }
 
@@ -1203,7 +1219,7 @@ export class HeroThreeStage {
   }
 
   _tick(now) {
-    if (this.isDestroyed || !this.isVisible || !this.isTabVisible) {
+    if (this.isDestroyed || this.isExternallyPaused || !this.isVisible || !this.isTabVisible) {
       this.rafId = null;
       return;
     }

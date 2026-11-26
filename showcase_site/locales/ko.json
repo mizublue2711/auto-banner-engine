@@ -143,5 +143,14 @@
     "task2_download_label": "과제 02 // 메리츠 크리에이티브 패키지",
     "repo_label": "캠페인 설정 파일 다운로드 (.JSON)",
     "browse_all_11": "11종 전체 배너 보기"
+  },
+  "assembly": {
+    "status_init": "⚙️ 블루프린트 프레임 초기화 중...",
+    "status_injecting": "⚙️ 상품 · 카피 모듈 데이터 배치 중...",
+    "status_assembling": "⚙️ 실시간 모듈 조합 중...",
+    "status_aligned": "✓ 규격 정렬 완료",
+    "btn_live_preview": "11종 실시간 모듈 조합 미리보기",
+    "btn_replay": "▶ 레이어 조립 다시보기",
+    "modal_ratio_title": "실시간 파라메트릭 조합 // 젝시믹스 11종"
   }
 }

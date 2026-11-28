@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "directive_id": "DIR-BUILD-INDEPENDENT-RESIZE-QA-062+065+069",
+  "master_reference_manifest": "output/TASK_GSSHOP/gsshop_master_1080x1080.json",
+  "brand_color_lock": {
+    "name": "GS SHOP Azure Blue",
+    "source_document": "assets/brands/gsshop/gs_shop_brand_book.pdf",
+    "hex": "#0F78FF",
+    "rgb": [15, 120, 255],
+    "hue_deg_range": [206.0, 222.0],
+    "cta_max_median_rgb_distance": 18.0,
+    "cta_max_p10_rgb_distance": 10.0,
+    "ribbon_max_median_rgb_distance": 30.0,
+    "ribbon_max_p10_rgb_distance": 12.0
+  },
+  "cta_typography_fill_ratio": {
+    "cta_text": "라이브 혜택 받고 쇼핑하기 >",
+    "min_percent": 68.0,
+    "max_percent": 82.0
+  },
+  "layer_classification": {
+    "aspect_exempt_layer_ids": [
+      "z1_bg_winter_backdrop",
+      "z2_snow_tier_1_back_blur",
+      "z3_snow_tier_2_box_bed",
+      "z11_snow_tier_3_front_blur",
+      "z12_snow_particles_overlay",
+      "z13_logo_live_group",
+      "z13_header_frosted_glass_capsule",
+      "z13_03_headline_3d_group",
+      "z13_04_cta_pill_button"
+    ],
+    "mandatory_copy": [
+      "MOBILE LIVE",
+      "LIVE",
+      "단 60분! 할인쿠폰 + 추가혜택이 펑펑",
+      "GS SHOP",
+      "라이브특가",
+      "라이브 혜택 받고 쇼핑하기 >"
+    ],
+    "essential_layer_ids": [
+      "z1_bg_winter_backdrop",
+      "z3_snow_tier_2_box_bed",
+      "z5_box_back_interior",
+      "z7_box_front_rim",
+      "z8_knit_sweater",
+      "z8_puffer_jacket",
+      "z9_box_lid_flying",
+      "z13_logo_live_group",
+      "z13_04_cta_pill_button"
+    ],
+    "essential_product_groups": {
+      "knit": ["z8_knit_sweater"],
+      "puffer": ["z8_puffer_jacket"],
+      "tangerine": [
+        "z6_tangerine_cluster",
+        "z6_tangerine_cluster_copy",
+        "z10_flying_tangerine_left",
+        "z10_flying_tangerine_right"
+      ],
+      "tissue": ["z6_toilet_paper", "z6_toilet_paper_copy"]
+    }
+  },
+  "size_specifications": {
+    "1080x1080": {
+      "width": 1080,
+      "height": 1080,
+      "layout_mode": "MASTER_SQUARE",
+      "alignment_mode": "CENTER_MODE",
+      "safe_margins": { "top": 40, "bottom": 40, "left": 40, "right": 40 },
+      "center_axis_tolerance_px": 2.0,
+      "center_axis_roles": ["logo", "glass_capsule", "headline", "cta"],
+      "max_aspect_distortion_percent": 0.5,
+      "cta_rules": {
+        "mode": "CAPSULE_WIDTH_SYMMETRY",
+        "max_capsule_width_diff_px": 8.0,
+        "fill_ratio_range_percent": [68.0, 82.0]
+      }
+    },
+    "1200x600": {
+      "width": 1200,
+      "height": 600,
+      "layout_mode": "TWO_COLUMN_SPLIT",
+      "alignment_mode": "SPLIT_LEFT_MODE",
+      "safe_margins": { "top": 30, "bottom": 30, "left": 40, "right": 40 },
+      "flush_left_anchor_x": 50.0,
+      "flush_left_tolerance_px": 2.0,
+      "flush_left_roles": ["logo", "glass_capsule", "headline", "cta"],
+      "left_column_max_right_x": 540.0,
+      "column_split_x": 560.0,
+      "min_column_gutter_px": 20.0,
+      "max_aspect_distortion_percent": 0.5,
+      "min_cta_width": 420,
+      "cta_rules": {
+        "mode": "FLUSH_LEFT_PILL",
+        "height_range_px": [60.0, 70.0],
+        "flush_left_x": 50.0,
+        "flush_left_tolerance_px": 2.0,
+        "max_internal_text_center_offset_px": 4.0,
+        "fill_ratio_range_percent": [68.0, 82.0]
+      }
+    },
+    "300x250": {
+      "width": 300,
+      "height": 250,
+      "layout_mode": "COMPACT_MREC",
+      "alignment_mode": "CENTER_AXIS",
+      "safe_margins": { "top": 10, "bottom": 10, "left": 12, "right": 12 },
+      "center_axis_tolerance_px": 3.0,
+      "center_axis_roles": ["glass_capsule", "headline", "cta"],
+      "min_legibility_font_scale": 1.25,
+      "max_aspect_distortion_percent": 0.5,
+      "min_cta_height": 38,
+      "cta_rules": {
+        "mode": "COMPACT_HIGH_LEGIBILITY",
+        "min_height_px": 38.0,
+        "fill_ratio_range_percent": [68.0, 82.0]
+      }
+    },
+    "800x1500": {
+      "width": 800,
+      "height": 1500,
+      "layout_mode": "TALL_VERTICAL",
+      "alignment_mode": "CENTER_MODE",
+      "safe_margins": { "top": 50, "bottom": 60, "left": 45, "right": 45 },
+      "center_axis_tolerance_px": 2.0,
+      "center_axis_roles": ["logo", "glass_capsule", "headline", "cta"],
+      "max_aspect_distortion_percent": 0.5,
+      "min_vertical_breathing_gap": 35,
+      "cta_rules": {
+        "mode": "CENTER_DOCK_SYMMETRY",
+        "max_capsule_width_diff_px": 16.0,
+        "fill_ratio_range_percent": [68.0, 82.0]
+      }
+    }
+  }
+}

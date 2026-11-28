@@ -1,0 +1,308 @@
+{
+  "directive_id": "DIR-AN-SUB-A-RECALIBRATION-094",
+  "execution_mode": "LINEAR_SEQUENTIAL_REFINEMENT",
+  "canvas": {
+    "width": 1200,
+    "height": 1200,
+    "mode": "RGBA"
+  },
+  "bag_geometry": {
+    "offset_x": 88,
+    "offset_y": 355,
+    "center_x": 600,
+    "rear_rim_y": 595,
+    "front_rim_y": 685,
+    "base_y": 1060,
+    "measured_base_y": 1060,
+    "mouth_x_span": [
+      156,
+      1044
+    ]
+  },
+  "total_layers_composited": 13,
+  "procedural_fx_layers": [
+    {
+      "z_index": 14,
+      "fx_id": "fx_sparkle_glint_lid_left",
+      "blend_mode": "screen",
+      "diameter_px": 36,
+      "opacity": 1.0,
+      "snapped_corner_xy": [
+        451,
+        464
+      ],
+      "bbox": {
+        "x_min": 413,
+        "y_min": 427,
+        "x_max": 488,
+        "y_max": 502,
+        "width": 75,
+        "height": 75
+      }
+    },
+    {
+      "z_index": 14,
+      "fx_id": "fx_sparkle_glint_lid_right",
+      "blend_mode": "screen",
+      "diameter_px": 22,
+      "opacity": 0.8,
+      "snapped_corner_xy": [
+        688,
+        432
+      ],
+      "bbox": {
+        "x_min": 666,
+        "y_min": 410,
+        "x_max": 709,
+        "y_max": 453,
+        "width": 43,
+        "height": 43
+      }
+    }
+  ],
+  "overall_ink_bbox": {
+    "x_min": 65,
+    "y_min": 407,
+    "x_max": 1070,
+    "y_max": 1060,
+    "width": 1005,
+    "height": 653
+  },
+  "layers": [
+    {
+      "z_index": 1,
+      "layer": "03_decor_bag_back.png",
+      "cluster": "CUM_2_BAG_3D_FRAME",
+      "bbox": {
+        "x_min": 216,
+        "y_min": 472,
+        "x_max": 984,
+        "y_max": 1002,
+        "width": 768,
+        "height": 530
+      }
+    },
+    {
+      "z_index": 2,
+      "layer": "00c_molecular_crystals_back.png",
+      "cluster": "CUM_4_TEXTURES_AND_EFFECTS",
+      "bbox": {
+        "x_min": 65,
+        "y_min": 445,
+        "x_max": 307,
+        "y_max": 566,
+        "width": 242,
+        "height": 121
+      }
+    },
+    {
+      "z_index": 3,
+      "layer": "04_product_holiday_kit.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 602,
+      "anchor_top_y": 430,
+      "target_h": 392,
+      "native_cw_deg": 2.68,
+      "applied_delta_cw_deg": -2.68,
+      "target_visual_cw_deg": 0.0,
+      "measured_visual_cw_deg": -0.05,
+      "bbox": {
+        "x_min": 448,
+        "y_min": 430,
+        "x_max": 756,
+        "y_max": 830,
+        "width": 308,
+        "height": 400
+      }
+    },
+    {
+      "z_index": 4,
+      "layer": "05_product_snail_essence.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 410,
+      "anchor_top_y": 465,
+      "target_h": 415,
+      "native_cw_deg": -0.11,
+      "applied_delta_cw_deg": -4.89,
+      "target_visual_cw_deg": -5.0,
+      "measured_visual_cw_deg": -5.0,
+      "bbox": {
+        "x_min": 343,
+        "y_min": 465,
+        "x_max": 477,
+        "y_max": 883,
+        "width": 134,
+        "height": 418
+      }
+    },
+    {
+      "z_index": 5,
+      "layer": "06_product_peptide_serum.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 776,
+      "anchor_top_y": 472,
+      "target_h": 396,
+      "native_cw_deg": 15.5,
+      "applied_delta_cw_deg": -10.5,
+      "target_visual_cw_deg": 5.0,
+      "measured_visual_cw_deg": 4.96,
+      "bbox": {
+        "x_min": 712,
+        "y_min": 472,
+        "x_max": 841,
+        "y_max": 873,
+        "width": 129,
+        "height": 401
+      }
+    },
+    {
+      "z_index": 6,
+      "layer": "08_product_pdrn_pack.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 318,
+      "anchor_top_y": 508,
+      "target_h": 342,
+      "native_cw_deg": -0.56,
+      "applied_delta_cw_deg": -6.94,
+      "target_visual_cw_deg": -7.5,
+      "measured_visual_cw_deg": -7.51,
+      "bbox": {
+        "x_min": 247,
+        "y_min": 508,
+        "x_max": 389,
+        "y_max": 858,
+        "width": 142,
+        "height": 350
+      }
+    },
+    {
+      "z_index": 7,
+      "layer": "08b_accessory_brush_applicator.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 246,
+      "anchor_top_y": 532,
+      "target_h": 286,
+      "native_cw_deg": -0.44,
+      "applied_delta_cw_deg": -10.56,
+      "target_visual_cw_deg": -11.0,
+      "measured_visual_cw_deg": -11.01,
+      "bbox": {
+        "x_min": 191,
+        "y_min": 532,
+        "x_max": 301,
+        "y_max": 818,
+        "width": 110,
+        "height": 286
+      }
+    },
+    {
+      "z_index": 8,
+      "layer": "07_product_snail_cream.png",
+      "cluster": "CUM_3_HERO_PRODUCTS_AND_ACCESSORY",
+      "anchor_center_x": 898,
+      "anchor_top_y": 524,
+      "target_h": 236,
+      "native_cw_deg": -19.37,
+      "applied_delta_cw_deg": 31.87,
+      "target_visual_cw_deg": 12.5,
+      "measured_visual_cw_deg": 12.52,
+      "bbox": {
+        "x_min": 832,
+        "y_min": 524,
+        "x_max": 965,
+        "y_max": 763,
+        "width": 133,
+        "height": 239
+      }
+    },
+    {
+      "z_index": 9,
+      "layer": "09_decor_bag_front.png",
+      "cluster": "CUM_2_BAG_3D_FRAME",
+      "bbox": {
+        "x_min": 156,
+        "y_min": 636,
+        "x_max": 1044,
+        "y_max": 1060,
+        "width": 888,
+        "height": 424
+      }
+    },
+    {
+      "z_index": 10,
+      "layer": "07b_swatch_pdrn_serum.png",
+      "cluster": "CUM_4_TEXTURES_AND_EFFECTS",
+      "mode": "ZERO_GRAVITY_FLOATING_BIOGEL",
+      "bbox": {
+        "x_min": 176,
+        "y_min": 525,
+        "x_max": 290,
+        "y_max": 663,
+        "width": 114,
+        "height": 138
+      }
+    },
+    {
+      "z_index": 11,
+      "layer": "01_swatch_snail_cream.png",
+      "cluster": "CUM_4_TEXTURES_AND_EFFECTS",
+      "bbox": {
+        "x_min": 787,
+        "y_min": 692,
+        "x_max": 938,
+        "y_max": 821,
+        "width": 151,
+        "height": 129
+      }
+    },
+    {
+      "z_index": 12,
+      "layer": "02_droplets_aqueous_serum.png",
+      "cluster": "CUM_4_TEXTURES_AND_EFFECTS",
+      "bbox": {
+        "x_min": 322,
+        "y_min": 432,
+        "x_max": 454,
+        "y_max": 535,
+        "width": 132,
+        "height": 103
+      }
+    },
+    {
+      "z_index": 13,
+      "layer": "00c_molecular_crystals_front.png",
+      "cluster": "CUM_4_TEXTURES_AND_EFFECTS",
+      "bbox": {
+        "x_min": 938,
+        "y_min": 652,
+        "x_max": 1070,
+        "y_max": 759,
+        "width": 132,
+        "height": 107
+      }
+    }
+  ],
+  "qa_checks": {
+    "exact_13_layers_verified": true,
+    "procedural_glints_snapped": true,
+    "transparent_corners_verified": true,
+    "peak_product_y_px": 430,
+    "peak_ceiling_430_passed": true,
+    "clearance_from_discount_376_px": 54,
+    "bag_base_1060_passed": true,
+    "zero_leak_below_bag_base": true,
+    "vertical_stagger_range_px": 102,
+    "v_burst_stagger_passed": true,
+    "brush_inside_bag_mouth_passed": true,
+    "brush_x_span": [
+      191,
+      301
+    ],
+    "pdrn_swirl_floating_above_bag_rim": true,
+    "product_mouth_span_x": [
+      191,
+      965
+    ],
+    "product_mouth_coverage_pct": 87.2
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "directive_id": "DIR-FORGE-COSRX-BACKDROP-SHELF-085",
+  "deliverables": {
+    "layer_1_bg": "assets/brands/COSRX/layers/00_bg_vanity_morning_light.png",
+    "layer_2_shelf": "assets/brands/COSRX/layers/00b_pedestal_wood_shelf.png",
+    "layer_3_molecules_combined": "assets/brands/COSRX/layers/00c_cosrx_molecular_crystals.png",
+    "layer_3_molecules_back": "assets/brands/COSRX/layers/00c_back_cosrx_molecular_crystals.png",
+    "layer_3_molecules_front": "assets/brands/COSRX/layers/00c_front_cosrx_molecular_crystals.png",
+    "preview_qa_card": "output/TASK_COSRX/preview_backdrop_pedestal_test.png"
+  },
+  "layer_1_optical_qa": {
+    "upper_zone_L_min": 97.21,
+    "upper_zone_L_mean": 97.22,
+    "upper_zone_L_max": 97.31,
+    "headline_zone_L_min": 97.21,
+    "headline_zone_L_mean": 97.23,
+    "lower_vanity_L_mean": 96.95,
+    "max_srgb_channel": 249,
+    "pbr_clamp_no_blowout": true,
+    "lstar_gt_92_passed": true
+  },
+  "layer_2_shelf_qa": {
+    "top_plane_y_range": [
+      980,
+      1076
+    ],
+    "bag_base_contact_y": 1060,
+    "bag_base_x_span": [
+      200,
+      1000
+    ],
+    "front_face_y_range": [
+      1076,
+      1110
+    ],
+    "thickness_px": 34,
+    "camera_sync": {
+      "pitch_deg": 24.0,
+      "yaw_deg": 0.0,
+      "roll_deg": 0.0
+    },
+    "contact_shadow_hex": "#381A08",
+    "contact_shadow_blur_px": 12.0,
+    "contact_shadow_max_opacity": 0.398
+  },
+  "layer_3_molecules_qa": {
+    "back_cluster_bbox": [
+      106,
+      527,
+      334,
+      644
+    ],
+    "front_cluster_bbox": [
+      974,
+      620,
+      1114,
+      734
+    ],
+    "back_blur_px": 4.0,
+    "back_opacity": 0.52,
+    "front_blur_px": 0.0,
+    "front_opacity": 1.0,
+    "safe_zone_verified": true
+  },
+  "typography_contrast_wcag": {
+    "headline_black_friday_ratio": 19.6,
+    "logo_cosrx_ratio": 19.63,
+    "discount_up_to_30_off_ratio": 19.59,
+    "wcag_aaa_passed": true
+  }
+}

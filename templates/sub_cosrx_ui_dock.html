@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>COSRX × ULTA Beauty UI Dock (1200x1200) — DIR-AN-SUB-ASSEMBLIES-DUAL-084</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: url('file:///Users/macbookpro/Library/Fonts/InterVariable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+    }
+    body {
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      width: 1200px;
+      height: 1200px;
+      overflow: hidden;
+    }
+    .ui-canvas {
+      position: relative;
+      width: 1200px;
+      height: 1200px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    /* TIER 1 — DUAL BRAND HEADER (Optical center Y ≈ 56px, Center X: 300-900 strictly empty) */
+    .z2-header-dual-brand {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 87px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .logo-cosrx {
+      position: absolute;
+      left: 60px;
+      top: 34px;
+      width: 200px;
+      height: 41px;
+      display: block;
+      object-fit: contain;
+    }
+    .logo-ulta {
+      position: absolute;
+      right: 60px;
+      top: 26px;
+      width: 150px;
+      height: 60.5px;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* BUFFER ZONE 1: Y = 86.5px to Y = 120px (33.5px >= 30px QA) */
+
+    /* TIER 2 — MAIN HEADLINE 'BLACK FRIDAY' (Y = 120px to Y = 205px, Height = 85px, Width ~880-920px) */
+    .z10-headline {
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 85px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 116px;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    /* TIER 3 — PROMOTIONAL RIBBON 'EARLY ACCESS' (Y = 218px to Y = 313px, 540x95px) */
+    .z9-promo-ribbon {
+      position: absolute;
+      top: 218px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 540px;
+      height: 95px;
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .z9-promo-ribbon img {
+      /* Source 02_ribbon_early_access.png is 760x176 with 668x83 visible ink;
+         scaling width to 614px yields exact 540px visible ribbon width x 67px visible height (zero clipping) */
+      width: 614px;
+      height: 142.2px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* TIER 4 — DISCOUNT MESSAGE 'UP TO 30% OFF' (Y = 326px to Y = 376px, ends strictly <= 380px) */
+    .z10-discount {
+      position: absolute;
+      top: 326px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 12px;
+      z-index: 10;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 46px;
+      line-height: 50px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .z10-discount .disc-prefix,
+    .z10-discount .disc-suffix {
+      font-weight: 900;
+      font-size: 46px;
+      letter-spacing: 0.03em;
+      color: #000000;
+    }
+    .z10-discount .disc-highlight {
+      font-weight: 900;
+      font-size: 46px;
+      letter-spacing: -0.02em;
+      color: #F26B1C;
+    }
+
+    /* TIER 5 — CALL TO ACTION DOCK (Active Pill bottom = exact Y = 1155px, 45px from bottom) */
+    .z11-ui-cta-dock {
+      position: absolute;
+      top: 1043px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 448px;
+      height: 148px;
+      z-index: 11;
+      pointer-events: none;
+    }
+    .z11-ui-cta-dock img {
+      width: 448px;
+      height: 148px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="ui-canvas" id="ui-dock-canvas">
+    <div class="z2-header-dual-brand" id="header_dual_brand_slot" data-layer-id="header_dual_brand_slot" data-ui-role="header_dual_brand_slot" data-z-index="2" data-layer-name="Tier 1 Dual Brand Logo Header (Top Row)">
+      <img class="logo-cosrx" id="logo_cosrx" src="../assets/brands/COSRX/LOGO/COSRX.png" data-asset-id="logo_cosrx" data-repo-path="assets/brands/COSRX/LOGO/COSRX.png" alt="COSRX" />
+      <img class="logo-ulta" id="logo_ulta" src="../assets/brands/COSRX/LOGO/Ulta Logo.png" data-asset-id="logo_ulta" data-repo-path="assets/brands/COSRX/LOGO/Ulta Logo.png" alt="ULTA Beauty" />
+    </div>
+
+    <div class="z10-headline" id="headline_black_friday" data-layer-id="headline_black_friday" data-ui-role="headline_black_friday" data-z-index="10" data-ui-text="BLACK FRIDAY" data-fg-hex="#000000" data-layer-name="Tier 2 Main Headline 'BLACK FRIDAY'">BLACK FRIDAY</div>
+
+    <div class="z9-promo-ribbon" id="promo_ribbon_early_access" data-layer-id="promo_ribbon_early_access" data-ui-role="promo_ribbon_early_access" data-z-index="9" data-ui-text="EARLY ACCESS" data-layer-name="Tier 3 Promotion Ribbon Tag 'EARLY ACCESS'">
+      <img src="../assets/brands/COSRX/layers/02_ribbon_early_access.png" id="asset_ribbon_early_access" data-asset-id="02_ribbon_early_access" data-repo-path="assets/brands/COSRX/layers/02_ribbon_early_access.png" alt="EARLY ACCESS Ribbon" />
+    </div>
+
+    <div class="z10-discount" id="discount_up_to_30_off" data-layer-id="discount_up_to_30_off" data-ui-role="discount_up_to_30_off" data-z-index="10" data-ui-text="UP TO 30% OFF" data-layer-name="Tier 4 Discount Message 'UP TO 30% OFF'">
+      <span class="disc-prefix">UP TO</span>
+      <span class="disc-highlight" data-fg-hex="#F26B1C">30%</span>
+      <span class="disc-suffix">OFF</span>
+    </div>
+
+    <div class="z11-ui-cta-dock" id="ui_cta_dock" data-layer-id="ui_cta_dock" data-ui-role="ui_cta_dock" data-z-index="11" data-ui-text="SHOP NOW >" data-layer-name="Tier 5 Call To Action Dock (SHOP NOW >)">
+      <img src="../assets/brands/COSRX/layers/11_ui_cta_button.png" id="asset_ui_cta_button" data-asset-id="11_ui_cta_button" data-repo-path="assets/brands/COSRX/layers/11_ui_cta_button.png" alt="Shop Now CTA Button" />
+    </div>
+  </div>
+</body>
+</html>

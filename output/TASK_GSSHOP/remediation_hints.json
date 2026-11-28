@@ -1,0 +1,44 @@
+{
+  "directive_id": "DIR-UPGRADE-PRESCRIPTIVE-INSPECTOR-037",
+  "banner_id": "gsshop_master_1080x1080",
+  "template_path": "templates/master_1080x1080.html",
+  "status": "FAIL",
+  "total_hints": 2,
+  "hints": [
+    {
+      "hint_id": "fix_safe_margin_ui_logo",
+      "assertion": "assert_safe_margins",
+      "element_id": "ui_logo",
+      "target_selector": "#ui_logo",
+      "current_bbox": {
+        "x": 50,
+        "y": 48,
+        "width": 258,
+        "height": 34
+      },
+      "recommended_css": {
+        "left": "54px",
+        "top": "54px"
+      },
+      "css_declaration": "left: 54px; top: 54px;",
+      "action_summary": "Shift #ui_logo inside {'top': 54, 'bottom': 54, 'left': 54, 'right': 54}px safe margins (left: 54px; top: 54px;)"
+    },
+    {
+      "hint_id": "fix_safe_margin_ui_cta",
+      "assertion": "assert_safe_margins",
+      "element_id": "ui_cta",
+      "target_selector": "#ui_cta",
+      "current_bbox": {
+        "x": 250,
+        "y": 960,
+        "width": 580,
+        "height": 70
+      },
+      "recommended_css": {
+        "top": "956px"
+      },
+      "css_declaration": "top: 956px;",
+      "action_summary": "Shift #ui_cta inside {'top': 54, 'bottom': 54, 'left': 54, 'right': 54}px safe margins (top: 956px;)"
+    }
+  ]
+}

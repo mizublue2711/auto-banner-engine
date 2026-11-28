@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=800, height=1500, initial-scale=1.0" />
+  <title>GS SHOP Vertical Story Banner 800x1500 — DIR-BUILD-RESIZE-ENGINE-063</title>
+  <style>
+    @font-face {
+      font-family: "Pretendard";
+      src: url("{{ font_base }}/Pretendard-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("{{ font_base }}/Pretendard-SemiBold.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("{{ font_base }}/Pretendard-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Pretendard";
+      src: url("{{ font_base }}/Pretendard-ExtraBold.woff2") format("woff2");
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 800px;
+      height: 1500px;
+      overflow: hidden;
+      background: #96dbfc;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    /* =========================================================================
+       GS SHOP 800x1500 VERTICAL STORY (1:1.875) — TALL 3-TIER STACKING
+       Tier 1 (Top y=120..540): Logo, Frosted Glass LIVE Capsule, Oversized 3D Title
+       Tier 2 (Middle y=550..1240): Spacious Floating Lid, Products & White Gift Box
+       Tier 3 (Bottom y=1040..1500): Rolling 3-Tier Snow Waves & Docked Bottom CTA
+       Safe Margins: top 120, bottom 100, left 40, right 40
+       ========================================================================= */
+    .stage {
+      position: relative;
+      width: 800px;
+      height: 1500px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .layer {
+      position: absolute;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Z=1: Winter Sky Backdrop (800x1500 vertical cover) */
+    .z1-bg-winter-backdrop {
+      z-index: 1;
+      top: 0px;
+      left: 0px;
+      width: 800px;
+      height: 1500px;
+    }
+    .z1-bg-winter-backdrop img {
+      object-fit: cover;
+    }
+
+    /* Z=2: Snow Tier 1 Back Dunes (Lower 460px of 1500px stage) */
+    .z2-snow-tier-1 {
+      z-index: 2;
+      top: 1040px;
+      left: 0px;
+      width: 800px;
+      height: 460px;
+      overflow: hidden;
+    }
+    .z2-snow-tier-1 img {
+      position: absolute;
+      left: -82px;
+      top: -540px;
+      width: 964px;
+      height: 1180px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Z=3: Snow Tier 2 Box Bed (Spacious rolling snow floor supporting box) */
+    .z3-snow-tier-2 {
+      z-index: 3;
+      top: 420px;
+      left: 0px;
+      width: 800px;
+      height: 1080px;
+      overflow: hidden;
+    }
+    .z3-snow-tier-2 img {
+      position: absolute;
+      left: -40px;
+      top: -80px;
+      width: 880px;
+      height: 1160px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Shared-Camera 1:1 Box Projection (virtual 600x600 @ left: 100px, top: 694px) */
+    /* Z=4: Box Contact Shadow */
+    .z4-box-contact-shadow {
+      z-index: 4;
+      top: 1148px;
+      left: 245px;
+      width: 358px;
+      height: 134px;
+      overflow: visible;
+      opacity: 0.88;
+    }
+    .z4-box-contact-shadow img {
+      position: absolute;
+      left: -145px;
+      top: -454px;
+      width: 600px;
+      height: 600px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Z=5: Box Back Interior */
+    .z5-box-back-interior {
+      z-index: 5;
+      top: 925px;
+      left: 245px;
+      width: 358px;
+      height: 283px;
+      overflow: visible;
+      filter: drop-shadow(0 10px 16px rgba(15, 35, 75, 0.16));
+    }
+    .z5-box-back-interior img {
+      position: absolute;
+      left: -145px;
+      top: -231px;
+      width: 600px;
+      height: 600px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Z=6: Tucked Items (Overflowing Toilet Paper & Jeju Tangerines) */
+    .z6-toilet-paper,
+    .z6-toilet-paper-copy {
+      z-index: 6;
+      overflow: visible;
+      filter: drop-shadow(0 10px 15px rgba(15, 23, 42, 0.22));
+    }
+    .z6-toilet-paper {
+      top: 834px;
+      left: 255px;
+      width: 173px;
+      height: 187px;
+      transform: rotate(-7deg);
+      transform-origin: center bottom;
+    }
+    .z6-toilet-paper img,
+    .z6-toilet-paper-copy img {
+      position: absolute;
+      left: -18px;
+      top: -4px;
+      width: 226px;
+      height: 226px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+    }
+    .z6-toilet-paper-copy {
+      top: 756px;
+      left: 312px;
+      width: 173px;
+      height: 187px;
+      transform: rotate(-7deg);
+      transform-origin: center bottom;
+    }
+
+    .z6-tangerine-cluster,
+    .z6-tangerine-cluster-copy {
+      z-index: 6;
+      overflow: visible;
+      filter: drop-shadow(0 10px 15px rgba(15, 23, 42, 0.24));
+    }
+    .z6-tangerine-cluster {
+      top: 950px;
+      left: 360px;
+      width: 121px;
+      height: 121px;
+      transform: rotate(2deg);
+      transform-origin: center bottom;
+    }
+    .z6-tangerine-cluster img,
+    .z6-tangerine-cluster-copy img {
+      position: absolute;
+      left: -21px;
+      top: -33px;
+      width: 177px;
+      height: 177px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+    }
+    .z6-tangerine-cluster-copy {
+      top: 931px;
+      left: 436px;
+      width: 121px;
+      height: 121px;
+      transform: rotate(2deg);
+      transform-origin: center bottom;
+    }
+
+    /* Z=7: Box Front Rim + Shared-Camera Fluttering Ribbon Tails */
+    .z7-box-front-rim {
+      z-index: 7;
+      top: 1007px;
+      left: 245px;
+      width: 358px;
+      height: 201px;
+      overflow: visible;
+      filter:
+        drop-shadow(0 14px 20px rgba(15, 35, 75, 0.24))
+        drop-shadow(0 4px 8px rgba(15, 76, 129, 0.16));
+    }
+    .z7-box-front-rim img {
+      position: absolute;
+      left: -145px;
+      top: -313px;
+      width: 600px;
+      height: 600px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    .z7-ribbon-flutter-left,
+    .z7-ribbon-flutter-right {
+      z-index: 7;
+      top: 694px;
+      left: 100px;
+      width: 600px;
+      height: 600px;
+      overflow: visible;
+      filter: drop-shadow(0px 7px 9px rgba(30, 58, 138, 0.30));
+    }
+
+    /* Z=8: Burst Heroes (Generous airy vertical burst in Middle Tier) */
+    .z8-shopping-bag-pink {
+      z-index: 8;
+      top: 668px;
+      left: 556px;
+      width: 212px;
+      height: 212px;
+      transform: rotate(26deg);
+      transform-origin: center center;
+      filter: drop-shadow(0 14px 22px rgba(15, 23, 42, 0.22));
+    }
+
+    .z8-knit-sweater {
+      z-index: 8;
+      top: 774px;
+      left: 118px;
+      width: 294px;
+      height: 294px;
+      transform: rotate(-16deg);
+      transform-origin: center center;
+      filter: drop-shadow(0 16px 16px rgba(15, 23, 42, 0.25));
+    }
+
+    .z8-puffer-jacket {
+      z-index: 8;
+      top: 734px;
+      left: 368px;
+      width: 368px;
+      height: 368px;
+      transform: rotate(17deg);
+      transform-origin: center center;
+      filter: drop-shadow(0 18px 26px rgba(10, 25, 49, 0.20));
+    }
+
+    /* Z=9: Flying Box Lid (High airy lift in Middle Tier) */
+    .z9-box-lid-flying {
+      z-index: 10;
+      top: 656px;
+      left: 24px;
+      width: 286px;
+      height: 196px;
+      transform: rotate(-16deg);
+      transform-origin: center center;
+      overflow: visible;
+      filter: drop-shadow(0 18px 24px rgba(10, 25, 49, 0.20));
+    }
+    .z9-box-lid-flying img {
+      position: absolute;
+      left: -60px;
+      top: -36px;
+      width: 472px;
+      height: 472px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Z=10: Floating Festive Decor Accents */
+    .z10-flying-tangerine-left,
+    .z10-flying-tangerine-right {
+      z-index: 10;
+      overflow: visible;
+      transform-origin: center center;
+      filter: drop-shadow(5px 10px 6px rgba(249, 115, 22, 0.32));
+    }
+    .z10-flying-tangerine-left {
+      top: 688px;
+      left: 190px;
+      width: 82px;
+      height: 82px;
+      transform: rotate(-22deg);
+    }
+    .z10-flying-tangerine-right {
+      top: 692px;
+      left: 534px;
+      width: 80px;
+      height: 80px;
+      transform: rotate(22deg);
+    }
+    .z10-flying-tangerine-left .tangerine-fruit,
+    .z10-flying-tangerine-right .tangerine-fruit {
+      position: absolute;
+      left: -10px;
+      top: -9px;
+      width: 104px;
+      height: 104px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+    }
+    .z10-flying-tangerine-left .tangerine-fruit {
+      transform: scaleX(-1);
+    }
+    .z10-flying-tangerine-left .tangerine-leaves,
+    .z10-flying-tangerine-right .tangerine-leaves {
+      position: absolute;
+      left: 11px;
+      top: -23px;
+      width: 54px;
+      height: 54px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      transform: rotate(-10deg);
+    }
+
+    .z10-decor-snowflake,
+    .z10-decor-snowflake-copy {
+      z-index: 10;
+      overflow: visible;
+      filter: drop-shadow(7px 6px 8px rgba(255, 255, 255, 0.82));
+    }
+    .z10-decor-snowflake {
+      top: 932px;
+      left: 72px;
+      width: 84px;
+      height: 84px;
+    }
+    .z10-decor-snowflake img {
+      position: absolute;
+      left: -10px;
+      top: -10px;
+      width: 106px;
+      height: 106px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      transform: scaleX(-1) rotate(-14deg);
+    }
+    .z10-decor-snowflake-copy {
+      top: 904px;
+      left: 656px;
+      width: 86px;
+      height: 86px;
+    }
+    .z10-decor-snowflake-copy img {
+      position: absolute;
+      left: -10px;
+      top: -10px;
+      width: 108px;
+      height: 108px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      transform: scaleX(-1) rotate(1deg);
+    }
+
+    .z10-decor-candy-cane {
+      z-index: 9;
+      top: 562px;
+      left: 72px;
+      width: 78px;
+      height: 78px;
+      overflow: visible;
+      filter: drop-shadow(6px 8px 6px rgba(56, 189, 248, 0.32));
+    }
+    .z10-decor-candy-cane img {
+      position: absolute;
+      left: -13px;
+      top: -13px;
+      width: 104px;
+      height: 104px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      transform: rotate(-25deg) scaleX(-1);
+    }
+
+    .z10-decor-bauble {
+      z-index: 10;
+      top: 558px;
+      left: 652px;
+      width: 82px;
+      height: 82px;
+      transform: rotate(18deg);
+      transform-origin: center center;
+      filter:
+        drop-shadow(-7px 9px 6px rgba(56, 189, 248, 0.36))
+        drop-shadow(0 9px 14px rgba(15, 76, 129, 0.22));
+    }
+
+    .z10-decor-bauble-sparkles {
+      z-index: 10;
+      top: 486px;
+      left: 580px;
+      width: 224px;
+      height: 224px;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .z10-decor-bauble-sparkles svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    /* Z=11: Snow Tier 3 Front Waves (Hugging box bottom and extending through CTA bed) */
+    .z11-snow-tier-3 {
+      z-index: 11;
+      top: 420px;
+      left: 0px;
+      width: 800px;
+      height: 1080px;
+      overflow: hidden;
+    }
+    .z11-snow-tier-3 img {
+      position: absolute;
+      left: -40px;
+      top: -60px;
+      width: 880px;
+      height: 1140px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+    }
+
+    /* Z=12: Snow Particles Overlay */
+    .z12-snow-particles {
+      z-index: 12;
+      top: 0px;
+      left: 0px;
+      width: 800px;
+      height: 1500px;
+      opacity: 0.90;
+    }
+    .z12-snow-particles img {
+      object-fit: cover;
+    }
+
+    /* =========================================================================
+       Z=13: 3-TIER VERTICAL STORY UI LOCKUP (Safe top >= 120, bottom >= 100)
+       ========================================================================= */
+    .z13-logo-live-group {
+      z-index: 13;
+      top: 124px;
+      left: 290px;
+      width: 220px;
+      height: 30px;
+      pointer-events: auto;
+    }
+
+    .mobile-live-logo-wrap {
+      position: relative;
+      display: block;
+      width: 220px;
+      height: 30px;
+      overflow: hidden;
+    }
+
+    .z13-logo-live-group .mobile-live-logo-img {
+      position: absolute;
+      left: -39.6px;
+      top: -97.5px;
+      width: 298.8px;
+      height: 224.1px;
+      max-width: none;
+      max-height: none;
+      object-fit: fill;
+      display: block;
+    }
+
+    /* Frosted Glass LIVE Capsule */
+    .z13-glass-capsule-layer {
+      z-index: 13;
+      top: 194px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+
+    .glass-subcopy-capsule {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 564px;
+      gap: 16px;
+      padding: 10px 26px 10px 14px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 9999px;
+      box-shadow: 0 6px 24px -2px rgba(15, 23, 42, 0.10),
+                  0 1px 3px rgba(255, 255, 255, 0.6) inset;
+      margin: 0 auto;
+    }
+
+    .glass-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #DC2626;
+      color: #FFFFFF;
+      padding: 7px 15px;
+      border-radius: 9999px;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0.6px;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+      flex-shrink: 0;
+    }
+
+    .live-dot {
+      width: 8.5px;
+      height: 8.5px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .glass-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(15, 23, 42, 0.16);
+      flex-shrink: 0;
+    }
+
+    .glass-subcopy-text {
+      color: #0F172A;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+    }
+
+    /* Oversized 3D Headline Lockup (Top Tier anchor) */
+    .z13-headline-3d {
+      z-index: 13;
+      top: 280px;
+      left: 40px;
+      width: 720px;
+      height: 248px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+
+    .headline-3d-lockup {
+      position: relative;
+      width: 604px;
+      height: 248px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .headline-3d-lockup img {
+      width: 1140px;
+      height: 296px;
+      margin-top: 4px;
+      max-width: none;
+      max-height: none;
+      flex-shrink: 0;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Docked Bottom CTA Pill (Strictly above y=1400 safe margin & y=1420 nav clearance) */
+    .z13-cta-button {
+      z-index: 13;
+      bottom: 116px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-sizing: border-box;
+      width: var(--synced-capsule-width, 564px);
+      height: 70px;
+      padding: 0 42px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      text-decoration: none;
+      overflow: hidden;
+
+      background: linear-gradient(
+        180deg,
+        #3392FF 0%,
+        #1982FF 18%,
+        #0F78FF 56%,
+        #0C6CEB 88%,
+        #167BFF 100%
+      );
+      border: 1.5px solid rgba(130, 194, 255, 0.78);
+      box-shadow:
+        0 12px 26px -4px rgba(15, 120, 255, 0.42),
+        0 4px 12px rgba(15, 120, 255, 0.24),
+        inset 0 2px 3px rgba(255, 255, 255, 0.42),
+        inset 0 -3px 6px rgba(15, 92, 214, 0.30),
+        inset 0 -1px 2px rgba(110, 184, 255, 0.38);
+    }
+
+    .z13-cta-button::before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 16px;
+      right: 16px;
+      height: 18px;
+      border-radius: 9999px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.44) 0%,
+        rgba(255, 255, 255, 0.14) 48%,
+        rgba(255, 255, 255, 0.00) 100%
+      );
+      pointer-events: none;
+    }
+
+    .cta-pill-label {
+      position: relative;
+      z-index: 1;
+      color: #FFFFFF;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .cta-text {
+      font-size: 29px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 1.3px;
+      text-shadow: 0 2px 4px rgba(4, 48, 120, 0.38);
+    }
+
+    .cta-chevron {
+      width: 14px;
+      height: 22px;
+      flex-shrink: 0;
+      display: block;
+      filter: drop-shadow(0 2px 3px rgba(4, 48, 120, 0.38));
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" id="master-stage" data-banner-id="{{ banner_id }}" data-format="800x1500">
+    <!-- Z=1: Winter Backdrop -->
+    <div class="layer z1-bg-winter-backdrop"
+         data-layer-id="z1_bg_winter_backdrop"
+         data-layer-name="Z1_BG_WINTER_BACKDROP"
+         data-z-index="1"
+         data-motion-role="static_backdrop"
+         data-parallax="0.02">
+      <img id="asset_bg_winter_backdrop"
+           data-asset-id="01_bg_winter_backdrop"
+           data-repo-path="assets/brands/gsshop/layers/01_background_sky.png"
+           src="{{ asset_base }}/01_background_sky.png"
+           alt="Winter studio backdrop" />
+    </div>
+
+    <!-- Z=2: Snow Tier 1 Back -->
+    <div class="layer z2-snow-tier-1"
+         data-layer-id="z2_snow_tier_1_back_blur"
+         data-layer-name="Z2_SNOW_TIER_1_BACK_BLUR"
+         data-z-index="2"
+         data-motion-role="snow_dune_back"
+         data-parallax="0.06">
+      <img id="asset_snow_tier_1"
+           data-asset-id="snow_tier_1_back_blur"
+           data-repo-path="assets/brands/gsshop/layers/02_snow_tier_1_back.png"
+           src="{{ asset_base }}/02_snow_tier_1_back.png"
+           alt="Background blurred snow dunes" />
+    </div>
+
+    <!-- Z=3: Snow Tier 2 Box Bed -->
+    <div class="layer z3-snow-tier-2"
+         data-layer-id="z3_snow_tier_2_box_bed"
+         data-layer-name="Z3_SNOW_TIER_2_BOX_BED"
+         data-z-index="3"
+         data-motion-role="snow_bed_ground"
+         data-parallax="0.10">
+      <img id="asset_snow_tier_2"
+           data-asset-id="snow_tier_2_box_bed"
+           data-repo-path="assets/brands/gsshop/layers/03_snow_tier_2_box_bed.png"
+           src="{{ asset_base }}/03_snow_tier_2_box_bed.png"
+           alt="Main snow floor supporting gift box" />
+    </div>
+
+    <!-- Z=4: Box Contact Shadow -->
+    <div class="layer z4-box-contact-shadow"
+         data-layer-id="z4_box_contact_shadow"
+         data-layer-name="Z4_BOX_CONTACT_SHADOW"
+         data-z-index="4"
+         data-motion-role="contact_shadow"
+         data-parallax="0.14">
+      <img id="asset_box_contact_shadow"
+           data-asset-id="decor_box_contact_shadow"
+           data-repo-path="assets/brands/gsshop/layers/04_decor_box_contact_shadow.png"
+           src="{{ asset_base }}/04_decor_box_contact_shadow.png"
+           alt="Gift box contact shadow" />
+    </div>
+
+    <!-- Z=5: Box Back Interior -->
+    <div class="layer z5-box-back-interior"
+         data-layer-id="z5_box_back_interior"
+         data-layer-name="Z5_BOX_BACK_INTERIOR"
+         data-z-index="5"
+         data-motion-role="box_cavity_back"
+         data-parallax="0.18">
+      <img id="asset_box_back_interior"
+           data-asset-id="decor_box_back_interior"
+           data-repo-path="assets/brands/gsshop/layers/05_decor_box_back_interior.png"
+           src="{{ asset_base }}/05_decor_box_back_interior.png"
+           alt="Gift box back interior cavity" />
+    </div>
+
+    <!-- Z=6: Tucked Items -->
+    <div class="layer z6-toilet-paper"
+         data-layer-id="z6_toilet_paper"
+         data-layer-name="Z6_TUCKED_ITEMS"
+         data-z-index="6"
+         data-motion-role="tucked_pop_left"
+         data-parallax="0.24"
+         data-rotation-deg="-7">
+      <img id="asset_toilet_paper"
+           data-asset-id="toilet_paper"
+           data-repo-path="assets/brands/gsshop/layers/06_hero_toilet_paper.png"
+           src="{{ asset_base }}/06_hero_toilet_paper.png"
+           alt="Toilet paper 30-roll pack" />
+    </div>
+
+    <div class="layer z6-toilet-paper-copy"
+         data-layer-id="z6_toilet_paper_copy"
+         data-layer-name="Z6_TUCKED_ITEMS"
+         data-z-index="6"
+         data-motion-role="tucked_pop_right_back"
+         data-parallax="0.24"
+         data-rotation-deg="-7">
+      <img id="asset_toilet_paper_copy"
+           data-asset-id="toilet_paper_copy"
+           data-repo-path="assets/brands/gsshop/layers/06_hero_toilet_paper.png"
+           src="{{ asset_base }}/06_hero_toilet_paper.png"
+           alt="Toilet paper 30-roll pack right" />
+    </div>
+
+    <div class="layer z6-tangerine-cluster"
+         data-layer-id="z6_tangerine_cluster"
+         data-layer-name="Z6_TUCKED_ITEMS"
+         data-z-index="6"
+         data-motion-role="tucked_pop_right"
+         data-parallax="0.26"
+         data-rotation-deg="2">
+      <img id="asset_tangerine_cluster"
+           data-asset-id="tangerine_cluster"
+           data-repo-path="assets/brands/gsshop/layers/06_hero_tangerines_cluster.png"
+           src="{{ asset_base }}/06_hero_tangerines_cluster.png"
+           alt="3D Jeju tangerine overflow cluster" />
+    </div>
+
+    <div class="layer z6-tangerine-cluster-copy"
+         data-layer-id="z6_tangerine_cluster_copy"
+         data-layer-name="Z6_TUCKED_ITEMS"
+         data-z-index="6"
+         data-motion-role="tucked_pop_right_front"
+         data-parallax="0.26"
+         data-rotation-deg="2">
+      <img id="asset_tangerine_cluster_copy"
+           data-asset-id="tangerine_cluster_copy"
+           data-repo-path="assets/brands/gsshop/layers/06_hero_tangerines_cluster.png"
+           src="{{ asset_base }}/06_hero_tangerines_cluster.png"
+           alt="3D Jeju tangerine overflow cluster right" />
+    </div>
+
+    <!-- Z=7: Box Front Rim + Ribbon Tails -->
+    <div class="layer z7-box-front-rim"
+         data-layer-id="z7_box_front_rim"
+         data-layer-name="Z7_BOX_FRONT_RIM"
+         data-z-index="7"
+         data-motion-role="box_front_occluder"
+         data-parallax="0.32">
+      <img id="asset_box_front_rim"
+           data-asset-id="decor_box_front_rim"
+           data-repo-path="assets/brands/gsshop/layers/07_decor_box_front_rim.png"
+           src="{{ asset_base }}/07_decor_box_front_rim.png"
+           alt="Gift box front rim with azure ribbon" />
+    </div>
+
+    <div class="layer z7-ribbon-flutter-left"
+         data-layer-id="z7_ribbon_flutter_left"
+         data-layer-name="Z7_RIBBON_FLUTTER_LEFT"
+         data-z-index="7"
+         data-motion-role="ribbon_flutter_left"
+         data-parallax="0.34">
+      <img id="asset_ribbon_flutter_left"
+           data-asset-id="decor_ribbon_flutter_left"
+           data-repo-path="assets/brands/gsshop/layers/07_decor_ribbon_flutter_left.png"
+           src="{{ asset_base }}/07_decor_ribbon_flutter_left.png"
+           alt="Fluttering 3D Azure Blue satin ribbon tail left" />
+    </div>
+
+    <div class="layer z7-ribbon-flutter-right"
+         data-layer-id="z7_ribbon_flutter_right"
+         data-layer-name="Z7_RIBBON_FLUTTER_RIGHT"
+         data-z-index="7"
+         data-motion-role="ribbon_flutter_right"
+         data-parallax="0.34">
+      <img id="asset_ribbon_flutter_right"
+           data-asset-id="decor_ribbon_flutter_right"
+           data-repo-path="assets/brands/gsshop/layers/07_decor_ribbon_flutter_right.png"
+           src="{{ asset_base }}/07_decor_ribbon_flutter_right.png"
+           alt="Fluttering 3D Azure Blue satin ribbon tail right" />
+    </div>
+
+    <!-- Z=8: Burst Heroes -->
+    <div class="layer z8-shopping-bag-pink"
+         data-layer-id="z8_shopping_bag_pink"
+         data-layer-name="Z8_BURST_HEROES"
+         data-z-index="8"
+         data-motion-role="burst_hero_bag"
+         data-parallax="0.44"
+         data-rotation-deg="26">
+      <img id="asset_shopping_bag_pink"
+           data-asset-id="shopping_bag_pink"
+           data-repo-path="assets/brands/gsshop/layers/08_hero_shopping_bag_pink.png"
+           src="{{ asset_base }}/08_hero_shopping_bag_pink.png"
+           alt="3D luxury pink shopping bag" />
+    </div>
+
+    <div class="layer z8-knit-sweater"
+         data-layer-id="z8_knit_sweater"
+         data-layer-name="Z8_BURST_HEROES"
+         data-z-index="8"
+         data-motion-role="burst_hero_left"
+         data-parallax="0.40"
+         data-rotation-deg="-16">
+      <img id="asset_knit_sweater"
+           data-asset-id="knit_sweater"
+           data-repo-path="assets/brands/gsshop/layers/08_hero_knit_sweater.png"
+           src="{{ asset_base }}/08_hero_knit_sweater.png"
+           alt="Human Made winter knit sweater" />
+    </div>
+
+    <div class="layer z8-puffer-jacket"
+         data-layer-id="z8_puffer_jacket"
+         data-layer-name="Z8_BURST_HEROES"
+         data-z-index="8"
+         data-motion-role="burst_hero_right"
+         data-parallax="0.42"
+         data-rotation-deg="17">
+      <img id="asset_puffer_jacket"
+           data-asset-id="puffer_jacket"
+           data-repo-path="assets/brands/gsshop/layers/08_hero_puffer_jacket.png"
+           src="{{ asset_base }}/08_hero_puffer_jacket.png"
+           alt="Winter puffer jacket" />
+    </div>
+
+    <!-- Z=9: Flying Box Lid -->
+    <div class="layer z9-box-lid-flying"
+         data-layer-id="z9_box_lid_flying"
+         data-layer-name="Z9_BOX_LID_FLYING"
+         data-z-index="9"
+         data-motion-role="lid_pop_hover"
+         data-parallax="0.52"
+         data-rotation-deg="-16">
+      <img id="asset_box_lid_flying"
+           data-asset-id="decor_box_lid_flying"
+           data-repo-path="assets/brands/gsshop/layers/09_decor_box_lid_flying.png"
+           src="{{ asset_base }}/09_decor_box_lid_flying.png"
+           alt="Flying gift box lid with satin bow" />
+    </div>
+
+    <!-- Z=10: Floating Festive Decor Accents -->
+    <div class="layer z10-flying-tangerine-left"
+         data-layer-id="z10_flying_tangerine_left"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_tangerine_arc_left"
+         data-parallax="0.60"
+         data-rotation-deg="-22">
+      <img class="tangerine-fruit"
+           id="asset_flying_tangerine_left"
+           data-asset-id="flying_tangerine_left"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_flying_tangerine.png"
+           src="{{ asset_base }}/10_decor_flying_tangerine.png"
+           alt="Flying 3D Jeju tangerine left burst" />
+      <img class="tangerine-leaves"
+           id="asset_flying_tangerine_leaves_left"
+           data-asset-id="decor_tangerine_leaves_left"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_tangerine_leaves.png"
+           src="{{ asset_base }}/10_decor_tangerine_leaves.png"
+           alt="3D tangerine leaves left" />
+    </div>
+
+    <div class="layer z10-flying-tangerine-right"
+         data-layer-id="z10_flying_tangerine_right"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_tangerine_arc_right"
+         data-parallax="0.60"
+         data-rotation-deg="22">
+      <img class="tangerine-fruit"
+           id="asset_flying_tangerine_right"
+           data-asset-id="flying_tangerine_right"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_flying_tangerine.png"
+           src="{{ asset_base }}/10_decor_flying_tangerine.png"
+           alt="Flying 3D Jeju tangerine right burst" />
+      <img class="tangerine-leaves"
+           id="asset_flying_tangerine_leaves_right"
+           data-asset-id="decor_tangerine_leaves_right"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_tangerine_leaves.png"
+           src="{{ asset_base }}/10_decor_tangerine_leaves.png"
+           alt="3D tangerine leaves right" />
+    </div>
+
+    <div class="layer z10-decor-snowflake"
+         data-layer-id="z10_decor_snowflake"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_spin_slow"
+         data-parallax="0.62"
+         data-rotation-deg="-14"
+         data-flip-x="true">
+      <img id="asset_decor_snowflake"
+           data-asset-id="decor_snowflake"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_snowflake.png"
+           src="{{ asset_base }}/10_decor_snowflake.png"
+           alt="3D snowflake with motion trail" />
+    </div>
+
+    <div class="layer z10-decor-snowflake-copy"
+         data-layer-id="z10_decor_snowflake_copy"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_spin_slow_right"
+         data-parallax="0.62"
+         data-rotation-deg="1"
+         data-flip-x="true">
+      <img id="asset_decor_snowflake_copy"
+           data-asset-id="decor_snowflake_copy"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_snowflake.png"
+           src="{{ asset_base }}/10_decor_snowflake.png"
+           alt="3D snowflake right with motion trail" />
+    </div>
+
+    <div class="layer z10-decor-candy-cane"
+         data-layer-id="z10_decor_candy_cane"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_tilt_bob"
+         data-parallax="0.64"
+         data-rotation-deg="-25"
+         data-flip-x="true">
+      <img id="asset_decor_candy_cane"
+           data-asset-id="decor_candy_cane"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_candy_cane.png"
+           src="{{ asset_base }}/10_decor_candy_cane.png"
+           alt="3D candy cane with motion trail" />
+    </div>
+
+    <div class="layer z10-decor-bauble"
+         data-layer-id="z10_decor_bauble"
+         data-layer-name="Z10_FLOATING_DECOR_MOTION"
+         data-z-index="10"
+         data-motion-role="float_pendulum"
+         data-parallax="0.66"
+         data-rotation-deg="18">
+      <img id="asset_decor_bauble"
+           data-asset-id="decor_bauble"
+           data-repo-path="assets/brands/gsshop/layers/10_decor_bauble.png"
+           src="{{ asset_base }}/10_decor_bauble.png"
+           alt="3D holiday bauble" />
+    </div>
+
+    <div class="layer z10-decor-bauble-sparkles"
+         id="z10_decor_bauble_sparkles"
+         data-layer-id="z10_decor_bauble_sparkles"
+         data-layer-name="Z10_DECOR_BAUBLE_SPARKLES"
+         data-z-index="10"
+         data-motion-role="sparkle_twinkle"
+         data-parallax="0.68">
+      <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="baubleBokehSoft" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+            <stop offset="45%" stop-color="#E0F2FE" stop-opacity="0.58" />
+            <stop offset="100%" stop-color="#BAE6FD" stop-opacity="0" />
+          </radialGradient>
+          <filter id="baubleStarGlow" x="-45%" y="-45%" width="190%" height="190%">
+            <feGaussianBlur stdDeviation="2.0" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <circle cx="176" cy="112" r="10.5" fill="url(#baubleBokehSoft)" opacity="0.72" />
+        <circle cx="64" cy="114" r="9.0" fill="url(#baubleBokehSoft)" opacity="0.68" />
+        <circle cx="152" cy="176" r="8.5" fill="url(#baubleBokehSoft)" opacity="0.66" />
+        <circle cx="96" cy="56" r="7.5" fill="url(#baubleBokehSoft)" opacity="0.65" />
+        <circle cx="192" cy="84" r="6.5" fill="url(#baubleBokehSoft)" opacity="0.62" />
+        <circle cx="78" cy="178" r="7.0" fill="url(#baubleBokehSoft)" opacity="0.64" />
+        <circle cx="114" cy="188" r="6.0" fill="url(#baubleBokehSoft)" opacity="0.60" />
+        <g filter="url(#baubleStarGlow)">
+          <path d="M174 58 L176.6 69.4 L188 72 L176.6 74.6 L174 86 L171.4 74.6 L160 72 L171.4 69.4 Z" fill="#FFFFFF" opacity="0.85" />
+          <path d="M68 153 L70.1 161.9 L79 164 L70.1 166.1 L68 175 L65.9 166.1 L57 164 L65.9 161.9 Z" fill="#FFFFFF" opacity="0.82" />
+          <path d="M182 141 L183.9 149.1 L192 151 L183.9 152.9 L182 161 L180.1 152.9 L172 151 L180.1 149.1 Z" fill="#FFFFFF" opacity="0.78" />
+          <path d="M74 62 L75.7 69.3 L83 71 L75.7 72.7 L74 80 L72.3 72.7 L65 71 L72.3 69.3 Z" fill="#FFFFFF" opacity="0.76" />
+          <path d="M136 45 L137.3 50.7 L143 52 L137.3 53.3 L136 59 L134.7 53.3 L129 52 L134.7 50.7 Z" fill="#E0F2FE" opacity="0.74" />
+          <path d="M138 178 L139.3 183.7 L145 185 L139.3 186.3 L138 192 L136.7 186.3 L131 185 L136.7 183.7 Z" fill="#FFFFFF" opacity="0.72" />
+        </g>
+        <circle cx="158" cy="54" r="2.4" fill="#FFFFFF" opacity="0.82" />
+        <circle cx="194" cy="118" r="2.2" fill="#FFFFFF" opacity="0.78" />
+        <circle cx="164" cy="166" r="2.6" fill="#FFFFFF" opacity="0.80" />
+        <circle cx="96" cy="174" r="2.1" fill="#E0F2FE" opacity="0.72" />
+        <circle cx="56" cy="96" r="2.3" fill="#FFFFFF" opacity="0.76" />
+        <circle cx="62" cy="138" r="1.9" fill="#FFFFFF" opacity="0.70" />
+        <circle cx="116" cy="48" r="2.0" fill="#FFFFFF" opacity="0.74" />
+        <circle cx="186" cy="172" r="1.8" fill="#E0F2FE" opacity="0.68" />
+      </svg>
+    </div>
+
+    <!-- Z=11: Snow Tier 3 Front Waves -->
+    <div class="layer z11-snow-tier-3"
+         data-layer-id="z11_snow_tier_3_front_blur"
+         data-layer-name="Z11_SNOW_TIER_3_FRONT_BLUR"
+         data-z-index="11"
+         data-motion-role="snow_drift_front"
+         data-parallax="0.78">
+      <img id="asset_snow_tier_3"
+           data-asset-id="snow_tier_3_front_blur"
+           data-repo-path="assets/brands/gsshop/layers/11_snow_tier_3_front_waves.png"
+           src="{{ asset_base }}/11_snow_tier_3_front_waves.png"
+           alt="Foreground bright snow drift" />
+    </div>
+
+    <!-- Z=12: Snow Particles Overlay -->
+    <div class="layer z12-snow-particles"
+         data-layer-id="z12_snow_particles_overlay"
+         data-layer-name="Z12_SNOW_PARTICLES_OVERLAY"
+         data-z-index="12"
+         data-motion-role="ambient_snow_drift"
+         data-parallax="0.88">
+      <img id="asset_snow_particles"
+           data-asset-id="02_snow_particles_overlay"
+           data-repo-path="assets/brands/gsshop/layers/12_snow_particles_overlay.png"
+           src="{{ asset_base }}/12_snow_particles_overlay.png"
+           alt="Snow particles atmosphere overlay" />
+    </div>
+
+    <!-- Z=13: 3-Tier Vertical Story UI Lockup -->
+    <header class="layer z13-logo-live-group"
+            data-layer-id="z13_logo_live_group"
+            data-layer-name="Z13_UI_LOCKUP"
+            data-z-index="13"
+            data-motion-role="ui_header_lock"
+            data-parallax="0.0">
+      <div class="mobile-live-logo-wrap"
+           id="ui_logo"
+           data-ui-role="logo"
+           data-z-index="13"
+           data-ui-text="{{ copy.logo }}">
+        <img class="mobile-live-logo-img"
+             data-asset-id="mobile_live_logo"
+             data-repo-path="assets/brands/gsshop/layers/13_ui_mobile_live_logo.png"
+             src="{{ asset_base }}/13_ui_mobile_live_logo.png"
+             alt="{{ copy.logo }}" />
+      </div>
+    </header>
+
+    <div class="layer z13-glass-capsule-layer"
+         id="ui_glass_capsule_layer"
+         data-layer-id="z13_header_frosted_glass_capsule"
+         data-layer-name="Z13_UI_LOCKUP"
+         data-psd-group="Header_Frosted_Glass_Capsule"
+         data-z-index="13"
+         data-motion-role="ui_glass_capsule"
+         data-parallax="0.0">
+      <div class="glass-subcopy-capsule"
+           id="ui_glass_capsule"
+           data-ui-role="glass_capsule"
+           data-z-index="13"
+           data-ui-text="{{ copy.badge }} {{ copy.sub_copy }}">
+        <div class="glass-badge-live"
+             id="ui_live_badge"
+             data-ui-role="badge"
+             data-z-index="13"
+             data-ui-text="{{ copy.badge }}">
+          <span class="live-dot"></span>
+          <span class="live-text">{{ copy.badge }}</span>
+        </div>
+        <div class="glass-divider"></div>
+        <span class="glass-subcopy-text"
+              id="ui_sub_copy"
+              data-ui-role="sub_copy"
+              data-z-index="13"
+              data-ui-text="{{ copy.sub_copy }}">{{ copy.sub_copy }}</span>
+      </div>
+    </div>
+
+    <div class="layer z13-headline-3d"
+         data-layer-id="z13_03_headline_3d_group"
+         data-layer-name="Z13_UI_LOCKUP"
+         data-z-index="13"
+         data-motion-role="ui_headline_lock"
+         data-parallax="0.0">
+      <div class="headline-3d-lockup"
+           id="ui_headline"
+           data-ui-role="headline"
+           data-z-index="13"
+           data-ui-text="{{ copy.headline }}"
+           data-fg-hex="#073B8C">
+        <img id="asset_headline_3d"
+             data-asset-id="03_headline_3d_group"
+             data-repo-path="assets/brands/gsshop/layers/13_ui_headline_3d.png"
+             src="{{ asset_base }}/13_ui_headline_3d.png"
+             alt="{{ copy.headline }}" />
+      </div>
+    </div>
+
+    <a class="layer z13-cta-button"
+       id="ui_cta"
+       href="#shop-live"
+       data-layer-id="z13_04_cta_pill_button"
+       data-layer-name="Z13_UI_LOCKUP"
+       data-psd-group="Bottom_CTA_Pill"
+       data-ui-dock="ui_cta_dock"
+       data-z-index="13"
+       data-ui-role="cta"
+       data-ui-text="{{ copy.cta }}"
+       data-motion-role="ui_cta_pulse"
+       data-parallax="0.0">
+      <span class="cta-pill-label">
+        <span class="cta-text">{{ copy.cta_label }}</span>
+        <svg class="cta-chevron" viewBox="0 0 12 20" fill="none" aria-hidden="true">
+          <path d="M2.2 2.2L9.8 10L2.2 17.8" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </a>
+  </main>
+  <script>
+    (function syncCapsuleWidths() {
+      const sync = () => {
+        const capsule = document.getElementById("ui_glass_capsule");
+        const cta = document.getElementById("ui_cta");
+        if (!capsule || !cta) return;
+        const w = Math.round(capsule.getBoundingClientRect().width);
+        if (w > 0) {
+          document.documentElement.style.setProperty("--synced-capsule-width", w + "px");
+          cta.style.width = w + "px";
+        }
+      };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sync);
+      }
+      window.addEventListener("load", sync);
+      sync();
+    })();
+  </script>
+</body>
+</html>

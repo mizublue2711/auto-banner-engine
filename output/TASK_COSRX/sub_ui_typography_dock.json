@@ -1,0 +1,226 @@
+{
+  "directive_id": "DIR-REFINE-COSRX-UI-LOCKUP-083",
+  "task": "OPTICAL_HIERARCHY_REFACTOR",
+  "banner_id": "cosrx_ui_typography_dock_1200x1200",
+  "canvas": {
+    "width": 1200,
+    "height": 1200
+  },
+  "height_budget_contract": {
+    "upper_cluster_end_y_px": 355,
+    "upper_cluster_end_y_target": "Y <= 365px",
+    "upper_cluster_passed": true,
+    "stage_safety_buffer_px": 75,
+    "stage_safety_buffer_target": "Clearance Gutter >= 65px (before Y=430px)",
+    "stage_safety_buffer_passed": true
+  },
+  "vertical_hierarchy_tiers": {
+    "tier_1_dual_logo_header": {
+      "bbox": {
+        "x": 0,
+        "y": 36,
+        "width": 1200,
+        "height": 48,
+        "right": 1200,
+        "bottom": 84,
+        "center_x": 600
+      },
+      "geometry_check": "Left COSRX @ 60px, Right ULTA @ 1140px, Center open",
+      "vertical_buffer_to_tier_2_px": 26
+    },
+    "tier_2_main_headline": {
+      "bbox": {
+        "x": 310,
+        "y": 110,
+        "width": 580,
+        "height": 75,
+        "right": 890,
+        "bottom": 185,
+        "center_x": 600
+      },
+      "text": "BLACK FRIDAY",
+      "vertical_gap_to_ribbon_px": 15
+    },
+    "tier_3_promotional_ribbon": {
+      "bbox": {
+        "x": 350,
+        "y": 200,
+        "width": 500,
+        "height": 88,
+        "right": 850,
+        "bottom": 288,
+        "center_x": 600
+      },
+      "size": {
+        "width": 500,
+        "height": 88
+      },
+      "vertical_gap_to_discount_px": 17
+    },
+    "tier_4_discount_message": {
+      "bbox": {
+        "x": 300,
+        "y": 305,
+        "width": 600,
+        "height": 50,
+        "right": 900,
+        "bottom": 355,
+        "center_x": 600
+      },
+      "text": "UP TO 30% OFF",
+      "ends_at_y_px": 355
+    }
+  },
+  "header_cluster": {
+    "bbox": {
+      "x": 0,
+      "y": 36,
+      "width": 1200,
+      "height": 319,
+      "bottom": 355
+    }
+  },
+  "elements": [
+    {
+      "id": "header_dual_brand_slot",
+      "role": "header_dual_brand_slot",
+      "z_index": 2,
+      "layer_name": "Tier 1 Dual Brand Logo Header (Top Row)",
+      "asset_id": "01_logo_dual_lockup",
+      "asset_path": "assets/brands/COSRX/layers/01_logo_dual_lockup.png",
+      "text": "",
+      "fg_hex": null,
+      "bbox": {
+        "x": 0,
+        "y": 36,
+        "width": 1200,
+        "height": 48,
+        "right": 1200,
+        "bottom": 84,
+        "center_x": 600
+      }
+    },
+    {
+      "id": "headline_black_friday",
+      "role": "headline_black_friday",
+      "z_index": 10,
+      "layer_name": "Tier 2 Main Headline 'BLACK FRIDAY'",
+      "asset_id": null,
+      "asset_path": null,
+      "text": "BLACK FRIDAY",
+      "fg_hex": "#000000",
+      "bbox": {
+        "x": 310,
+        "y": 110,
+        "width": 580,
+        "height": 75,
+        "right": 890,
+        "bottom": 185,
+        "center_x": 600
+      }
+    },
+    {
+      "id": "promo_ribbon_early_access",
+      "role": "promo_ribbon_early_access",
+      "z_index": 9,
+      "layer_name": "Tier 3 Promotion Ribbon Tag 'EARLY ACCESS'",
+      "asset_id": "02_ribbon_early_access",
+      "asset_path": "assets/brands/COSRX/layers/02_ribbon_early_access.png",
+      "text": "EARLY ACCESS",
+      "fg_hex": null,
+      "bbox": {
+        "x": 350,
+        "y": 200,
+        "width": 500,
+        "height": 88,
+        "right": 850,
+        "bottom": 288,
+        "center_x": 600
+      }
+    },
+    {
+      "id": "discount_up_to_30_off",
+      "role": "discount_up_to_30_off",
+      "z_index": 10,
+      "layer_name": "Tier 4 Discount Message 'UP TO 30% OFF'",
+      "asset_id": null,
+      "asset_path": null,
+      "text": "UP TO 30% OFF",
+      "fg_hex": null,
+      "bbox": {
+        "x": 300,
+        "y": 305,
+        "width": 600,
+        "height": 50,
+        "right": 900,
+        "bottom": 355,
+        "center_x": 600
+      }
+    },
+    {
+      "id": "ui_cta_dock",
+      "role": "ui_cta_dock",
+      "z_index": 11,
+      "layer_name": "Tier 5 Call To Action Dock (SHOP NOW >)",
+      "asset_id": "11_ui_cta_button",
+      "asset_path": "assets/brands/COSRX/layers/11_ui_cta_button.png",
+      "text": "SHOP NOW >",
+      "fg_hex": null,
+      "bbox": {
+        "x": 376,
+        "y": 1032,
+        "width": 448,
+        "height": 148,
+        "right": 824,
+        "bottom": 1180,
+        "center_x": 600
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "01_logo_dual_lockup",
+      "loaded": true,
+      "natural_width": 1200,
+      "natural_height": 48
+    },
+    {
+      "id": "02_ribbon_early_access",
+      "loaded": true,
+      "natural_width": 760,
+      "natural_height": 176
+    },
+    {
+      "id": "11_ui_cta_button",
+      "loaded": true,
+      "natural_width": 448,
+      "natural_height": 148
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Inter",
+      "weight": "800"
+    },
+    {
+      "family": "Inter",
+      "weight": "900"
+    }
+  ],
+  "cta_dock_analysis": {
+    "container_bottom_css": "20px",
+    "container_bbox": {
+      "x": 376,
+      "y": 1032,
+      "width": 448,
+      "height": 148,
+      "right": 824,
+      "bottom": 1180,
+      "center_x": 600
+    },
+    "active_pill_ink_height_px": 76,
+    "active_pill_bottom_y_px": 1155,
+    "canvas_bottom_clearance_px": 45,
+    "status": "PASS_VERIFIED"
+  }
+}

@@ -1,0 +1,7 @@
+Candidate,File,Status,Issues,Gray_Halo_Pct,Bottom_Shadow_Px,Clipping,Transparency_Pct
+02-10 Snail Mini,02-10_어드벤스드 스네일 96 뮤신 파워 에센스_미니.png,FAIL,Studio light-gray halo exceeds 3.0% strict limit: 99.33%,99.33,15,PASS,65.6
+01-2 Peptide,01-2_더 6 펩타이드 스킨 부스터 세럼.png,FAIL,Studio light-gray halo: 84.23% | Residual bottom shadow: 35071 px,84.23,35071,PASS,50.7
+01-3 Peptide,01-3_더 6 펩타이드 스킨 부스터 세럼.png,FAIL,Object clipped at boundary (8981 px) | Dirty corners (200 px) | Halo 99.16%,99.16,0,FAIL,66.1
+01-9 Peptide,01-9_더 6 펩타이드 스킨 부스터 세럼.png,FAIL,Residual bottom floor shadow: 226157 px,1.59,226157,PASS,46.1
+02-1 Snail Essence,02-1_어드벤스드 스네일 96 뮤신 파워 에센스.png,FAIL,Studio light-gray halo exceeds 3.0% limit: 95.62%,95.62,35,PASS,78.7
+02-2 Snail Essence,02-2_어드벤스드 스네일 96 뮤신 파워 에센스.png,FAIL,Studio light-gray halo: 79.06% | Residual bottom shadow: 24007 px,79.06,24007,PASS,45.2

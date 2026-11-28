@@ -1,0 +1,233 @@
+[
+  {
+    "file": "decor_bauble.png",
+    "category": "mixed",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 58,
+      "ymin": 33,
+      "xmax": 258,
+      "ymax": 286,
+      "width": 200,
+      "height": 253
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 12.23,
+      "contaminated_edge_px": 134,
+      "evaluated_edge_px": 1096,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 444,
+      "transparency_ratio": 65.4
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 12.23% (134/1096 edge px).",
+      "Opaque horizontal floor shadow protrusion: 444 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_candy_cane.png",
+    "category": "mixed",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 67,
+      "ymin": 36,
+      "xmax": 250,
+      "ymax": 284,
+      "width": 183,
+      "height": 248
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 13.9,
+      "contaminated_edge_px": 232,
+      "evaluated_edge_px": 1669,
+      "bottom_shadow_pixels": 2,
+      "opaque_shadow_protrusion_px": 42,
+      "transparency_ratio": 72.6
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 13.90% (232/1669 edge px)."
+    ]
+  },
+  {
+    "file": "decor_gift_box.png",
+    "category": "mixed",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 30,
+      "ymin": 40,
+      "xmax": 288,
+      "ymax": 280,
+      "width": 258,
+      "height": 240
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 24.15,
+      "contaminated_edge_px": 283,
+      "evaluated_edge_px": 1172,
+      "bottom_shadow_pixels": 5,
+      "opaque_shadow_protrusion_px": 484,
+      "transparency_ratio": 51.8
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 24.15% (283/1172 edge px).",
+      "Opaque horizontal floor shadow protrusion: 484 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_gingerbread.png",
+    "category": "pure_colored",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 52,
+      "ymin": 40,
+      "xmax": 267,
+      "ymax": 278,
+      "width": 215,
+      "height": 238
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 26.65,
+      "contaminated_edge_px": 645,
+      "evaluated_edge_px": 2420,
+      "bottom_shadow_pixels": 7,
+      "opaque_shadow_protrusion_px": 28,
+      "transparency_ratio": 68.9
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 26.65% (645/2420 edge px)."
+    ]
+  },
+  {
+    "file": "decor_santa_hat.png",
+    "category": "pure_colored",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 36,
+      "ymin": 54,
+      "xmax": 283,
+      "ymax": 265,
+      "width": 247,
+      "height": 211
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 8.92,
+      "contaminated_edge_px": 189,
+      "evaluated_edge_px": 2118,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 138,
+      "transparency_ratio": 60.3
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 8.92% (189/2118 edge px).",
+      "Opaque horizontal floor shadow protrusion: 138 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_snowflake.png",
+    "category": "pure_white",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 42,
+      "ymin": 28,
+      "xmax": 275,
+      "ymax": 292,
+      "width": 233,
+      "height": 264
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 0.0,
+      "contaminated_edge_px": 0,
+      "evaluated_edge_px": 0,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 782,
+      "transparency_ratio": 60.3
+    },
+    "issues": [
+      "Opaque horizontal floor shadow protrusion: 782 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_snowman.png",
+    "category": "mixed",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 21,
+      "ymin": 14,
+      "xmax": 299,
+      "ymax": 305,
+      "width": 278,
+      "height": 291
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 22.09,
+      "contaminated_edge_px": 487,
+      "evaluated_edge_px": 2205,
+      "bottom_shadow_pixels": 0,
+      "opaque_shadow_protrusion_px": 248,
+      "transparency_ratio": 56.9
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 22.09% (487/2205 edge px).",
+      "Opaque horizontal floor shadow protrusion: 248 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_stocking.png",
+    "category": "pure_colored",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 39,
+      "ymin": 55,
+      "xmax": 279,
+      "ymax": 264,
+      "width": 240,
+      "height": 209
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 13.95,
+      "contaminated_edge_px": 323,
+      "evaluated_edge_px": 2316,
+      "bottom_shadow_pixels": 3,
+      "opaque_shadow_protrusion_px": 902,
+      "transparency_ratio": 66.7
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 13.95% (323/2316 edge px).",
+      "Opaque horizontal floor shadow protrusion: 902 px at bottom 15% (limit 80)."
+    ]
+  },
+  {
+    "file": "decor_tree.png",
+    "category": "pure_colored",
+    "status": "FAIL",
+    "bbox": {
+      "xmin": 60,
+      "ymin": 14,
+      "xmax": 258,
+      "ymax": 305,
+      "width": 198,
+      "height": 291
+    },
+    "metrics": {
+      "corner_artifacts": 0,
+      "gray_halo_percentage": 24.6,
+      "contaminated_edge_px": 700,
+      "evaluated_edge_px": 2846,
+      "bottom_shadow_pixels": 5,
+      "opaque_shadow_protrusion_px": 1074,
+      "transparency_ratio": 70.0
+    },
+    "issues": [
+      "Studio light-gray halo exceeds 3.0% strict limit: 24.60% (700/2846 edge px).",
+      "Opaque horizontal floor shadow protrusion: 1074 px at bottom 15% (limit 80)."
+    ]
+  }
+]

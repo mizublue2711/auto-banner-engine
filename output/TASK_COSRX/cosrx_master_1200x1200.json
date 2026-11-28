@@ -1,0 +1,119 @@
+{
+  "directive_id": "RECOVER_AND_REASSEMBLE_COSRX_PROJECT",
+  "banner_id": "cosrx_master_1200x1200",
+  "dimensions": {
+    "width": 1200,
+    "height": 1200
+  },
+  "deliverables": {
+    "master_png": "output/TASK_COSRX/cosrx_master_1200x1200.png",
+    "master_psd": "output/TASK_COSRX/cosrx_master_1200x1200.psd",
+    "sub_ui_dock_png": "output/TASK_COSRX/sub_ui_typography_dock.png",
+    "sub_stage_burst_png": "output/TASK_COSRX/sub_stage_burst_bag.png",
+    "headline_3d_rev2_png": "output/TASK_COSRX/10a_headline_3d_liquid_metal.png"
+  },
+  "psd_hierarchy": [
+    {
+      "group": "01_Backdrop_and_Pedestal",
+      "layers": [
+        "00_bg_vanity_morning_light",
+        "00b_pedestal_wood_shelf"
+      ]
+    },
+    {
+      "group": "02_Sub_Assembly_A_Stage_Burst",
+      "layers": [
+        "sub_stage_burst_bag (13 Verified Layers)"
+      ]
+    },
+    {
+      "group": "03_Sub_Assembly_B_UI_Dock_and_Typography",
+      "layers": [
+        "01_header_dual_brand_logos",
+        "02_ribbon_early_access",
+        "10b_discount_up_to_30_off",
+        "11_ui_cta_button",
+        "10a_headline_3d_liquid_metal_shadow",
+        "10a_headline_3d_liquid_metal"
+      ]
+    }
+  ],
+  "layout_bboxes": {
+    "dual_logos": {
+      "cosrx_bbox": [
+        60,
+        45,
+        227,
+        79
+      ],
+      "ulta_bbox": [
+        1007,
+        35,
+        1140,
+        89
+      ]
+    },
+    "headline_3d_rev2": {
+      "bbox": [
+        230,
+        104,
+        970,
+        206
+      ],
+      "source": "output/TASK_COSRX/10a_headline_3d_liquid_metal.png"
+    },
+    "ribbon": {
+      "bbox": [
+        350,
+        216,
+        850,
+        278
+      ]
+    },
+    "discount": {
+      "bbox": [
+        424,
+        311,
+        777,
+        352
+      ],
+      "text": "UP TO 30% OFF"
+    },
+    "cta_button": {
+      "bbox": [
+        376,
+        1032,
+        824,
+        1180
+      ]
+    }
+  },
+  "qa_audit": {
+    "ssim_psd_vs_master_png": 0.999998,
+    "alpha_gatekeeper": {
+      "10a_headline_3d_liquid_metal": {
+        "zero_alpha_rgb": 0,
+        "stray_alpha": 0,
+        "dark_halo": 0,
+        "fringe_pixels": 0,
+        "pass": true
+      },
+      "sub_stage_burst_bag": {
+        "zero_alpha_rgb": 0,
+        "stray_alpha": 0,
+        "dark_halo": 2,
+        "fringe_pixels": 2,
+        "pass": false
+      },
+      "sub_ui_typography_dock": {
+        "zero_alpha_rgb": 0,
+        "stray_alpha": 0,
+        "dark_halo": 1,
+        "fringe_pixels": 1,
+        "pass": false
+      }
+    },
+    "layer_10a_independent_in_psd": true
+  },
+  "elapsed_sec": 1.64
+}

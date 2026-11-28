@@ -22,7 +22,14 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from psd_tools import PSDImage
 from psd_tools.api.layers import Group, PixelLayer
-from scipy.ndimage import binary_dilation, gaussian_filter
+from scipy.ndimage import (
+    binary_dilation,
+    binary_erosion,
+    distance_transform_edt,
+    gaussian_filter,
+    maximum_filter,
+    minimum_filter,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 LAYERS_DIR = ROOT / "assets" / "brands" / "COSRX" / "layers"
@@ -66,15 +73,84 @@ def place_on_canvas(im: Image.Image, left: int, top: int) -> Image.Image:
     return canvas
 
 
+def defringe_rgba_layer(
+    im: Image.Image,
+    has_soft_shadows: bool = False,
+    clean_white_notch: bool = True,
+) -> Image.Image:
+    """
+    Eliminate zero-alpha RGB leaks, premultiplication dark halos, and studio white
+    notches while preserving smooth anti-aliased alpha channels.
+    """
+    arr = np.array(im.convert("RGBA"), dtype=np.uint8)
+    alpha_u8 = arr[:, :, 3]
+    rgb_u8 = arr[:, :, :3].copy()
+
+    # 1. Zero out RGB where alpha == 0
+    rgb_u8[alpha_u8 == 0] = 0
+
+    # 2. Clean studio white notches FIRST (before dark-halo pass)
+    if clean_white_notch:
+        solid_mask = alpha_u8 > 20
+        eroded_2px = binary_erosion(solid_mask, structure=np.ones((3, 3), dtype=bool), iterations=2)
+        outer_rim = solid_mask & (~eroded_2px)
+        semi_mask = (alpha_u8 > 10) & (alpha_u8 < 250)
+        transition_edge = outer_rim | semi_mask
+        deep_core = binary_erosion(solid_mask, structure=np.ones((3, 3), dtype=bool), iterations=5)
+        if not np.any(deep_core):
+            deep_core = eroded_2px
+        if np.any(transition_edge) and np.any(deep_core):
+            ty, tx = np.where(transition_edge)
+            rgb_i = rgb_u8[ty, tx].astype(np.int16)
+            r, g, b = rgb_i[:, 0], rgb_i[:, 1], rgb_i[:, 2]
+            sat = np.max(rgb_i, axis=1) - np.min(rgb_i, axis=1)
+            bright = (r + g + b) / 3.0
+            studio_white = ((r > 210) & (g > 210) & (b > 210) & (sat < 14)) | ((bright > 205.0) & (sat < 12))
+
+            _, (ny, nx) = distance_transform_edt(~deep_core, return_indices=True)
+            core_rgb = rgb_u8[ny[ty, tx], nx[ty, tx]].astype(np.int16)
+            core_sat = np.max(core_rgb, axis=1) - np.min(core_rgb, axis=1)
+            core_bright = np.mean(core_rgb, axis=1)
+            adj_colored = (core_bright < 185.0) | (core_sat >= 25)
+            bad = studio_white & adj_colored
+            if np.any(bad):
+                by, bx = ty[bad], tx[bad]
+                rgb_u8[by, bx] = rgb_u8[ny[by, bx], nx[by, bx]]
+
+    # 3. Clean premultiplication dark halos SECOND so replaced pixels never create dark halos
+    a = alpha_u8.astype(np.float32) / 255.0
+    opaque = a >= 0.99
+    if np.any(opaque):
+        near_op = binary_dilation(opaque, iterations=2)
+        a_lo = 0.35 if has_soft_shadows else 0.05
+        partial = (a > a_lo) & (a < 0.95) & near_op
+        _, (ny, nx) = distance_transform_edt(~opaque, return_indices=True)
+        for _ in range(2):
+            rgb_f = rgb_u8.astype(np.float32) / 255.0
+            luma = 0.2126 * rgb_f[:, :, 0] + 0.7152 * rgb_f[:, :, 1] + 0.0722 * rgb_f[:, :, 2]
+            op_luma = np.where(opaque, luma, 1.0)
+            nbr_min = minimum_filter(op_luma, size=3, mode="nearest")
+            has_op_nbr = maximum_filter(opaque.astype(np.uint8), size=3, mode="nearest") > 0
+            dark_halo = partial & has_op_nbr & (nbr_min > 0.15) & (luma < 0.50 * nbr_min)
+            if not np.any(dark_halo):
+                break
+            hy, hx = np.where(dark_halo)
+            rgb_u8[hy, hx] = rgb_u8[ny[hy, hx], nx[hy, hx]]
+
+    rgb_u8[alpha_u8 == 0] = 0
+    out = np.dstack([rgb_u8, alpha_u8])
+    return Image.fromarray(out, mode="RGBA")
+
+
 def build_dual_logo_layer() -> Tuple[Image.Image, Dict]:
-    """Tier 1: COSRX left @ x=60, ULTA right @ x=1140, centered vertically in y=36..88."""
+    """Tier 1: COSRX left @ x=60, ULTA right @ x=1140, centered vertically @ y=69 (top >= 42px safe-zone)."""
     canvas = Image.new("RGBA", (CANVAS_W, CANVAS_H), (0, 0, 0, 0))
 
     cosrx = trim_rgba(load_rgba(COSRX_LOGO_PATH))
     cosrx_h = 34
     cosrx_w = int(round(cosrx.width * (cosrx_h / cosrx.height)))
     cosrx_rs = cosrx.resize((cosrx_w, cosrx_h), Image.Resampling.LANCZOS)
-    cosrx_y = 62 - cosrx_h // 2
+    cosrx_y = 69 - cosrx_h // 2
     canvas.alpha_composite(cosrx_rs, (60, cosrx_y))
 
     ulta = trim_rgba(load_rgba(ULTA_LOGO_PATH))
@@ -82,7 +158,7 @@ def build_dual_logo_layer() -> Tuple[Image.Image, Dict]:
     ulta_w = int(round(ulta.width * (ulta_h / ulta.height)))
     ulta_rs = ulta.resize((ulta_w, ulta_h), Image.Resampling.LANCZOS)
     ulta_x = 1140 - ulta_w
-    ulta_y = 62 - ulta_h // 2
+    ulta_y = 69 - ulta_h // 2
     canvas.alpha_composite(ulta_rs, (ulta_x, ulta_y))
 
     return canvas, {
@@ -240,20 +316,29 @@ def main() -> None:
     bg_layer = load_rgba(BG_PATH).resize((CANVAS_W, CANVAS_H), Image.Resampling.LANCZOS)
     pedestal_layer = load_rgba(PEDESTAL_PATH).resize((CANVAS_W, CANVAS_H), Image.Resampling.LANCZOS)
 
-    # 2. Load Sub-Assembly A: Stage Burst Bag (Z3-Z8)
-    stage_burst_layer = load_rgba(STAGE_BURST_PATH).resize((CANVAS_W, CANVAS_H), Image.Resampling.LANCZOS)
+    # 2. Load & Defringe Sub-Assembly A: Stage Burst Bag (Z3-Z8)
+    stage_burst_layer = defringe_rgba_layer(
+        load_rgba(STAGE_BURST_PATH).resize((CANVAS_W, CANVAS_H), Image.Resampling.LANCZOS),
+        has_soft_shadows=True,
+        clean_white_notch=True,
+    )
+    stage_burst_layer.save(STAGE_BURST_PATH, "PNG")
 
     # 3. Build Sub-Assembly B: UI Dock & Independent REV2 3D Headline Layer (Z9-Z12)
     dual_logo_layer, logo_meta = build_dual_logo_layer()
     ribbon_layer, ribbon_meta = build_ribbon_layer()
+    ribbon_layer = defringe_rgba_layer(ribbon_layer, has_soft_shadows=True, clean_white_notch=True)
     discount_layer, discount_meta = build_discount_layer()
     cta_layer, cta_meta = build_cta_layer()
+    cta_layer = defringe_rgba_layer(cta_layer, has_soft_shadows=True, clean_white_notch=False)
     headline_3d_layer, headline_shadow_layer, headline_meta = build_headline_3d_layers()
+    headline_3d_layer = defringe_rgba_layer(headline_3d_layer, has_soft_shadows=False, clean_white_notch=False)
 
     # Save Sub-Assembly B (1200x1200 RGBA with REV2 3D headline embedded for standalone visual completeness)
     sub_ui_canvas = Image.new("RGBA", (CANVAS_W, CANVAS_H), (0, 0, 0, 0))
     for lyr in [dual_logo_layer, ribbon_layer, discount_layer, cta_layer, headline_shadow_layer, headline_3d_layer]:
         sub_ui_canvas.alpha_composite(lyr)
+    sub_ui_canvas = defringe_rgba_layer(sub_ui_canvas, has_soft_shadows=True, clean_white_notch=False)
     sub_ui_canvas.save(OUT_SUB_UI_PNG, "PNG")
 
     # 4. Composite Master 1200x1200 PNG in exact bottom-to-top Z-order

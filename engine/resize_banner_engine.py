@@ -854,6 +854,36 @@ def tight_crop_with_offset(img: Image.Image) -> Tuple[Image.Image, int, int]:
     return img.crop(bbox), int(bbox[0]), int(bbox[1])
 
 
+def _clean_psd_layer_alpha(img: Image.Image) -> Image.Image:
+    """Zero out RGB where alpha==0 and remove premultiplication dark-halo pixels on anti-aliased rims."""
+    import numpy as np
+    from scipy.ndimage import binary_dilation, distance_transform_edt, maximum_filter, minimum_filter
+
+    arr = np.array(img.convert("RGBA"), dtype=np.uint8)
+    alpha_u8 = arr[:, :, 3]
+    rgb_u8 = arr[:, :, :3].copy()
+    rgb_u8[alpha_u8 == 0] = 0
+
+    a = alpha_u8.astype(np.float32) / 255.0
+    rgb_f = rgb_u8.astype(np.float32) / 255.0
+    luma = 0.2126 * rgb_f[:, :, 0] + 0.7152 * rgb_f[:, :, 1] + 0.0722 * rgb_f[:, :, 2]
+
+    opaque = a >= 0.99
+    if np.any(opaque) and np.any(alpha_u8 < 250):
+        near_op = binary_dilation(opaque, iterations=2)
+        partial = (a > 0.05) & (a < 0.95) & near_op
+        op_luma = np.where(opaque, luma, 1.0)
+        nbr_min = minimum_filter(op_luma, size=3, mode="nearest")
+        has_op_nbr = maximum_filter(opaque.astype(np.uint8), size=3, mode="nearest") > 0
+        dark_halo = partial & has_op_nbr & (nbr_min > 0.15) & (luma < 0.50 * nbr_min)
+        if np.any(dark_halo):
+            _, (ny, nx) = distance_transform_edt(~opaque, return_indices=True)
+            hy, hx = np.where(dark_halo)
+            rgb_u8[hy, hx] = rgb_u8[ny[hy, hx], nx[hy, hx]]
+
+    return Image.fromarray(np.dstack([rgb_u8, alpha_u8]), mode="RGBA")
+
+
 def add_pixel_layer(
     container: Any,
     img: Image.Image,
@@ -862,7 +892,8 @@ def add_pixel_layer(
     top: int,
     unicode_name: Optional[str] = None,
 ) -> None:
-    pl = container.create_pixel_layer(img.convert("RGBA"), name=name, top=int(top), left=int(left))
+    cleaned = _clean_psd_layer_alpha(img)
+    pl = container.create_pixel_layer(cleaned, name=name, top=int(top), left=int(left))
     if unicode_name:
         pl.tagged_blocks.set_data(Tag.UNICODE_LAYER_NAME, unicode_name)
 

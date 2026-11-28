@@ -412,15 +412,15 @@ def render_header_layers_via_playwright(tmp_dir: Path) -> Tuple[Image.Image, Ima
     white-space: nowrap;
   }}
   .cta-text {{
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 800;
     line-height: 1;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.8px;
     text-shadow: 0 2px 4px rgba(4, 48, 120, 0.38);
   }}
   .cta-chevron {{
-    width: 14px;
-    height: 22px;
+    width: 16px;
+    height: 25px;
     flex-shrink: 0;
     display: block;
     filter: drop-shadow(0 2px 3px rgba(4, 48, 120, 0.38));
@@ -592,6 +592,36 @@ try {
     return out
 
 
+def _clean_psd_layer_alpha(img: Image.Image) -> Image.Image:
+    """Zero out RGB where alpha==0 and eliminate dark-halo premultiplication fringe on edges."""
+    import numpy as np
+    from scipy.ndimage import binary_dilation, distance_transform_edt, maximum_filter, minimum_filter
+
+    arr = np.array(img.convert("RGBA"), dtype=np.uint8)
+    alpha_u8 = arr[:, :, 3]
+    rgb_u8 = arr[:, :, :3].copy()
+    rgb_u8[alpha_u8 == 0] = 0
+
+    a = alpha_u8.astype(np.float32) / 255.0
+    rgb_f = rgb_u8.astype(np.float32) / 255.0
+    luma = 0.2126 * rgb_f[:, :, 0] + 0.7152 * rgb_f[:, :, 1] + 0.0722 * rgb_f[:, :, 2]
+
+    opaque = a >= 0.99
+    if np.any(opaque) and np.any(alpha_u8 < 250):
+        near_op = binary_dilation(opaque, iterations=2)
+        partial = (a > 0.05) & (a < 0.95) & near_op
+        op_luma = np.where(opaque, luma, 1.0)
+        nbr_min = minimum_filter(op_luma, size=3, mode="nearest")
+        has_op_nbr = maximum_filter(opaque.astype(np.uint8), size=3, mode="nearest") > 0
+        dark_halo = partial & has_op_nbr & (nbr_min > 0.15) & (luma < 0.50 * nbr_min)
+        if np.any(dark_halo):
+            _, (ny, nx) = distance_transform_edt(~opaque, return_indices=True)
+            hy, hx = np.where(dark_halo)
+            rgb_u8[hy, hx] = rgb_u8[ny[hy, hx], nx[hy, hx]]
+
+    return Image.fromarray(np.dstack([rgb_u8, alpha_u8]), mode="RGBA")
+
+
 def add_pixel_layer(
     group,
     img: Image.Image,
@@ -602,9 +632,9 @@ def add_pixel_layer(
 ) -> None:
     """
     Create an independent transparent RGBA PixelLayer inside `group`, clipped cleanly
-    to non-empty alpha bounds if helpful while preserving exact stage coordinates.
+    to non-empty alpha bounds while enforcing zero-alpha RGB and dark-halo defringing.
     """
-    rgba = img.convert("RGBA")
+    rgba = _clean_psd_layer_alpha(img)
     pl = group.create_pixel_layer(rgba, name=name, top=int(round(top)), left=int(round(left)))
     if unicode_name:
         pl.tagged_blocks.set_data(Tag.UNICODE_LAYER_NAME, unicode_name)

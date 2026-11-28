@@ -42,15 +42,15 @@
     "dual_logos": {
       "cosrx_bbox": [
         60,
-        45,
+        52,
         227,
-        79
+        86
       ],
       "ulta_bbox": [
         1007,
-        35,
+        42,
         1140,
-        89
+        96
       ]
     },
     "headline_3d_rev2": {
@@ -101,19 +101,19 @@
       "sub_stage_burst_bag": {
         "zero_alpha_rgb": 0,
         "stray_alpha": 0,
-        "dark_halo": 2,
-        "fringe_pixels": 2,
-        "pass": false
+        "dark_halo": 0,
+        "fringe_pixels": 0,
+        "pass": true
       },
       "sub_ui_typography_dock": {
         "zero_alpha_rgb": 0,
         "stray_alpha": 0,
-        "dark_halo": 1,
-        "fringe_pixels": 1,
-        "pass": false
+        "dark_halo": 0,
+        "fringe_pixels": 0,
+        "pass": true
       }
     },
     "layer_10a_independent_in_psd": true
   },
-  "elapsed_sec": 1.64
+  "elapsed_sec": 2.6
 }

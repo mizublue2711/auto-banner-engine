@@ -1194,20 +1194,20 @@ body {{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
 }}
 .cta-text {{
   font-family: 'InterBrand', sans-serif;
   font-weight: 800;
-  font-size: 29px;
-  letter-spacing: 0.09em;
+  font-size: 36px;
+  letter-spacing: 0.11em;
   color: #FFFFFF;
   line-height: 1;
   padding-left: 4px;
 }}
 .cta-arrow {{
-  width: 15px;
-  height: 22px;
+  width: 18px;
+  height: 26px;
   display: block;
 }}
 </style></head><body>
